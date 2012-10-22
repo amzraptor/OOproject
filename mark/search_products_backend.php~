@@ -1,0 +1,64 @@
+<?php
+//$con = mysql_connect("localhost","root","root");
+//mysql_select_db("jewelry_box_db", $con);
+
+$con = new mysqli('localhost', 'root', 'root', 'jewelry_box_db');
+
+if (!$con)
+{
+  die('Could not connect: ' . mysql_error());
+
+}
+else {
+if(isset($_POST['queryString'])) 
+{
+	$queryString = $con->real_escape_string($_POST['queryString']);
+	
+	if(strlen($queryString) > 0) 
+	{
+		$query = $con->query("SELECT name FROM product WHERE name LIKE '%".$queryString."%'");
+		if ($query) 
+		{
+			while($result = $query->fetch_object()) 
+			{
+				echo '<li onClick="fill(\''.$result->name.'\');"><b>'.$result->name.'</b></li>';
+			}
+
+
+		}
+		else{ echo "problem with query.";}
+	}
+	else{}
+}
+else{echo "no";}
+	
+}
+}
+
+/*
+$value = $_GET['search_word'];
+
+mysql_select_db("jewelry_box_db", $con);
+$sql="SELECT name FROM product WHERE name LIKE '%".$value."%'";
+
+$result = mysql_query($sql,$con);
+$num_found=mysql_numrows($result);
+
+if(empty($_GET['search_word']))
+{
+	echo "Products";
+}
+else
+{
+	echo "Products <br>";
+	for ($i = 0; $i < $num_found;$i++)
+	{
+		$name=mysql_result($result,$i);
+		echo "$name <br />";
+	}
+}
+
+mysql_close($con);
+*/
+?>
+
