@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
 <?php
-
+session_start();
 function analysis()
 {
 
@@ -22,7 +22,7 @@ function analysis()
 	}
 	else if($page == "cart")
 	{
-		include "cartpage.php";
+		include "cart.php";
 	}
 	else if($page == "products")
 	{
@@ -30,6 +30,8 @@ function analysis()
 	}
 	else if($page == "logout")
 	{
+		unset($_SESSION['username']);
+		echo "thank you visiting.... sign out success!";
 	}
 	else
 	{

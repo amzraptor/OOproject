@@ -172,4 +172,12 @@ function add_user($fname, $lname, $username, $password, $email)
     return add("USER", $fields, $values);
 }
 
+///////////////////////////////////////////////////
+function get_user_id($username)
+{
+    $fields = array("user_username");
+    $values = array($username);
+    $id = get("USER", $fields, $values);
+    return $id[0];
+}
 ?>
