@@ -183,6 +183,27 @@ function add_sessions()
     return add("SESSIONS", $fields, $values);   
 }
 
+function session_update_timestamp($session)
+{
+	//get session id from SESSIONS TABLE
+	//update timestamp for this session
+	$con = get_conn_and_connect();
+	$sql = 'UPDATE SESSIONS
+        	SET time=CURRENT_TIMESTAMP
+        	WHERE id='$session'';
+	close_conn($con);
+}
+
+function session_update_username($session, $username)
+{
+	//change username in SESSIONS TABLE into current logged in user
+	$con = get_conn_and_connect();
+	$sql = 'UPDATE SESSIONS
+        	SET username='$username'
+        	WHERE id='$session'';
+	close_conn($con);	
+}
+
 function add_user($fname, $lname, $username, $password, $email)
 {
     /*$fields = array("fname", "lname", "username", "password", "email", "valid");
