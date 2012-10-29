@@ -26,7 +26,7 @@ setInterval(function() {
 </script>
 
 <div id="body_background" style="height:100%;float:center;">
-
+<!--
 		<div id="slideshow" style="float:left;">
 				<div><img name ="homepage_products[]" value="product_1" src="images/JewelryPic_01.png" width="500px" height="500px"></div>
 				<div><img name ="homepage_products[]" value="product_2" src="images/JewelryPic_02.png" width="500px" height="500px"></div>
@@ -39,5 +39,5 @@ setInterval(function() {
 				<div><img name ="homepage_stores[]" value="store_2" src="images/Store_02.png" width="500px" height="500px"></div>
 				<div><img name ="homepage_stores[]" value="store_3" src="images/Store_03.png" width="500px" height="500px"></div>
 		</div>	
-
+!-->
 </div>
