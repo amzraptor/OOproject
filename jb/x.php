@@ -91,47 +91,61 @@ $action = (empty($_POST['action']) ? "" : $_POST['action']);
 
 
 <!-- main forms -->
-<div style="height=90%;position:absolute;">
 
 <!-- Signin -->
-<!--<div style="float:left;width:85%;margin-left:20%;display:none;">-->
-<div style="height=10%;width:100%;display:none;position:absolute;" align="center">
-<form id="sign-in-up" action="main.php" method="POST" style="float:center;width:100%;border-style:solid;padding-top:10px;padding-left:30px;">
+<div style="height=100%;width:80%;position:absolute;margin-top:15%;margin-right:10%;margin-left:10%;display:none;" align="center">
+<form id="sign-in-up" action="main.php" method="POST" style="float:center;width:90%;border-style:solid;padding-top:10px;padding-left:30px;">
 			<input type="hidden" id="page" name="page" value="signupin">
 			<input type="hidden" id="action" name="action" value="signin">			
 <h2 style="font-family:'Comic Sans MS', cursive, sans-serif;float:center;">Signin</h2>
-			<label">Username</label></br>
-			<input id="username" name="username" type="text" style="width:90%;" value="<?php echo$username; ?>">
-			<label style="display:none;">Password</label></br>
-			<input id="password" name="password" type="text" style="width:90%;display:none;"  value="<?php echo$password; ?>"> </br></br>
 
-		<input style="font-family:'Comic Sans MS', cursive, sans-serif;display:none;" type="submit" value="submit">
+<!-- username -->
+	<label style="float:left;margin-left:5%;">Username</label></br>
+	<input id="username" name="username" type="text" style="width:85%;float:left;margin-left:5%;display:block;" value="<?php echo$username; ?>">
+
+<!-- password -->
+	<label style="float:left;margin-left:5%;display:none;">Password</label></br>
+	<input id="password" name="password" type="text" style="width:85%;float:left;margin-left:5%;display:block;display:none;"  value="<?php echo$password; ?>">
+
+	<input style="font-family:'Comic Sans MS', cursive, sans-serif;float:center;display:none;" type="submit" value="submit"></br></br>
 </form>
 </div>
 
 <!-- Signup-->
-<div style="float:left;width:85%;margin-left:20%;">
-<form id="sign-in-up" action="main.php" method="POST" style="float:center;width:100%;border-style:solid;padding-top:10px;padding-left:30px;">
+<div style="height=100%;width:80%;position:absolute;margin-top:15%;margin-right:10%;margin-left:10%;" align="center">
+<form id="sign-in-up" action="main.php" method="POST" style="float:center;width:90%;height=100%;border-style:solid;padding-top:10px;padding-left:30px;">
+
 			<input type="hidden" id="page" name="page" value="signupin">
 			<input type="hidden" id="action" name="action" value="signup">	
 <h2 style="font-family:'Comic Sans MS', cursive, sans-serif;float:center;">Signup</h2>
-			<label>First Name</label></br>
-			<input id="fname" name="fname" type="text" value="<?php echo$fname; ?>" style="width:90%;"> 
-			<label style="display:none;">Last Name</label></br>
-			<input id="lname" name="lname" type="text" value="<?php echo$lname; ?>" style="width:90%;display:none;"> 
-			<label style="display:none;">Email</label>
-			<input id="email" name="email" type="text" value="<?php echo$email; ?>" style="width:90%;display:none;"> 
-			<label style="display:none;">Username (3-20 letter/number)</label>
-			<input id="username" name="username" type="text" value="<?php echo$username; ?>" style="width:90%;display:none;"> 
-			<label style="display:none;">Password (6-20 letter/number)</label>
-			<input id="password" name="password" type="text" value="<?php echo$password; ?>" style="width:90%;display:none;">
-			<label style="display:none;">Re-Enter Password</label>
-			<input id="password2" name="password2" type="text" value="<?php echo$password2; ?>" style="width:90%;display:none;"> 
-			<input style="font-family:'Comic Sans MS', cursive, sans-serif;display:none;" type="submit" value="submit"> </br></br>
-</form>
-</div>
 
-</div>
+<!-- fname -->
+	<label style="float:left;margin-left:5%;">First Name</label></br>
+	<input id="fname" name="fname" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$fname; ?>">
+
+<!-- lname -->
+	<label style="float:left;margin-left:5%;">Last Name</label></br>
+	<input id="lname" name="lname" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$lname; ?>">
+
+<!-- email -->
+	<label style="float:left;margin-left:5%;">Email</label></br>
+	<input id="email" name="email" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$email; ?>">
+
+<!-- username -->
+	<label style="float:left;margin-left:5%;">Username (3-20 letter/number)</label></br>
+	<input id="username" name="username" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$username; ?>">
+
+<!-- password -->
+	<label style="float:left;margin-left:5%;">Password (6-20 letter/number)</label></br>
+	<input id="password" name="password" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$password; ?>">
+
+<!-- password2 -->
+	<label style="float:left;margin-left:5%;">Password</label></br>
+	<input id="password2" name="password2" type="text" style="width:85%;float:left;margin-left:5%;" value="<?php echo$password2; ?>">
+
+
+	<input style="font-family:'Comic Sans MS', cursive, sans-serif;float:center;" type="submit" value="submit"></br></br>
+</form>
 </div>
 
 </div>

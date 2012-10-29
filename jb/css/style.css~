@@ -55,7 +55,7 @@ ul.sb_dropdown li.sb_filter{
 input.sb_search{
 	background-color:#654a4a;
 	/*background-image:url(/icons/search.png) no-repeat;*/
-	height:47px;
+	height:46px;
 	width:55px;
 	float:left;
 	margin:3px 0px;
@@ -107,16 +107,13 @@ background-color:#2f6b9d;
 }
 
 #slideshow2, #slideshow { 
-position: center; 
-width: 500px; 
-height: 500px; 
-border: 4px solid #fff;
-margin:50px;
+width: 400px; 
+height: 400px; 
+margin: 100px;
 }
 
 #slideshow2 div , #slideshow div { 
 position: absolute; 
-
 }
 
 #brown_button 
@@ -145,7 +142,6 @@ background-color:#654a4a;
 border:2px solid #fff;
 color:#fff;
 font-family:'Comic Sans MS', cursive, sans-serif;
-margin:10px;
 }
 
 /****************************/

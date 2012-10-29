@@ -23,7 +23,6 @@
 
 				});
 				
-
 				$(document).ready(function()
 				{
 					$("#byproduct").click(function()
@@ -63,9 +62,7 @@
 
     </head>
 
-
-
-    <body >
+    <body>
         <div class="content">
 
 		<div class="box" align="right" style="margin-right:10px;margin-top:5px;">
@@ -75,7 +72,8 @@
 			<input type="hidden" id="page" name="page" value="searchresults">!-->
                 <p>
 			<span class="sb_down"></span>
-			<input autocomplete="off" class="sb_input" style="color:white;" type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
+			<input autocomplete="off" class="sb_input" style="color:white;" 
+				type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
 			<input class="sb_search" type="submit" name="search_submit" onclick="values_checked()" value="search"/>
 		</p>
 	
