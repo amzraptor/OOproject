@@ -1,35 +1,25 @@
 <?php
 function display($header, $subheader, $body, $footer)
 {
-	sprintf("<!DOCTYPE html>
-	<html>
-	<div style='height:100%;'><div style='height:100%;'><header>%s%s</header></div><body>%s</body><footer>%s</footer></div></html>", include $header, include $subheader, include $body, include $footer);
+sprintf("<!DOCTYPE html>
+<html>
+<div style='height:100%;'><div style='height:100%;'><header>%s%s</header></div><body>%s</body><footer>%s</footer></div></html>", include $header, include $subheader, include $body, include $footer);
 }
 
-function userhomelogic($session)
+function guesthomelogic($session)
 {
-	/*if no session*/
-	if ($session == NULL)
-	{
-		echo"sorry there is no session";
-	}
-	else
-	{
-		//display user homepage
-		return 1;
-		
-	}
-echo"error userhome";
-return -99;
+
+	//display guest homepage not first time
+	return 0;
 }
-$session = (empty($_POST['session']) ? NULL : $_POST['session']);
-$session = "1234";////////////////////////
-$mode = userhomelogic($session);
+
+
+$mode = guesthomelogic($session);
 switch($mode)
 {
-case 1:
-	//user home page
-	$header = "userheader.php";
+case 0:
+	//display guest homepage
+	$header = "guestheader.php";
 	$subheader = "guestsubheader.php";
 	$body = "homepage.php";
 	$footer = "footer1.php";
