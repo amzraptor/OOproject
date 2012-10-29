@@ -106,10 +106,11 @@ background-color:#2f6b9d;
 }
 
 #slideshow2, #slideshow { 
-position: relative; 
-width: 300px; 
-height: 300px; 
+position: center; 
+width: 500px; 
+height: 500px; 
 border: 4px solid #fff;
+margin:50px;
 }
 
 #slideshow2 div , #slideshow div { 

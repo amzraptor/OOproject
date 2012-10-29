@@ -1,44 +1,35 @@
-<div>
-<!--  LOGO GROUP !-->
-<<<<<<< HEAD
-<div  class="header" style="height:20%;">
-<div style="height:100%;width:52%;float:left;">
-=======
-<div style="height:20%;width:50%;float:left;background-color:black;">
->>>>>>> 4572281f1fb3f847ed251f9c876dcfd51b6fd074
-<form action='main.php' method='POST'>
-		<input type="hidden" id="page" name="page" value="userhome">
-		<input type="image" src="images/Website Logo.png" width="250" height="100" alt="submit">
-</br>
-	</form>
-</div>
+<div class="header" style="width:100%;">
+	<!--  LOGO GROUP !-->
+	<div style="width:52%;float:left;">
 
+			<form action='main.php' method='POST'>
+				<input type="hidden" id="page" name="page" value="userhome">
+				<input type="image" src="images/Website Logo.png" width="250" height="100" alt="submit">
+				</br>
+			</form>
+	</div>
 
-<!-- USER OPTIONS GROUP !-->
-<<<<<<< HEAD
-<div style="height:90px;width:48%;float:right;" align="right">
-=======
-<div style="height:20%;width:50%;float:right;background-color:black;" align="right">
->>>>>>> 4572281f1fb3f847ed251f9c876dcfd51b6fd074
+	<!-- USER OPTIONS GROUP !-->
+	<div style="width:48%;float:right;">
+		<div style="height:100%;width:25%;float:right;" align="center">
+			<form action='main.php' method='POST'>
+				<input type="hidden" id="page" name="page" value="stores">
+		<input id="brown_button" type='submit' value="stores(0)"></br>
+			</form>
+		</div>
 
-<div style="height:100%;width:25%;float:right;" align="center">
-	<form action='main.php' method='POST'>
-		<input type="hidden" id="page" name="page" value="stores">
-<input id="brown_button" type='submit' value="stores(0)"></br>
-	</form>
-</div>
+		<div style="height:100%;width:25%;float:right;" align="center">
+			<form action='main.php' method='POST'>
+				<input type="hidden" id="page" name="page" value="cart">
+		<input id="brown_button" type='submit' value="cart(0)"></br>
+			</form>
+		</div>
 
-<div style="height:100%;width:25%;float:right;" align="center">
-	<form action='main.php' method='POST'>
-		<input type="hidden" id="page" name="page" value="cart">
-<input id="brown_button" type='submit' value="cart(0)"></br>
-	</form>
-</div>
-
-<div style="height:100%;width:25%;float:right;" align="center">
-	<form action='main.php' method='POST'>
-		<input type="hidden" id="page" name="page" value="logout">
-<input id="brown_button" type='submit' value="logout"></br>
-	</form>
-</div>
+		<div style="height:100%;width:25%;float:right;" align="center">
+			<form action='main.php' method='POST'>
+				<input type="hidden" id="page" name="page" value="logout">
+		<input id="brown_button" type='submit' value="logout"></br>
+			</form>
+		</div>
+	</div>
 </div>

@@ -10,7 +10,7 @@ setInterval(function() {
     .fadeIn(1000)
     .end()
     .appendTo('#slideshow');
-},  3000);
+},  6000);
 
 $("#slideshow2 div:gt(0)").hide();
 
@@ -21,29 +21,23 @@ setInterval(function() {
     .fadeIn(1000)
     .end()
     .appendTo('#slideshow2');
-},  3000);
+},  6000);
 
 </script>
 
-<div id="body_background">
+<div id="body_background" style="height:100%;float:center;">
 
-	<div id="homepage_products" style="width:100%;">
-
-
-		<div id="slideshow">
-				<div><img name ="homepage_products[]" value="product_1" src="images/JewelryPic_01.png" width="300px" height="300px"></div>
-				<div><img name ="homepage_products[]" value="product_2" src="images/JewelryPic_02.png" width="300px" height="300px"></div>
-				<div><img name ="homepage_products[]" value="product_3" src="images/JewelryPic_03.png" width="300px" height="300px"></div>
-				<div><img name ="homepage_products[]" value="product_4" src="images/JewelryPic_04.png" width="300px" height="300px"></div>
+		<div id="slideshow" style="float:left;">
+				<div><img name ="homepage_products[]" value="product_1" src="images/JewelryPic_01.png" width="500px" height="500px"></div>
+				<div><img name ="homepage_products[]" value="product_2" src="images/JewelryPic_02.png" width="500px" height="500px"></div>
+				<div><img name ="homepage_products[]" value="product_3" src="images/JewelryPic_03.png" width="500px" height="500px"></div>
+				<div><img name ="homepage_products[]" value="product_4" src="images/JewelryPic_04.png" width="500px" height="500px"></div>
 		</div>	
 	
-		<div id="slideshow2">
-				<div><img name ="homepage_stores[]" value="store_1" src="images/Store_01.png" width="300px" height="300px"></div>
-				<div><img name ="homepage_stores[]" value="store_2" src="images/Store_02.png" width="300px" height="300px"></div>
-				<div><img name ="homepage_stores[]" value="store_3" src="images/Store_03.png" width="300px" height="300px"></div>
+		<div id="slideshow2" style="float:right;">
+				<div><img name ="homepage_stores[]" value="store_1" src="images/Store_01.png" width="500px" height="500px"></div>
+				<div><img name ="homepage_stores[]" value="store_2" src="images/Store_02.png" width="500px" height="500px"></div>
+				<div><img name ="homepage_stores[]" value="store_3" src="images/Store_03.png" width="500px" height="500px"></div>
 		</div>	
 
-		
-
-	</div>	
 </div>
