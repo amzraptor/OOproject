@@ -71,9 +71,11 @@
 		<div class="box" align="right" style="margin-right:10px;margin-top:5px;">
 	
                 <form id="ui_element" class="sb_wrapper" method="post" action="search_results_page.php">
+			<!--<input type="hidden" id="session" name="session" value="<?php $_POST['session'] ?>">
+			<input type="hidden" id="page" name="page" value="searchresults">!-->
                 <p>
 			<span class="sb_down"></span>
-			<input autocomplete="off" class="sb_input" type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
+			<input autocomplete="off" class="sb_input" style="color:white;" type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
 			<input class="sb_search" type="submit" name="search_submit" onclick="values_checked()" value="search"/>
 		</p>
 	

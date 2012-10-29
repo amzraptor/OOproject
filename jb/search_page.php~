@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-	
-	<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
-
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript">
             $(function() {
@@ -74,6 +71,8 @@
 		<div class="box" align="right" style="margin-right:10px;margin-top:5px;">
 	
                 <form id="ui_element" class="sb_wrapper" method="post" action="search_results_page.php">
+			<!--<input type="hidden" id="session" name="session" value="<?php $_POST['session'] ?>">
+			<input type="hidden" id="page" name="page" value="searchresults">!-->
                 <p>
 			<span class="sb_down"></span>
 			<input autocomplete="off" class="sb_input" type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />

@@ -1,5 +1,6 @@
 <!-- Search Bar CSS !-->
 
+<!--
 <script type="text/javascript">
 $("#slideshow div:gt(0)").hide();
 
@@ -24,7 +25,7 @@ setInterval(function() {
 },  6000);
 
 </script>
-
+!-->
 <div id="body_background" style="height:100%;float:center;">
 <!--
 		<div id="slideshow" style="float:left;">

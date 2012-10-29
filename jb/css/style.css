@@ -19,6 +19,7 @@ ul.sb_dropdown{
 	width:295px;
 	float:left;
 	margin:3px 0px;
+	
 }
 
 ul.sb_dropdown{
@@ -54,7 +55,7 @@ ul.sb_dropdown li.sb_filter{
 input.sb_search{
 	background-color:#654a4a;
 	/*background-image:url(/icons/search.png) no-repeat;*/
-	height:47px;
+	height:46px;
 	width:55px;
 	float:left;
 	margin:3px 0px;
@@ -147,10 +148,31 @@ font-family:'Comic Sans MS', cursive, sans-serif;
 margin:10px;
 }
 
+/****************************/
+/*     Side Panels           */
+/****************************/
+#side_panel
+{
+background-color:#654a4a;
+border:2px solid #fff;
+color:#fff;
+margin:0;
+padding:0;
+}
+
+#as
+{
+
+}
+
+#as ul.as_price
+{
+
+}
 
 
 /****************************/
-/*     Background        */
+/*     Background           */
 /****************************/
 #body_background {
 background-image:url('../images/patterns/bg_pattern07.png');
