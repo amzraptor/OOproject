@@ -191,6 +191,7 @@ function session_update_timestamp($session)
 	$sql = 'UPDATE SESSIONS
         	SET time=CURRENT_TIMESTAMP
         	WHERE id='$session'';
+	$con->mysql_query($sql);
 	close_conn($con);
 }
 
@@ -201,6 +202,7 @@ function session_update_username($session, $username)
 	$sql = 'UPDATE SESSIONS
         	SET username='$username'
         	WHERE id='$session'';
+	$con->mysql_query($sql);
 	close_conn($con);	
 }
 
