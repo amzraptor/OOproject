@@ -6,7 +6,7 @@
 <p style="font-family:'Comic Sans MS', cursive, sans-serif;">
 Please validate your email by entering the validation code that was emailed to you. </p></br>
 <label>Validation Code</label>
-<input type="text" style="width:80%"> </br>
+<input type="text" style="width:80%"> </br></br>
 <input style="font-family:'Comic Sans MS', cursive, sans-serif;" type="submit" value="submit"> </br></br></br>
 </form>
 </body>

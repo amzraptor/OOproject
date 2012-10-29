@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
+<form action='main.php' method='POST'>
+		<input type="hidden" id="page" name="page" value="userhome">
 <div>
 <!--  LOGO GROUP !-->
 <div style="height:90px;width:65%;float:left;background-color:black;">
@@ -15,5 +14,3 @@
 
 <a href="display_page.php" style="color:white;font-family:'Comic Sans MS', cursive, sans-serif;padding-right:8px;padding-top:10px;">logout</a>
 </div>
-</body>
-</html>

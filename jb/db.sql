@@ -1,33 +1,40 @@
 -- mysql --user=root --password=root < db.sql
 -- db.sql - this is the database configuration file
-DROP DATABASE IF EXISTS box;
-CREATE DATABASE IF NOT EXISTS box;
-USE box;
 
-CREATE TABLE IF NOT EXISTS PAGE
+DROP DATABASE IF EXISTS jewelry_box;
+CREATE DATABASE IF NOT EXISTS jewelry_box;
+USE jewelry_box;
+
+CREATE TABLE IF NOT EXISTS USER
 (
-	id		VARCHAR(24)	NOT NULL,
-	header 		VARCHAR(100)	NULL,
-	subheader	VARCHAR(100)	NULL,
-	body		VARCHAR(100)	NULL,
-	footer		VARCHAR(100)	NULL,
-	info		VARCHAR(1000)	NULL,
+	id 		VARCHAR(24)	NOT NULL,
+	fname 		VARCHAR(100)	NOT NULL,
+	lname		VARCHAR(100)	NOT NULL,
+	username	VARCHAR(24) 	NOT NULL,
+	password	VARCHAR(32)	NOT NULL,
+	email		VARCHAR(100)	NOT NULL,
+	valid		VARCHAR(100)	NOT NULL,
 
-	PRIMARY KEY 	(id)
+	PRIMARY KEY 	(username),
+	UNIQUE KEY	(id)
+)ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS SESSIONS
+(
+	id 		VARCHAR(24)	NOT NULL,
+	username	VARCHAR(24) 	NOT NULL,
+	time		TIMESTAMP	NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+	PRIMARY KEY 	(id),
+	FOREIGN KEY	(username) REFERENCES USER(username)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
 
 
-INSERT PAGE set id='p1', header='header_1.php';
-INSERT PAGE set id='p2', header='header_1.php', body='body1.php';
-
-INSERT PAGE set id='guesthomepage', header='header1.php', subheader='subheader1.php', body='body1.php', footer='footer1.php';
-
-INSERT PAGE set id='userhomepage', header='header3.php', subheader='subheader1.php', body='body1.php', footer='footer1.php';
-
-INSERT PAGE set id='validationpage', header='header2.php', subheader='subheader2.php', body='body3.php', footer='footer1.php';
-
-INSERT PAGE set id='signinsignuppage', header='header1.php', subheader='subheader2.php', body='body2.php', footer='footer1.php';
-
+INSERT USER set id='bpoag', fname='Brandy', lname='Poag', username='bdpoag1', 
+password='pass8888', email='bdpoag1@gmail.com', valid='false';
 
 

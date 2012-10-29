@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html>
-<body>
-<div>
+
 <!--  LOGO GROUP !-->
-<div style="height:90px;width:75%;float:left;background-color:black;">
-<h1 align="left" style="color:white;padding-left:20px;font-family:'Comic Sans MS', cursive, sans-serif;">THE JEWELRY BOX</h1>
+<div style="height:100%;">
+<div style="width:100%;height:90px;width:75%;float:left;background-color:black;">
+<form action='main.php' method='POST'>
+		<input type="hidden" id="page" name="page" value="guesthome">
+<input align="left" style="font-size:250%;margin-left:20px;color:white;background-color:black;font-family:'Comic Sans MS', cursive, sans-serif;margin-right:20px;margin-top:20px;" type='submit' value='THE JEWELRY BOX'></br>
+	</form>
 </div>
 
 <!-- SIGNIN|SIGNUP GROUP !-->
 <div style="height:90px;width:25%;float:right;background-color:black;" align="right">
-		<a href="display_page.php" style="color:white;font-family:'Comic Sans MS', cursive, sans-serif;padding-right:10px;padding-top:10px;">signin | signup</a>
+	<form action='main.php' method='POST'>
+		<input type="hidden" id="page" name="page" value="signup-in">
+<input style="color:white;background-color:black;font-family:'Comic Sans MS', cursive, sans-serif;margin-right:20px;margin-top:10px;" type='submit' value="signin | signup"></br>
+	</form>
 </div>
-</body>
-</html>
+</div>

@@ -2,7 +2,7 @@
 <html>
 <body>
 <div style="height=400px;width:400px;padding-top:100px;padding-left:200px;">
-<form action="signinpage.php" method="POST" style="border-style:solid;padding-top:10px;padding-left:30px;">
+<form action="main.php" method="POST" style="border-style:solid;padding-top:10px;padding-left:30px;">
 <p style="font-family:'Comic Sans MS', cursive, sans-serif;">
 Please validate your email by entering the validation code that was emailed to you. </p></br>
 <label>Validation Code</label>
