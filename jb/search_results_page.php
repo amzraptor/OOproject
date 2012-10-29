@@ -86,7 +86,7 @@ SOMETHING COULD GO HERE. </div>';
 
 function search_page()
 {
-	$db = new mysqli('localhost', 'root', 'root', 'jewelry_box');
+	$db = new mysqli('localhost', 'root', 'root', 'box');
 	if(!$db) { echo "could not connect to the database"; } 
 
 	if(isset($_POST['inputString']))
@@ -115,19 +115,19 @@ function search_page()
 			else	//if ($search_type == "byproduct")
 			{
 
-				$sql_query = "SELECT img1, name, price FROM PRODUCT WHERE name LIKE '%".$queryString."%'";
+				$sql_query = "SELECT product_img1, product_name, product_price FROM Products WHERE product_name LIKE '%".$queryString."%'";
 
 				if ($category_checks >= 1) $sql_query .= " AND ";
 				for ($i = 0; $i < $category_checks;$i++)
 				{
-					$sql_query .= "category = " ."'".$search[$i]."'";
+					$sql_query .= "product_category = " ."'".$search[$i]."'";
 					if ($i != $category_checks - 1) $sql_query .= " AND ";	
 				}
 
 				if ($gender_checks >= 1) $sql_query .= " AND ";
 				for ($i = 0; $i < $gender_checks;$i++)
 				{
-					$sql_query .= "gender = " ."'".$gender_search[$i]."'";
+					$sql_query .= "product_gender = " ."'".$gender_search[$i]."'";
 					if ($i != $gender_checks - 1) $sql_query .= " AND ";	
 				}
 	
@@ -142,8 +142,8 @@ function search_page()
 					{
 						$query_store_result .= '<div id="store_window" style="
 							background-color:red;width:100px;height:100px;margin:10px;float:left;">
-							<p onClick="fill(\''.$result->name.'\');
-							"><b>'.$result->name.'</b></p></div>';
+							<p onClick="fill(\''.$result->store_name.'\');
+							"><b>'.$result->store_name.'</b></p></div>';
 					}
 
 					mysql_close($db);
@@ -157,17 +157,12 @@ function search_page()
 						$query_product_result .= '<div id="store_window" style="
 							background-color:blue;width:200px;height:200px;margin:10px;float:left;">
 
-							<p onClick="fill(\''.$result->img1.'\');">
-							<img border="00" src="'.$result->img1.'" width="100" height="100" /></p>
-
-							<p onClick="fill(\''.$result->name.'\');">
-							<b>'.$result->name.'</b></p>
-
-							<p onClick="fill(\''.$result->price.'\');
-							">'.$result->price.'</p>
+							<img border="00" src="'.$result->product_img1.'" width="100" height="100" />
+							<b>'.$result->product_name.'</b><br />																																																																																									'
+							.$result->product_price.'
 							</div>';
 
-							echo "<br />IN RESULT: ",$result->img1;
+							echo "<br />IN RESULT: ",$result->product_img1;
 					}
 					mysql_close($db);
 					return $query_product_result;
