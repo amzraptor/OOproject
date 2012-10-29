@@ -341,10 +341,10 @@ font:bold;
 	left: 10px;
 	margin: 10px 0px 0px 0px;
 	width: 200px;
-	background-color:#dfd;
+	background-color:#000;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	border:solid 1px #4a4;
+	border:solid 1px #000;
 	color: #000000;
 }
 

@@ -1,37 +1,32 @@
-<?php
-//$con = mysql_connect("localhost","root","root");
-//mysql_select_db("jewelry_box_db", $con);
+<?php 
+$db = new mysqli('localhost', 'root', 'root', 'jewelry_box_db');
 
-$con = new mysqli('localhost', 'root', 'root', 'jewelry_box_db');
-
-if (!$con)
-{
-  die('Could not connect: ' . mysql_error());
-
-}
-else {
-if(isset($_POST['queryString'])) 
-{
-	$queryString = $con->real_escape_string($_POST['queryString']);
+if(!$db) {
+	echo "could not connect to the database";
+} else { 
+if(isset($_POST['queryString'])) {
+	$queryString = $db->real_escape_string($_POST['queryString']);
 	
-	if(strlen($queryString) > 0) 
-	{
-		$query = $con->query("SELECT name FROM product WHERE name LIKE '%".$queryString."%'");
-		if ($query) 
-		{
-			while($result = $query->fetch_object()) 
-			{
+	if(strlen($queryString) >0) {
+		$query = $db->query("SELECT name FROM product WHERE name LIKE '%".$queryString."%'");
+		if($query) {
+			while ($result = $query ->fetch_object()) {
+/*
+				if ($result->avataron == '1') {
+					echo '<li onClick="fill(\''.$result->username.'\');"><img src="'.$result->avatarloc.'" width="25" height="24" /> <b>'.$result->username.'</b></li>';
+					
+				}else if ($result->avataron == '0') {
+					echo '<li onClick="fill(\''.$result->username.'\');"><img src="images/user1search.png" width="25" height="24" /> <b>'.$result->username.'</b></li>';
+				}*/
 				echo '<li onClick="fill(\''.$result->name.'\');"><b>'.$result->name.'</b></li>';
 			}
-
-
+		}else {
+			echo "there was a problem with the query";
 		}
-		else{ echo "problem with query.";}
+	}else {
 	}
-	else{}
-}
-else{echo "no";}
-	
+}else {
+	echo "no";
 }
 }
 

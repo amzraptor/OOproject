@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+
 <div style="width=100%">
 <div style="float:left;height=400px;width:40%;margin-top:50px;margin-left:50px;">
 <form action="display_page.php" method="POST" style="height=400px;border-style:solid;padding-top:10px;padding-left:30px;">
