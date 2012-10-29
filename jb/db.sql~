@@ -52,7 +52,7 @@ FOREIGN KEY (store_id) REFERENCES STORE(store_id)
 
 INSERT USER set user_fname='guest', user_lname='guest', user_username='guest', user_password='guest', user_email='guest', user_validated='valid';
 
-INSERT USER set user_fname='Brandy',user_lname='Poag', user_username='bdpoag1', user_password='pass8888', user_email='bdpoag1@gmail.com', user_validated='true';
+INSERT USER set user_fname='Brandy',user_lname='Poag', user_username='bp', user_password='pass8888', user_email='mail', user_validated='true';
 
 ##STORE
 INSERT INTO STORE(store_name,store_img1,store_description,store_template,store_color,user_id)
