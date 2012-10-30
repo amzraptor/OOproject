@@ -208,7 +208,7 @@ function add_sessions()
     return add("SESSIONS", $fields, $values);   
 }
 
-echo "hello";
+//echo "hello";
 function session_update_timestamp($session)
 {
 	//get session id from SESSIONS TABLE
@@ -217,8 +217,8 @@ function session_update_timestamp($session)
 	$sql = "UPDATE SESSIONS
         	SET time=CURRENT_TIMESTAMP
         	WHERE id='$session'";
-	//$con->mysql_query($sql);
         $result = mysql_query($sql, $con);
+	$result = mysql_query($sql, $con);
 	close_conn($con);
 }
 
@@ -229,16 +229,17 @@ function session_update_username($session, $username)
 	$sql = "UPDATE SESSIONS
         	SET username='$username'
         	WHERE id='$session'";
-	//$con->mysql_query($sql);
         $result = mysql_query($sql, $con);
-	close_conn($con);	
+	close_conn($con);
+	$result = mysql_query($sql, $con);
+    close_conn($con);	
 }
 
-echo "hey";
+//echo "hey";
 //$id = add_sessions();
 //echo "id $id";
-session_update_timestamp("nczXQp5eCKYIQnFCyznF2vF8");
-session_update_username("nczXQp5eCKYIQnFCyznF2vF8", "bdpoag1");
+//session_update_timestamp("nczXQp5eCKYIQnFCyznF2vF8");
+//session_update_username("nczXQp5eCKYIQnFCyznF2vF8", "bdpoag1");
 
 function add_user($fname, $lname, $username, $password, $email)
 {
