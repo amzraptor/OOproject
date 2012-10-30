@@ -17,7 +17,7 @@ function analysis()
 	}
 	else if($page == "signup-in" || $page == "signup" || $page == "signin")
 	{
-		echo"hello zaki";
+		//echo"hello zaki";
 		include "signupinpage.php";
 	}
 	else if($page == "logout")
