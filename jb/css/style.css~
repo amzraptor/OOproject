@@ -106,14 +106,13 @@ padding:0;
 background-color:#2f6b9d;
 }
 
-#slideshow2, #slideshow { 
-width: 400px; 
-height: 400px; 
-margin: 100px;
+#slideshow 
+{ 
+border:2px solid #fff;
 }
 
-#slideshow2 div , #slideshow div { 
-position: absolute; 
+#slideshow div { 
+position:absolute;
 }
 
 #brown_button 
@@ -171,6 +170,8 @@ padding:0;
 /*     Background           */
 /****************************/
 #body_background {
+min-height:500px;
+width:100%;
 background-image:url('../images/patterns/bg_pattern07.png');
 }
 

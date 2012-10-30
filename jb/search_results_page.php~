@@ -343,7 +343,7 @@ function advanced_search()
 {
 	$db = new mysqli('localhost', 'root', 'root', 'jewelry_box');
 	if(!$db) { echo "could not connect to the database"; } 
-
+	
 	$price_options = $_POST['price'];
 	$order_options = $_POST['price_order'];
 	$material_options = $_POST['material'];
@@ -353,10 +353,9 @@ function advanced_search()
 	// get query from sessions
 	$queryString = $db->real_escape_string($_POST['inputString']);
 	
-	
 	if(strlen($queryString) > 0) 
 	{
-		
+			
 	}
 
 	mysql_close($db);
