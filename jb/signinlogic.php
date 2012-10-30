@@ -36,7 +36,7 @@ function signinlogic($session, $username, $password)
 		{
 			if (user_in_user($username, $password))
 			{
-				if(email_validated($username))
+				if(!email_validated($username))
 				{
 					//user is signed in go to user home
 					return 1;

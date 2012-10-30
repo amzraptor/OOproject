@@ -45,6 +45,29 @@ function get($table, $fields, $values)
     return $row;
 }*/
 
+/*function update($table, $fields, $values)
+{
+    if(sizeof($fields) != sizeof($values))
+    {
+	echo"error in add field and value mismatch.";
+	return 0;
+    }
+    $sql = "";
+    for ($i=0; $i<sizeof($fields); $i++)
+    {
+	$sql.= ("$fields[$i] = '$values[$i]' AND ");
+    }
+//"UPDATE SESSIONS SET username='$username' WHERE id='$session'";
+    $sql = "UPDATE $table SET ".substr($sql,0,-5);
+    //echo"sql:$sql";
+    $con = get_conn_and_connect();
+    $result = mysql_query($sql, $con);
+    if ($result == false) return false;
+    $row = mysql_fetch_array($result);
+    close_conn($con);
+    return $row;
+}*/
+
 function add($table, $fields, $values)
 {
     if(sizeof($fields) != sizeof($values))
@@ -74,6 +97,8 @@ function add($table, $fields, $values)
     close_conn($con);
     return $id;
 }
+
+
 
 function randString()
 {
@@ -183,15 +208,17 @@ function add_sessions()
     return add("SESSIONS", $fields, $values);   
 }
 
+echo "hello";
 function session_update_timestamp($session)
 {
 	//get session id from SESSIONS TABLE
 	//update timestamp for this session
 	$con = get_conn_and_connect();
-	$sql = 'UPDATE SESSIONS
+	$sql = "UPDATE SESSIONS
         	SET time=CURRENT_TIMESTAMP
-        	WHERE id='$session'';
-	$con->mysql_query($sql);
+        	WHERE id='$session'";
+	//$con->mysql_query($sql);
+        $result = mysql_query($sql, $con);
 	close_conn($con);
 }
 
@@ -199,12 +226,19 @@ function session_update_username($session, $username)
 {
 	//change username in SESSIONS TABLE into current logged in user
 	$con = get_conn_and_connect();
-	$sql = 'UPDATE SESSIONS
+	$sql = "UPDATE SESSIONS
         	SET username='$username'
-        	WHERE id='$session'';
-	$con->mysql_query($sql);
+        	WHERE id='$session'";
+	//$con->mysql_query($sql);
+        $result = mysql_query($sql, $con);
 	close_conn($con);	
 }
+
+echo "hey";
+//$id = add_sessions();
+//echo "id $id";
+session_update_timestamp("nczXQp5eCKYIQnFCyznF2vF8");
+session_update_username("nczXQp5eCKYIQnFCyznF2vF8", "bdpoag1");
 
 function add_user($fname, $lname, $username, $password, $email)
 {

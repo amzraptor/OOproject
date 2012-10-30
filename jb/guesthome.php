@@ -1,7 +1,7 @@
 <div style="100%">
 <div style="50%">
 <div style="float:left;margin-top:25px;margin-left:50px;">
-<img src="diamondnecklace.jpg" width="150" height="150">
+<img src="jewelery_box/jb/diamondnecklace.jpg" border="00" width="150" height="150"/>
 </br>
 product1 $$
 </form>

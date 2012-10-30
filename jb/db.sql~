@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS USER
 	email		VARCHAR(100)	NOT NULL,
 	valid		VARCHAR(100)	NOT NULL,
 
-	PRIMARY KEY 	(id),
-	UNIQUE KEY	(username)
+	PRIMARY KEY 	(username),
+	UNIQUE KEY	(id)
 )ENGINE = InnoDB;
 
 
@@ -26,11 +26,15 @@ CREATE TABLE IF NOT EXISTS SESSIONS
 	username	VARCHAR(24) 	NOT NULL,
 	time		TIMESTAMP	NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-	PRIMARY KEY 	(id)
-	
+	PRIMARY KEY 	(id),
+	FOREIGN KEY	(username) REFERENCES USER(username)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
 
+INSERT USER set id='guest', fname='guest', lname='guest', username='guest', 
+password='guest', email='guest', valid='false';
 
 INSERT USER set id='bpoag', fname='Brandy', lname='Poag', username='bdpoag1', 
 password='pass8888', email='bdpoag1@gmail.com', valid='false';

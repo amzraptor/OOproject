@@ -38,13 +38,11 @@ function signinlogic($session, $username, $password)
 			{
 				if(email_validated($username))
 				{
-					echo"hello1";
 					//user is signed in go to user home
 					return 1;
 				}
 				else
 				{
-					echo"hello2";
 					//user email needs valid
 					return 2;
 				}
