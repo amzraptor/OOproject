@@ -157,14 +157,9 @@ function search_page()
 						$query_product_result .= '<div id="store_window" style="
 							background-color:blue;width:200px;height:200px;margin:10px;float:left;">
 
-							<p onClick="fill(\''.$result->product_img1.'\');">
-							<img border="00" src="'.$result->product_img1.'" width="100" height="100" /></p>
-
-							<p onClick="fill(\''.$result->product_name.'\');">
-							<b>'.$result->product_name.'</b></p>
-
-							<p onClick="fill(\''.$result->product_price.'\');
-							">'.$result->product_price.'</p>
+							<img border="00" src="'.$result->product_img1.'" width="100" height="100" />
+							<b>'.$result->product_name.'</b><br />'
+							.$result->product_price.'
 							</div>';
 
 							echo "<br />IN RESULT: ",$result->product_img1;
@@ -196,7 +191,7 @@ function search_page()
 // Database Stuff to handle price adjustment request
 function price_adjust()
 {
-	$db = new mysqli('localhost', 'root', 'root', 'box');
+	$db = new mysqli('localhost', 'root', 'root', 'jewelry_box');
 	if(!$db) { echo "could not connect to the database"; } 
 
 	$price = $_POST["price"];
