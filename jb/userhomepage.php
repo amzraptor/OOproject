@@ -1,4 +1,5 @@
 <?php
+session_start();
 function display($header, $subheader, $body, $footer)
 {
 sprintf("<!DOCTYPE html>

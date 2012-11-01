@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "db.php";//include db script
 
 function display($header, $subheader, $body, $footer)
@@ -59,6 +60,7 @@ function signinlogic($session, $username, $password)
 			if(!email_validated($username))
 			{
 				//user is signed in go to user home
+				$_SESSION['username'] = get_user_id($username);
 				return 1;
 			}
 			else
