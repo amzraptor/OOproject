@@ -20,6 +20,10 @@ function analysis()
 		//echo"hello zaki";
 		include "signupinpage.php";
 	}
+	else if($page == "cart")
+	{
+		include "cartpage.php";
+	}
 	else if($page == "logout")
 	{
 	}

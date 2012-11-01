@@ -1,8 +1,7 @@
 
 <div>
 <!--  LOGO GROUP !-->
-<div style="height:20%;">
-<div style="height:100%;width:52%;float:left;background-color:black;">
+<div style="height:20%;width:50%;float:left;background-color:black;">
 <form action='main.php' method='POST'>
 		<input type="hidden" id="session" name="session" value="<? $_POST['session'] ?>">
 		<input type="hidden" id="page" name="page" value="userhome">
@@ -12,7 +11,7 @@
 
 
 <!-- USER OPTIONS GROUP !-->
-<div style="height:90px;width:48%;float:right;background-color:black;" align="right">
+<div style="height:20%;width:50%;float:right;background-color:black;" align="right">
 
 <div style="height:100%;width:25%;float:right;background-color:black;" align="center">
 	<form action='main.php' method='POST'>

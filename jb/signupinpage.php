@@ -111,15 +111,18 @@ function signuplogic($session,$fname,$lname,$username,$email,$password,$password
 		{
 			if ($fname!=NULL && valid_name($fname) && $lname!=NULL && valid_name($lname) && $username!=NULL && valid_username($username) && $email!=NULL && valid_email($email) && $password!=NULL && valid_password($password) && $password2!=NULL && valid_password($password2) && $password == $password2)
 			{
-				if (username_in_use($username))
+				if (!username_in_use($username))
 				{
-					echo"sorry username is already in use";
-					return 0;
+					if(add_user($fname, $lname, $username, $password, $email) != false)
+					{
+						return 8;
+					}
+					
 				}
 				//registration success
 				//echo"display registration success from signuplogic";
-				add_user($fname, $lname, $username, $password, $email);
-				return 8;
+				echo"sorry username is already in use";
+				return 0;
 			}
 			else
 			{
@@ -254,7 +257,7 @@ case 8:
 default:
 	$header = "guestheader.php";
 	$subheader = "guestsubheader.php";
-	$body = "body1.php";
+	$body = "homepage.php";
 	$footer = "footer1.php";
 	break;
 }
