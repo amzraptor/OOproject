@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-	
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript">
             $(function() {
@@ -82,18 +81,18 @@
 			<li class="sb_filter">Filter your search</li>
 
 			<li><input class="sb_input2" id="byproduct" type="radio" name="search_type" value="byproduct" />
-			<label for="byproduct"><strong>By Product</strong></label></li>
+			<label for="byproduct" style="font-size:12px;color:white;"><strong>By Product</strong></label></li>
 			<li><input class="sb_input2" id="bystore" type="radio" name="search_type" value="bystore"/>
-			<label for="bystore"><strong>By Store</strong></label></li>
+			<label for="bystore" style="font-size:12px;color:white;"><strong>By Store</strong></label></li>
 		</ul>
 		<ul class="sb_dropdown2" style="display:none;">
-			<strong><label style="font-size:20px;" >Gender</label></strong><br />
+			<strong><label style="font-size:20px;color:white;" >Gender</label></strong><br />
 			<li><input type="checkbox" name ="gender[]" value="male" /><label for="Male">Male</label></li>
 			<li><input type="checkbox" name ="gender[]" value="female" /><label for="Female">Female</label></li>
 			<li><input type="checkbox" name ="gender[]" value="unisex" /><label for="Unisex">Unisex</label></li>
 		</ul>
 		<ul class="sb_dropdown2" style="display:none;">
-			<strong><label style="font-size:20px;">Category</label></strong><br />
+			<strong><label style="font-size:20px;color:white;">Category</label></strong><br />
 
 			<li><input type="checkbox" name ="search[]" value="wedding" /><label for="Wedding">Wedding</label></li>
 			<li><input type="checkbox" name ="search[]" value="rings" /><label for="Rings">Rings</label></li>

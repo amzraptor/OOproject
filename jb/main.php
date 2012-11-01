@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
 <?php
 session_start();
 function analysis()
