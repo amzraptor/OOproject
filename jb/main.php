@@ -22,7 +22,7 @@ function analysis()
 	}
 	else if($page == "cart")
 	{
-		include "cartpage.php";
+		include "cart.php";
 	}
 	else if($page == "products")
 	{

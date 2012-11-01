@@ -1,6 +1,6 @@
-	<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
+<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
 <?php
-
+session_start();
 function analysis()
 {
 
@@ -18,22 +18,20 @@ function analysis()
 	}
 	else if($page == "signup-in" || $page == "signup" || $page == "signin")
 	{
-		//echo"hello zaki";
 		include "signupinpage.php";
 	}
 	else if($page == "cart")
 	{
 		include "cartpage.php";
 	}
-<<<<<<< HEAD
-=======
 	else if($page == "products")
 	{
 		include "productspage.php";
 	}
->>>>>>> 4572281f1fb3f847ed251f9c876dcfd51b6fd074
 	else if($page == "logout")
 	{
+		unset($_SESSION['username']);
+		echo "thank you visiting.... sign out success!";
 	}
 	else
 	{
