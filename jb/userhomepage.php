@@ -8,40 +8,28 @@ sprintf("<!DOCTYPE html>
 
 function guesthomelogic($session)
 {
-/*if no session*/
-if ($session == NULL)
-{
-//echo"inside guesthome";
-//start a session
-//start_session();
-//display guest homepage first time
-return 0;
-}
-else
-{
-//display guest homepage not first time
-return 0;
+
+	//display guest homepage not first time
+	return 0;
 }
 
-}
-$session = (empty($_POST['session']) ? NULL : $_POST['session']);
-$session = "1234";////////////////////////
+
 $mode = guesthomelogic($session);
 switch($mode)
 {
 case 0:
-//display guest homepage
-$header = "guestheader.php";
-$subheader = "guestsubheader.php";
-$body = "homepage.php";
-$footer = "footer1.php";
-break;
+	//display guest homepage
+	$header = "guestheader.php";
+	$subheader = "guestsubheader.php";
+	$body = "homepage.php";
+	$footer = "footer1.php";
+	break;
 default:
-$header = "guestheader.php";
-$subheader = "subheader1.php";
-$body = "body1.php";
-$footer = "footer1.php";
-break;
+	$header = "guestheader.php";
+	$subheader = "subheader1.php";
+	$body = "body1.php";
+	$footer = "footer1.php";
+	break;
 }
 
 display($header, $subheader, $body, $footer);

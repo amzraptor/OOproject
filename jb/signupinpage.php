@@ -45,132 +45,103 @@ function valid_email($email)
 }
 
 function signinlogic($session, $username, $password)
-{
-//echo"inside  signinlogic";
-	if ($session!=NULL)
+{	//no input display page
+	if ($username==NULL && $password==NULL)
 	{
-		"error session is null";
-	
-		//no input display page
-		if ($username==NULL && $password==NULL)
+		//signup-in page
+		return 3;
+	}
+	//inputs valid and user is in db
+	else if ($username!=NULL && valid_username($username) && $password!=NULL && valid_password($password))
+	{
+		if (user_in_user($username, $password))
 		{
-			//signup-in page
-			return 3;
-		}
-		//inputs valid and user is in db
-		else if ($username!=NULL && valid_username($username) && $password!=NULL && valid_password($password))
-		{
-			if (user_in_user($username, $password))
+			if(!email_validated($username))
 			{
-				if(!email_validated($username))
-				{
-					//user is signed in go to user home
-					return 1;
-				}
-				else
-				{
-					//user email needs valid
-					return 2;
-				}
+				//user is signed in go to user home
+				return 1;
 			}
 			else
 			{
-				//user not found
-				return 5;
+				//user email needs valid
+				return 2;
 			}
 		}
 		else
 		{
-			//user not info not entered correctly
-			return 4;
+			//user not found
+			return 5;
 		}
 	}
-	//error
-	echo"error inside  signinlogic or no session";
-	return 0;
-	
+	else
+	{
+		//user not info not entered correctly
+		return 4;
+	}
+
 }
 
 
 
 function signuplogic($session,$fname,$lname,$username,$email,$password,$password2)
 {
-//echo"brandy";
-//registration success?
-//echo"inside  signuplogic fname $fname";
-	//if no session
-	
-	if ($session!=NULL)
+	if ($fname==NULL && $lname==NULL && $username==NULL && $email==NULL && $password==NULL && $password2==NULL)
 	{
-		if ($fname==NULL && $lname==NULL && $username==NULL && $email==NULL && $password==NULL && $password2==NULL)
+		///signup-in page
+		return 3;
+	}
+	else
+	{
+		if ($fname!=NULL && valid_name($fname) && $lname!=NULL && valid_name($lname) && $username!=NULL && valid_username($username) && $email!=NULL && valid_email($email) && $password!=NULL && valid_password($password) && $password2!=NULL && valid_password($password2) && $password == $password2)
 		{
-			///signup-in page
-			return 3;
+			if (!username_in_use($username))
+			{
+				if(add_user($fname, $lname, $username, $password, $email) != false)
+				{
+					return 8;
+				}
+				
+			}
+			//registration success
+			//echo"display registration success from signuplogic";
+			echo"sorry username is already in use";
+			return 0;
 		}
 		else
 		{
-			if ($fname!=NULL && valid_name($fname) && $lname!=NULL && valid_name($lname) && $username!=NULL && valid_username($username) && $email!=NULL && valid_email($email) && $password!=NULL && valid_password($password) && $password2!=NULL && valid_password($password2) && $password == $password2)
-			{
-				if (!username_in_use($username))
-				{
-					if(add_user($fname, $lname, $username, $password, $email) != false)
-					{
-						return 8;
-					}
-					
-				}
-				//registration success
-				//echo"display registration success from signuplogic";
-				echo"sorry username is already in use";
-				return 0;
-			}
-			else
-			{
-				//user not info not entered correctly
-				return 4;
-			}
-			/***********************else if($fname==NULL || !valid_name($fname))
-			{
-				echo "fname not valid";
-			}
-			else if($lname==NULL || !valid_name($lname))
-			{
-				echo "lname not valid";
-			}
-			else if($email==NULL || !valid_email($email))
-			{
-				echo "email not valid";
-			}
-			else if($username==NULL || !valid_username($username))
-			{
-				echo "username not valid";
-			}
-			else if($password==NULL || !valid_email($password) || $password!=$password2)
-			{
-				echo "password not valid";
-			}****************************/
+			//user not info not entered correctly
+			return 4;
 		}
+		/***********************else if($fname==NULL || !valid_name($fname))
+		{
+			echo "fname not valid";
+		}
+		else if($lname==NULL || !valid_name($lname))
+		{
+			echo "lname not valid";
+		}
+		else if($email==NULL || !valid_email($email))
+		{
+			echo "email not valid";
+		}
+		else if($username==NULL || !valid_username($username))
+		{
+			echo "username not valid";
+		}
+		else if($password==NULL || !valid_email($password) || $password!=$password2)
+		{
+			echo "password not valid";
+		}****************************/
 	}
-	echo"error inside  signuplogic or no session";
-	return 0;
 }
 
 function signupinlogic($session)
 {
-	//echo "hola";
-	//if no session
-	if ($session != NULL)
-	{
-		//display signup-in page
-		return 3;
-	}
-	//error
-	echo "error inside signupinpage";
-	return -99;
+	//display signup-in page
+	return 3;
 
 }
-$session = (empty($_POST['session']) ? NULL : $_POST['session']);
-$session = "1234";////////////////////////
+
 $mode = -99;
 if($page == "signup-in")
 {
@@ -193,6 +164,7 @@ else if($page == "signin")
 	$pw = (empty($_POST['password']) ? NULL : $_POST['password']);
 	$mode = signinlogic($session, $un, $pw);
 }
+
 $header = "";
 $subheader = "";
 $body = "";

@@ -24,6 +24,10 @@ function analysis()
 	{
 		include "cartpage.php";
 	}
+	else if($page == "products")
+	{
+		include "productspage.php";
+	}
 	else if($page == "logout")
 	{
 	}
