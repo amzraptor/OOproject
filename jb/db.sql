@@ -67,11 +67,11 @@ VALUES('Carl\'s Store','img','a cool store also','1','#4A3991',2);
 */
 ##PRODUCTS
 INSERT INTO PRODUCT(product_name,product_category,product_material,product_sizes,product_gender,product_price,product_img1,product_qty,product_description,store_id)
-VALUES('Men\'s necklace','necklaces','bronze','large','male',899.99,'/var/www/html/Default_Pic.png',20,'A cool necklace for men to wear. You want one!',1);
+VALUES('Men\'s necklace','necklaces','bronze','large','male',899.99,'images/Default_Pic.png',20,'A cool necklace for men to wear. You want one!',1);
 
 INSERT INTO PRODUCT(product_name,product_category,product_material,product_sizes,product_gender,product_price,product_img1,product_qty,product_description,store_id)
-VALUES('Women\'s ring','rings','gold','small','female',3899.99,'/var/www/html/Default_Pic.png',20,'A cool ring for women to wear. You want one!',1);
+VALUES('Women\'s ring','rings','gold','small','female',3899.99,'images/Default_Pic.png',20,'A cool ring for women to wear. You want one!',1);
 
 INSERT INTO PRODUCT(product_name,product_category,product_material,product_sizes,product_gender,product_price,product_img1,product_qty,product_description,store_id)
-VALUES('Child\'s necklace','necklaces','silver','small','unisex',8.99,'/var/www/html/Default_Pic.png',20,'You want one!',1);
+VALUES('Child\'s necklace','necklaces','silver','small','unisex',8.99,'images/Default_Pic.png',20,'You want one!',1);
 

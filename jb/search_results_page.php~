@@ -86,7 +86,7 @@ SOMETHING COULD GO HERE. </div>';
 
 function search_page()
 {
-	$db = new mysqli('localhost', 'root', 'root', 'box');
+	$db = new mysqli('localhost', 'root', 'root', 'jewelry_box');
 	if(!$db) { echo "could not connect to the database"; } 
 
 	if(isset($_POST['inputString']))
@@ -110,12 +110,12 @@ function search_page()
 		
 			if ($search_type == "bystore")
 			{
-				$sql_query = "SELECT store_name FROM Stores WHERE store_name LIKE '%".$queryString."%'";
+				$sql_query = "SELECT store_name FROM Store WHERE store_name LIKE '%".$queryString."%'";
 			}
 			else	//if ($search_type == "byproduct")
 			{
 
-				$sql_query = "SELECT product_img1, product_name, product_price FROM Products WHERE product_name LIKE '%".$queryString."%'";
+				$sql_query = "SELECT product_img1, product_name, product_price FROM Product WHERE product_name LIKE '%".$queryString."%'";
 
 				if ($category_checks >= 1) $sql_query .= " AND ";
 				for ($i = 0; $i < $category_checks;$i++)
@@ -158,7 +158,7 @@ function search_page()
 							background-color:blue;width:200px;height:200px;margin:10px;float:left;">
 
 							<img border="00" src="'.$result->product_img1.'" width="100" height="100" />
-							<b>'.$result->product_name.'</b><br />'
+							<b>'.$result->product_name.'</b><br />																																																																																									'
 							.$result->product_price.'
 							</div>';
 
