@@ -30,6 +30,8 @@ function analysis()
 	}
 	else if($page == "logout")
 	{
+		unset($_SESSION['username']);
+		echo "thank you visiting.... sign out success!";
 	}
 	else
 	{
