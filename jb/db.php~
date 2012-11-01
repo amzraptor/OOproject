@@ -30,18 +30,16 @@ function get($table, $fields, $values)
 	$sql.= ("$fields[$i]='$values[$i]' AND ");
     }
     $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
-echo "sql $sql";
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
     $row = mysql_fetch_array($query);
-echo "row1 $row";
     if ($query == false) 
     {
         close_conn($con);
         return false;
     }
     close_conn($con);
-    return row;
+    return $row;
 }
 
 
@@ -155,7 +153,6 @@ function user_in_user($username, $password)
     $fields = array("user_username", "user_password");
     $values = array($username, $password);
     $row = get("USER", $fields, $values);
-echo "row $row";
     if ($row == false) return false;
     return true;
 }

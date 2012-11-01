@@ -39,7 +39,7 @@ function get($table, $fields, $values)
         return false;
     }
     close_conn($con);
-    return row;
+    return $row;
 }
 
 
@@ -168,7 +168,7 @@ function get_user_info($username, $password)
 function add_user($fname, $lname, $username, $password, $email)
 {
     $fields = array("user_fname", "user_lname", "user_username", "user_password", "user_email", "user_validated");
-    $values = array($fname,$lname, $username, $password, $email, "false");
+    $values = array($fname,$lname, $username, $password, $email, "valid");
     return add("USER", $fields, $values);
 }
 
