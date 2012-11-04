@@ -106,16 +106,13 @@ background-color:#2f6b9d;
 }
 
 #slideshow2, #slideshow { 
-position: center; 
-width: 500px; 
-height: 500px; 
-border: 4px solid #fff;
+width: 70%; 
+height: 70%; 
 margin:50px;
 }
 
 #slideshow2 div , #slideshow div { 
 position: absolute; 
-
 }
 
 #brown_button 

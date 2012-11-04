@@ -1,5 +1,7 @@
 <?php
+session_start();
 include "db.php";//include db script
+echo "hey there";
 
 function display($header, $subheader, $body, $footer)
 {
@@ -59,6 +61,7 @@ function signinlogic($session, $username, $password)
 			if(!email_validated($username))
 			{
 				//user is signed in go to user home
+				$_SESSION['username'] = get_user_id($username);
 				return 1;
 			}
 			else
@@ -143,11 +146,11 @@ function signupinlogic($session)
 }
 
 $mode = -99;
-if($page == "signup-in")
+if($body == "signup-in")
 {
     $mode = signupinlogic($session);
 }
-else if($page == "signup")
+else if($body == "signup")
 {
 	$fname = (empty($_POST['fname']) ? NULL : $_POST['fname']);
 	$lname = (empty($_POST['lname']) ? NULL : $_POST['lname']);
@@ -157,13 +160,14 @@ else if($page == "signup")
 	$password2 = (empty($_POST['password2']) ? NULL : $_POST['password2']);
 	$mode = signuplogic($session,$fname,$lname,$username,$email,$password,$password2);
 }
-else if($page == "signin")
+else if($body == "signin")
 {
 
 	$un = (empty($_POST['username']) ? NULL : $_POST['username']);
 	$pw = (empty($_POST['password']) ? NULL : $_POST['password']);
 	$mode = signinlogic($session, $un, $pw);
 }
+
 $header = "";
 $subheader = "";
 $body = "";
