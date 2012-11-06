@@ -137,19 +137,9 @@ function signuplogic($session,$fname,$lname,$username,$email,$password,$password
 	}
 }
 
-function signupinlogic($session)
-{
-	//display signup-in page
-	return 3;
 
-}
 
-$mode = -99;
-if($page == "signup-in")
-{
-    $mode = signupinlogic($session);
-}
-else if($page == "signup")
+/*else if($action == "signup")
 {
 	$fname = (empty($_POST['fname']) ? NULL : $_POST['fname']);
 	$lname = (empty($_POST['lname']) ? NULL : $_POST['lname']);
@@ -159,7 +149,7 @@ else if($page == "signup")
 	$password2 = (empty($_POST['password2']) ? NULL : $_POST['password2']);
 	$mode = signuplogic($session,$fname,$lname,$username,$email,$password,$password2);
 }
-else if($page == "signin")
+else if($action == "signin")
 {
 
 	$un = (empty($_POST['username']) ? NULL : $_POST['username']);
@@ -236,6 +226,5 @@ default:
 	break;
 }
 
-display($header, $subheader, $body, $footer);
-
+display($header, $subheader, $body, $footer);*/
 ?>

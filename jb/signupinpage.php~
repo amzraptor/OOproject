@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "db.php";//include db script
-echo "hey there";
 
 function display($header, $subheader, $body, $footer)
 {
@@ -145,12 +144,12 @@ function signupinlogic($session)
 
 }
 
-$mode = -99;
-if($body == "signup-in")
+$action = 
+if($action == "signup-in")
 {
     $mode = signupinlogic($session);
 }
-else if($body == "signup")
+else if($action == "signup")
 {
 	$fname = (empty($_POST['fname']) ? NULL : $_POST['fname']);
 	$lname = (empty($_POST['lname']) ? NULL : $_POST['lname']);
@@ -160,7 +159,7 @@ else if($body == "signup")
 	$password2 = (empty($_POST['password2']) ? NULL : $_POST['password2']);
 	$mode = signuplogic($session,$fname,$lname,$username,$email,$password,$password2);
 }
-else if($body == "signin")
+else if($action == "signin")
 {
 
 	$un = (empty($_POST['username']) ? NULL : $_POST['username']);

@@ -33,7 +33,7 @@ function get($table, $fields, $values)
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
     $row = mysql_fetch_array($query);
-    if ($query == false) 
+    if ($row == false) 
     {
         close_conn($con);
         return false;
@@ -65,7 +65,8 @@ function update($table, $setfields, $setvalues, $wherefields, $wherevalues)
     $sql = "UPDATE $table SET ".substr($sql,0,-1)." WHERE ".substr($sql2,0,-5);
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
-    if ($query == false) 
+    $row = mysql_fetch_array($query);
+    if ($row == false) 
     {
         close_conn($con);
         return false;
@@ -91,14 +92,14 @@ function add($table, $fields, $values)
 	$sql2.="'$values[$i]',";
     }
     $sql = "INSERT INTO $table(".substr($sql,0,-1).")VALUES(".substr($sql2,0,-1).")";
-
+echo"sql: $sql";
     $query = mysql_query($sql,$con);
-    if ($query)
-      {
+    if ($query) 
+    {
         $curr_id = mysql_insert_id();
         close_conn($con);
       	return $curr_id;
-      }
+    }
 
     close_conn($con);
     return false;
@@ -127,11 +128,37 @@ function close_conn($con)
 /////////////////////////////////////////////////////////////////////////////////////
 
 
+function update_email_valid($username)
+{
+    $setfields = array("valid");
+    $setvalues = array("true");
+    $wherefields = array("username");
+    $wherevalues = array($username);
+    $row = update("user", $setfields, $setvalues, $wherefields, $wherevalues);
+    if ($row != false)
+    {
+        return true;
+    }
+    return false;
+}
+
+function get_email_valid($username)
+{
+    $fields = array("username");
+    $values = array($username);
+    $row = get("user", $fields, $values);
+    if($row != false)
+    {
+        return $id[6];
+    }
+    return false;
+}
+
 function email_validated($username)
 {
-    $fields = array("user_username");
-    $values = array($username,);
-    $row = get("USER", $fields, $values);
+    $fields = array("username");
+    $values = array($username);
+    $row = get("user", $fields, $values);
     if ($row != false && $row[6] == "true")//check that emailvalid is true
     {
         return true;
@@ -139,45 +166,53 @@ function email_validated($username)
     return false;
 }
 
+
 function username_in_use($username)
 {
-    $fields = array("user_username");
+    $fields = array("username");
     $values = array($username);
-    $row = get("USER", $fields, $values);
-    if ($row == false) return false;
+    $row = get("user", $fields, $values);
+    if ($row == false) 
+    {
+	    return false;
+    }
     return true;
 }
 
 function user_in_user($username, $password)
 {
-    $fields = array("user_username", "user_password");
+    $fields = array("username", "password");
     $values = array($username, $password);
-    $row = get("USER", $fields, $values);
+    $row = get("user", $fields, $values);
     if ($row == false) return false;
     return true;
 }
 
 function get_user_info($username, $password)
 {
-    $fields = array("user_username", "user_password");
+    $fields = array("username", "password");
     $values = array($username, $password);
-    return get("USER", $fields, $values);
+    return get("user", $fields, $values);
 }
 
 
 function add_user($fname, $lname, $username, $password, $email)
 {
-    $fields = array("user_fname", "user_lname", "user_username", "user_password", "user_email", "user_validated");
+    $fields = array("fname", "lname", "username", "password", "email", "valid");
     $values = array($fname,$lname, $username, $password, $email, "valid");
-    return add("USER", $fields, $values);
+    return add("user", $fields, $values);
 }
 
 ///////////////////////////////////////////////////
 function get_user_id($username)
 {
-    $fields = array("user_username");
+    $fields = array("username");
     $values = array($username);
-    $id = get("USER", $fields, $values);
-    return $id[0];
+    $id = get("user", $fields, $values);
+    if($id != false)
+    {
+        return $id[0];
+    }
+    return false;
 }
 ?>

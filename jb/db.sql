@@ -5,32 +5,31 @@ DROP DATABASE IF EXISTS jewelry_box;
 CREATE DATABASE IF NOT EXISTS jewelry_box;
 USE jewelry_box;
 
-CREATE TABLE user (
-    user_id	MEDIUMINT 	AUTO_INCREMENT,
+
+CREATE TABLE IF NOT EXISTS user(
+    user_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fname       VARCHAR(100)    NOT NULL,
     lname 	VARCHAR(100)    NOT NULL,
     username 	VARCHAR(32)     NOT NULL,
     password 	VARCHAR(32)     NOT NULL,
     email 	VARCHAR(100)    NOT NULL,
     valid 	VARCHAR(100)    NOT NULL,
-    PRIMARY KEY    (user_id),
     UNIQUE KEY     (username)
 )ENGINE = InnoDB;
 
-CREATE TABLE store (
-    store_id	MEDIUMINT	AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS store (
+    store_id	MEDIUMINT	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name     	VARCHAR(50)     NOT NULL,
     img1     	VARCHAR(200)    NOT NULL,
     description VARCHAR(500)    ,
     template    VARCHAR(50)     NOT NULL,
     color     	VARCHAR(7)    	NOT NULL,
-    user_id     MEDIUMINT    	,
-    PRIMARY KEY (store_id),
+    user_id     MEDIUMINT    	NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 )ENGINE = InnoDB;
 
-CREATE TABLE product (
-    product_id	MEDIUMINT	AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS product (
+    product_id	MEDIUMINT	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     store_id    MEDIUMINT       NOT NULL,
     name        VARCHAR(50)     NOT NULL,
     category    VARCHAR(50)     NOT NULL,
@@ -47,12 +46,11 @@ CREATE TABLE product (
     img3        VARCHAR(200)    ,
     img4        VARCHAR(200)    ,
     img5        VARCHAR(200)    ,
-    PRIMARY KEY (product_id),
     FOREIGN KEY (store_id) REFERENCES store(store_id)
 )ENGINE = InnoDB;
 
 
-##USER
+
 INSERT user set fname='guest', lname='guest', username='guest',
 password='guest', email='guest', valid='-99';
 
@@ -76,7 +74,6 @@ INSERT user set fname='Bobbilly', lname='BobBilly', username='I am my father', p
 INSERT user set fname='Bubba', lname='J', username='Beer Lover', password='pass8888', email='morebeer@gmail.com', valid='-99';
 
 
-##STORE
 INSERT INTO store(name,img1,description,template,color,user_id)
 VALUES('Mary\'s Store','img','a cool store','1','#000000', 1);
 
@@ -108,7 +105,6 @@ INSERT INTO store(name,img1,description,template,color,user_id)
 VALUES('I need money','img','Buy My Stuff NOW!!!!','8','#4A3991', 2);
 
 
-##PRODUCTS
 INSERT INTO product (name,category,material,size,gender,price,img1,qty,description,store_id)
 VALUES('Men\'s necklace','necklaces','bronze','large','male',899.99,'/var/www/html/Default_Pic.png',20,'A cool necklace for men to wear. You want one!', 1);
 
