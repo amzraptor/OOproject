@@ -23,7 +23,6 @@
 
 				});
 				
-
 				$(document).ready(function()
 				{
 					$("#byproduct").click(function()
@@ -63,9 +62,7 @@
 
     </head>
 
-
-
-    <body >
+    <body>
         <div class="content">
 
 		<div class="box" align="right" style="margin-right:10px;margin-top:5px;">

@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
+<!--<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
 <?php
@@ -8,7 +8,8 @@
 /*header code*/
 function display_header()
 {
-    return "mainheader.php";
+    //return "mainheader.php";
+    return "scratch.php";
 }
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
+<!--<link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- Search Bar CSS !-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
 <?php
@@ -8,14 +8,15 @@
 /*header code*/
 function display_header()
 {
-    return "mainheader.php";
+    //return "mainheader.php";
+    return "scratch.php";
 }
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 /*homepage code*/
 function display_homepage()
 {
-    return "homepage.php";
+    return "revised_homepage.php";
 }
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
@@ -42,7 +43,7 @@ function display_signupin()
 			    if(email_validated($username))
 			    {
 				    //go to user home
-				    return "homepage.php";
+				    return "revised_homepage.php";
 			    }
 			    else
 			    {
@@ -148,7 +149,7 @@ function display_validateemail()
         if ($validationcode == valid/*get_email_valid($username)*/)
         {
             /*update_email_valid($username);*/
-            return "homepage.php";
+            return "revised_homepage.php";
         }
         else
         {

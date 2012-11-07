@@ -72,9 +72,14 @@
 			<input type="hidden" id="page" name="page" value="searchresults">!-->
                 <p>
 			<span class="sb_down"></span>
-			<input autocomplete="off" class="sb_input" style="color:white;" 
+			<!--<input autocomplete="off" class="sb_input" style="color:white;" 
 				type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
-			<input class="sb_search" type="submit" name="search_submit" onclick="values_checked()" value="search"/>
+			<input class="sb_search" type="submit" name="search_submit" onclick="values_checked()" value="search"/>-->
+<input class="sb_search" type="submit" name="search_submit" onclick="values_checked()" value="search" style="float:right"/>
+<div style="overflow:hidden;paddingright:.5em;">
+<input autocomplete="off" class="sb_input" style="color:white;width:100%;" 
+				type="text" name="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
+</div>
 		</p>
 	
 		<ul class="sb_dropdown" style="display:none;">
