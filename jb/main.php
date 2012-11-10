@@ -139,6 +139,13 @@ function display_logout()
 }
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
+/*create store code*/
+function display_create_store()
+{
+    include "create_store.php";
+}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 /*homepage code*/
 function display_validateemail()
 {
@@ -261,6 +268,9 @@ case "products":
                     break;
 case "logout":
                     $body = display_logout();
+                    break;  
+case "create_store":
+                    $body = display_create_store();
                     break;  
 case "validateemail":
                     $body = display_validateemail();

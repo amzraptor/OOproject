@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script src="jquery.layout-latest.js"></script>
+<script>
+    $(document).ready(function () {
+        $('body').layout({ applyDefaultStyles: true });
+    });
+</script>
+</head>
+<body>
+<div class="ui-layout-center">Center
+
+<p>hi</p>
+</div>
+<div class="ui-layout-north">North</div>
+<div class="ui-layout-south">South</div>
+<div class="ui-layout-west">West</div>
+<div class="ui-layout-west">East</div>
+</body>
+</html>

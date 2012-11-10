@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+<head>
+    <title>jQuery UI Sortable - Drop placeholder</title>
+   
+     
+
+    <style type="text/css">
+        body{
+            background-color: #111;
+            color:white;
+            font-family: Arial, "MS Trebuchet", sans-serif;
+        }
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width:150px;
+        }
+        #sortable li {
+            margin: 0 5px 5px 5px;
+            padding: 5px 20px;
+            font-size: .75em;
+            height: 1.5em;
+            background-color: #678;
+            cursor:pointer;
+           
+        }
+        #sortable li.highlight {
+            height: .75em;
+            line-height: 1.5em;
+            background-color: #036;
+            background-image: none;
+            border:none;
+        }
+    </style>
+   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.core.js"></script>
+    <script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#sortable").sortable({
+            placeholder: 'highlight'
+        });
+        $("#sortable").disableSelection();
+    });
+    </script>
+</head>
+<body>
+
+<ul id="sortable">
+    <li>Welcome</li>
+    <li>Vendor Infomation</li>
+    <li>Store Information</li>
+    <li>Design Store</li>
+    <li>Manage Store</li>
+</ul>
+
+
+</body>
+</html>

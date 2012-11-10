@@ -1,0 +1,62 @@
+<html>
+<head>
+head (this takes up some space and can be removed or filled)
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+<script src="jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.core.js"></script>
+    
+	<style>
+		.p-search{
+			overflow:hidden;
+		}
+        .p-left
+        {
+			width:150px;
+		}
+        .easyui-panel {  
+             width:99%;
+             height:99%;  
+        }
+
+	</style>
+</head>
+<body>
+<div id="headerarea" class="headerarea">
+header
+</div>
+<div class="easyui-panel" title="title" iconCls="icon-search" collapsible="true" >
+  <div class="easyui-layout" fit="true">
+    <div region="north"  class="p-search">
+north
+    </div>
+
+    <div region="center" >
+      <div class="easyui-layout" fit="true">
+
+        <div region="west" id="west_panel"  class="p-left">
+west
+	</div>
+
+	<div region="center"  >
+	  <div class="easyui-layout" fit="true">
+<!--center-->Center
+	  </div>
+	</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footerarea" class="footerarea">
+foot
+</div>
+
+</body>
+</html>

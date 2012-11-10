@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="jquery-1.2.1.pack.js "></script>
 </head>
 <body>
-<div class="header" style="width:100%;height:12%;">
+<div class="header" style="width:100%;height:20%;">
 
 		<!--  LOGO GROUP !-->
 		<div style="width:25%;float:left;">
@@ -24,7 +24,7 @@
 
 		<!-- CREATE STORE !--> <div class="userOptions">
 		<form action='main.php' method='POST'>
-		<input type="hidden" id="page" name="page" value="createstore">
+		<input type="hidden" id="page" name="page" value="create_store">
 		<input type="submit" id="button" value="create a store"></br>
 		</form></div>
 		</div>
@@ -63,13 +63,13 @@ $(document).ready(function()
 
 </script>
 <script src="jquery.js"></script>
-<script src="jquery.backstretch.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="jquery.backstretch.js"></script>
 <script src="jquery.backstretch.min.js"></script>
 
 <script>
-    $.backstretch("backgroundimage.jpg");
-    $(".header").backstretch("bgcolor.png");
+    $.backstretch("greypat.jpg");
+    $(".header").backstretch("greybgcolor.png");
     
 </script>
 </body>

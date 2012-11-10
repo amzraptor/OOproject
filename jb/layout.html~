@@ -1,0 +1,47 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="jquery.backstretch.js"></script>
+<script src="jquery.backstretch.min.js"></script>
+<script src="jquery.layout-latest.js"></script>
+<script>
+    $(document).ready(function () {
+        $('body').layout({ applyDefaultStyles: true });
+    });
+</script>
+<style>
+		.slideshow {
+		     width:92%;
+                     height:60%;
+		     float:left; 
+		     margin: 20px auto;
+		     background-color: #FFF;
+		     padding: 20px;
+		     border:solid;
+		     border-color:white;
+		     border-width:2px;
+		}
+</style>
+</head>
+<body>
+<div class="ui-layout-center">Center
+<div class="slideshow">
+</div>
+
+</div>
+<div class="ui-layout-north">North</div>
+<div class="ui-layout-south">South</div>
+<div class="ui-layout-west">West</div>
+<script>
+    $(".slideshow").backstretch([
+          "images/JewelryPic_01.png",
+          "images/JewelryPic_02.png",
+          "images/JewelryPic_03.png"
+        ], {
+            fade: 750,
+            duration: 4000
+        });
+</script>
+</body>
+</html>
