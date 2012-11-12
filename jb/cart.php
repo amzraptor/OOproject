@@ -78,7 +78,7 @@ function get_conn_and_connect()
 				
 				//get the name, description and price from the database - this will depend on your database implementation.
 				//use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
-				$sql = sprintf("SELECT product_name, product_description, product_price FROM PRODUCT WHERE product_id = %d;",
+				$sql = sprintf("SELECT name, description, price FROM product WHERE product_id = %d;",
 								$product_id); 
 					
 				$result = mysql_query($sql);
@@ -127,7 +127,7 @@ function get_conn_and_connect()
 	//function to check if a product exists
 	function productExists($product_id) {
 			//use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
-			$sql = sprintf("SELECT * FROM PRODUCT WHERE product_id = %d;",
+			$sql = sprintf("SELECT * FROM product WHERE product_id = %d;",
 							$product_id); 
 				
 			return mysql_num_rows(mysql_query($sql)) > 0;

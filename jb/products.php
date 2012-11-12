@@ -38,7 +38,7 @@ function get_conn_and_connect()
 
 	<?php
 		
-		$sql = "SELECT product_id, product_name, product_description, product_price FROM PRODUCT;";
+		$sql = "SELECT product_id, name, description, price FROM product;";
 		
 		$result = mysql_query($sql);
 		
