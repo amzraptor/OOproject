@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS product (
     price       DOUBLE(12,2)    NOT NULL,
     img1        VARCHAR(200)    NOT NULL,
     qty        	MEDIUMINT       NOT NULL,
+    shipping	DOUBLE(12,2)	NOT NULL,
     material    VARCHAR(50)     ,
     size        VARCHAR(50)     ,
     color       VARCHAR(50)     ,
@@ -113,10 +114,10 @@ INSERT INTO store(name,img1,description,template,color,user_id, address1, city, 
 VALUES('Mark\'s Store','img','a cool store too','1','#ffffff', 1, '460 Keene', 'Columbia', 'mo', '65203', '573-678-0001', 'MarkTheMan@gmail.com', 2.95, 5.95);
 
 INSERT INTO store(name,img1,description,template,color,user_id, address1, city, state, zipcode, telephone, email, shipping, local_tax)
-VALUES('Carl\'s Store','img','a cool store also','1','#4A3991', 2, '123 main st', 'queen city', 'mo', '573-268-8645', 'Carl@qcfd.org', 9.99, 1.75);
+VALUES('Carl\'s Store','img','a cool store also','1','#4A3991', 2, '123 main st', 'queen city', 'mo', '12457', '573-268-8645', 'Carl@qcfd.org', 9.99, 1.75);
 
 INSERT INTO store(name,img1,description,template,color,user_id, address1, city, state, zipcode, telephone, email, shipping, local_tax)
-VALUES('Redneck\'s Store','img','a red store','1','#000000', 5, 'some gravel road', 'Redneckville', 'ky', '123-456-7890', 'bigtruck@yahoo.com', .99, 0.0);
+VALUES('Redneck\'s Store','img','a red store','1','#000000', 5, 'some gravel road', 'Redneckville', 'ky', '97532', '123-456-7890', 'bigtruck@yahoo.com', .99, 0.0);
 
 INSERT INTO store(name,img1,description,template,color,user_id, address1, city, state, zipcode, telephone, email, shipping, local_tax)
 VALUES('Mark\'s Other Store','img','a cool store two','1','#ffffff', 1, '460 Keene', 'Columbia', 'mo', '65203', '573-678-0001', 'MarkTheMan@gmail.com', 2.95, 5.95);

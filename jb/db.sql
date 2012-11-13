@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS store (
     zipcode	VARCHAR(10)	NOT NULL,
     telephone	VARCHAR(50)	NOT NULL,
     email	VARCHAR(50)	NOT NULL,
-    shipping	DOUBLE(12,2)	NOT NULL,
     local_tax	DOUBLE(12,2)	NOT NULL,
     inv_note	VARCHAR(200)	DEFAULT 'Thanks For Your Business',
     FOREIGN KEY (user_id) REFERENCES user(user_id)
@@ -50,6 +49,7 @@ CREATE TABLE IF NOT EXISTS product (
     price       DOUBLE(12,2)    NOT NULL,
     img1        VARCHAR(200)    NOT NULL,
     qty        	MEDIUMINT       NOT NULL,
+    shipping	DOUBLE(12,2)	NOT NULL,
     material    VARCHAR(50)     ,
     size        VARCHAR(50)     ,
     color       VARCHAR(50)     ,
