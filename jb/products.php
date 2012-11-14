@@ -8,21 +8,7 @@
 <title>Products</title>
 
 <?php
-function get_conn_and_connect()
-{
-    $con = mysql_connect("localhost","root","root");
-    if (!$con)
-      {
-      	echo("I can't get a connection");
-      }
-
-    if (!mysql_select_db("jewelry_box", $con))
-      {
-      	echo("problem with jbox");
-      }
-
-    return $con;
-}
+include "db.php";
 ?>
 
 <?php
@@ -34,18 +20,20 @@ function get_conn_and_connect()
 <body>
 
 
-<table border="1">
+<table border="5" padding = "5" width = "60%">
 
 	<?php
 		
-		$sql = "SELECT product_id, name, description, price FROM product;";
+		$sql = "SELECT product_id, name, description, price, img1 FROM product;";
 		
 		$result = mysql_query($sql);
 		
-		while(list($id, $name, $description, $price) = mysql_fetch_row($result)) {
+		while(list($id, $name, $description, $price, $img1) = mysql_fetch_row($result)) {
 		
 			echo "<tr>";
-			
+				echo "<td>";
+				echo "<img src= \"$img1\">";
+				echo "</td>";
 				echo "<td>$name</td>";
 				echo "<td>$description</td>";
 				echo "<td>$price</td>";

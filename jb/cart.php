@@ -10,21 +10,7 @@
 
 
 <?php
-function get_conn_and_connect()
-{
-    $con = mysql_connect("localhost","root","root");
-    if (!$con)
-      {
-       echo("I can't get a connection");
-      }
-
-    if (!mysql_select_db("jewelry_box", $con))
-      {
-       echo("problem with jbox");
-      }
-
-    return $con;
-}
+include "db.php";
 ?>
 
 <?php
@@ -71,14 +57,14 @@ break;
 if($_SESSION['cart']) {	//if the cart isn't empty
 //show the cart
 
-echo "<table border=\"1\" padding=\"3\" width=\"40%\">";	//format the cart using a HTML table
+echo "<table border=\"5\" padding=\"5\" width=\"60%\">";	//format the cart using a HTML table
 
 //iterate through the cart, the $product_id is the key and $quantity is the value
 foreach($_SESSION['cart'] as $product_id => $quantity) {	
 
 //get the name, description and price from the database - this will depend on your database implementation.
 //use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
-$sql = sprintf("SELECT name, description, price FROM product WHERE product_id = %d;",
+$sql = sprintf("SELECT name, description, price, img1 FROM product WHERE product_id = %d;",
 $product_id);
 
 $result = mysql_query($sql);
@@ -86,12 +72,13 @@ $result = mysql_query($sql);
 //Only display the row if there is a product (though there should always be as we have already checked)
 if(mysql_num_rows($result) > 0) {
 
-list($name, $description, $price) = mysql_fetch_row($result);
+list($name, $description, $price, $img1) = mysql_fetch_row($result);
 
 $line_cost = $price * $quantity;	//work out the line cost
 $total = $total + $line_cost;	//add to the total cost
 
 echo "<tr>";
+echo "<td align =\"center\"><img src= \"$img1\"></td>";
 //show this information in table cells
 echo "<td align=\"center\">$name</td>";
 //along with a 'remove' link next to the quantity - which links to this page, but with an action of remove, and the id of the current product
@@ -106,13 +93,13 @@ echo "</tr>";
 
 //show the total
 echo "<tr>";
-echo "<td colspan=\"2\" align=\"right\">Total</td>";
+echo "<td colspan=\"3\" align=\"right\">Total</td>";
 echo "<td align=\"right\">$total</td>";
 echo "</tr>";
 
 //show the empty cart link - which links to this page, but with an action of empty. A simple bit of javascript in the onlick event of the link asks the user for confirmation
 echo "<tr>";
-echo "<td colspan=\"3\" align=\"right\"><a href=\"$_SERVER[PHP_SELF]?action=empty\" onclick=\"return confirm('Are you sure?');\">Empty Cart</a></td>";
+echo "<td colspan=\"4\" align=\"right\"><a href=\"$_SERVER[PHP_SELF]?action=empty\" onclick=\"return confirm('Are you sure?');\">Empty Cart</a></td>";
 echo "</tr>";	
 echo "</table>";
 
