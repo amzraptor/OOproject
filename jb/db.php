@@ -215,4 +215,20 @@ function get_user_id($username)
     }
     return false;
 }
+/* Cart Functions */
+///////////////////////////////////////////////////
+function get_info_for_cart($product_id)
+{
+    $sql = sprintf("SELECT name, description, price, img1 FROM product WHERE product_id = %d;", $product_id);
+    return mysql_query($sql);
+}
+//function to check if a product exists
+function productExists($product_id)
+{
+    //use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
+    $sql = sprintf("SELECT * FROM product WHERE product_id = %d;",
+    $product_id);
+
+    return mysql_num_rows(mysql_query($sql)) > 0;
+}
 ?>
