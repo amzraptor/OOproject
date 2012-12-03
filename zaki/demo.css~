@@ -92,7 +92,7 @@ small{
 	z-index: 3;
 	display: none;
 
-	background-color:#666600;
+	background-color:#666666;
 	border:1px solid #666666;
 	color:#fcfcfc;
 

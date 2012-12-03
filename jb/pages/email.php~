@@ -1,0 +1,7 @@
+<?php 
+ $message = 'To: bdpoagdorado1@gmail.com\nFrom: bdpoagdorado1@gmail.com \nSubject: test email\n\nhello world armando!';
+
+exec("echo -e '$message' | ssmtp bdpoagdorado1@gmail.com");
+
+
+?>

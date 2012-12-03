@@ -1,0 +1,16 @@
+<?php 
+$action = $_POST['action'];
+switch($action)
+{
+case "start":
+	{array ('result'=>"goood");
+		echo json_encode($arr);
+		break;
+	}
+default:
+	{
+		echo "from index backend error";
+		break;
+	}
+}
+?>
