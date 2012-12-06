@@ -75,7 +75,7 @@ $sessionid = session_id();
 <p style="font-family:'Comic Sans MS', cursive, sans-serif;">Signin </p>
 <!--step 1-->
 	<label class="step1" style="">Username</label><br class="step1" style=""/>
-	<input class="step1" id="username" name="username" type="text" style="width:90%;" value="<?php echo $username; ?>"> <br class="step1" />
+	<input class="step1" id="username" name="username" type="text" style="width:90%;" value=""> <br class="step1" />
 
 <!--step 2-->
         <label class="step2">Password</label><br class="step2" />

@@ -40,14 +40,7 @@ case "validate":
 		    {
                 		//user is signed 
 				$_SESSION['user'] = $username;
-				//$_SESSION['cart'] = load_cart($username);
-/*
-if the cart has no session then there is a problem!!!
-as soon as cart is called the cart items are pulled from the session and if the username is not guest the save button  exist
-if pushed the items in the cart session are saved to the db
-*/
-			    	//go to user home
-				/*load the username and cart into the session*/
+
 				$arr = array ('result'=>"gotohomepage");
 				echo json_encode($arr);
 				break;

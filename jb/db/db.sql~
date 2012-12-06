@@ -5,6 +5,14 @@ DROP DATABASE IF EXISTS jewelry_box;
 CREATE DATABASE IF NOT EXISTS jewelry_box;
 USE jewelry_box;
 
+CREATE TABLE IF NOT EXISTS rating(
+    rating_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_id	MEDIUMINT	NOT NULL,
+    score       MEDIUMINT    NOT NULL,
+    title 	VARCHAR(40),
+    review 	VARCHAR(200),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
+)ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS user(
     user_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +22,7 @@ CREATE TABLE IF NOT EXISTS user(
     password 	VARCHAR(32)     NOT NULL,
     email 	VARCHAR(100)    NOT NULL,
     valid 	VARCHAR(100)    DEFAULT 'notvalid',
+    active	VARCHAR(20)    DEFAULT 'true',
     UNIQUE KEY     (username)
 )ENGINE = InnoDB;
 
@@ -41,6 +50,13 @@ CREATE TABLE IF NOT EXISTS store (
     img2 VARCHAR(50)	DEFAULT 'none',
     img3 VARCHAR(50)	DEFAULT 'none',
     shipping VARCHAR(50)	DEFAULT 'none',
+    cat1 VARCHAR(200)	DEFAULT 'none',
+    cat2 VARCHAR(200)	DEFAULT 'none',
+    cat3 VARCHAR(200)	DEFAULT 'none',
+    cat4 VARCHAR(200)	DEFAULT 'none',
+    cat5 VARCHAR(200)	DEFAULT 'none',
+    publish VARCHAR(10)	DEFAULT 'false',
+    active	VARCHAR(20)    DEFAULT 'true',
 
     FOREIGN KEY (user_username) REFERENCES user(username)
 )ENGINE = InnoDB;
@@ -50,6 +66,7 @@ CREATE TABLE IF NOT EXISTS product (
     store_id    MEDIUMINT       NOT NULL,
     name        VARCHAR(50)     NOT NULL,
     category    VARCHAR(50)     NOT NULL,
+    store_category    VARCHAR(200)     NOT NULL,
     gender    	VARCHAR(50)     NOT NULL,
     price       DOUBLE(12,2)    NOT NULL,
     img1        VARCHAR(200)    NOT NULL,
@@ -65,29 +82,44 @@ CREATE TABLE IF NOT EXISTS product (
     img5        VARCHAR(200)    NULL,
     likes        MEDIUMINT    DEFAULT 0,
     dislikes        MEDIUMINT    DEFAULT 0,
+    active	VARCHAR(20)    DEFAULT 'true',
 
     FOREIGN KEY (store_id) REFERENCES store(store_id)
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS cart(
-	user_id 	MEDIUMINT 	NOT NULL,
-	product_id  MEDIUMIN    NOT NULL
+    	cart_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id         MEDIUMINT       NOT NULL,
+        product_id  MEDIUMINT    NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS invoice(
     invoice_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    store_id  MEDIUMINT       NOT NULL,
-    product_id  MEDIUMINT       NOT NULL,
-    product_name       VARCHAR(50)   NOT  NULL,
-    price       DOUBLE(12,2)    NOT NULL,
-    qty        	MEDIUMINT       NOT NULL,
-    active 	VARCHAR(10)    DEFAULT 'true',
+    status	VARCHAR(20)    DEFAULT 'pending',
     user_id    MEDIUMINT       NOT NULL,
     street_address VARCHAR(200)	DEFAULT 'none',
     city VARCHAR(200)	DEFAULT 'none',
     state VARCHAR(50)	DEFAULT 'none',
     zip VARCHAR(20)	DEFAULT 'none',
+    attention VARCHAR(200)	DEFAULT 'none',
+    active	VARCHAR(20)    DEFAULT 'true',
+
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
+)ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS product_invoice(
+    product_invoice_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    store_id  MEDIUMINT       NOT NULL,
+    invoice_id  MEDIUMINT       NOT NULL,
+    product_id  MEDIUMINT       NOT NULL,
+    product_name       VARCHAR(50)   NOT  NULL,
+    price       DOUBLE(12,2)    NOT NULL,
+    qty        	MEDIUMINT       NOT NULL,
+    shipping VARCHAR(50)	DEFAULT 'none',
+    active	VARCHAR(20)    DEFAULT 'true',
+
     FOREIGN KEY (store_id) REFERENCES store(store_id),
+    FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id),
     FOREIGN KEY (product_id) REFERENCES product(product_id)
 )ENGINE = InnoDB;
 

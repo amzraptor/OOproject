@@ -104,8 +104,8 @@ font-weight:bold;
         <form action="cart.php" method="POST">
 	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
@@ -159,7 +159,7 @@ $(document).ready(function(){
 							list = list+result[i].name;
 							list = list+"</span>";
 							list = list+"<div id='description' style='text-align:block;display:none;background-color:#000;'><div>";
-							list = list+result[i].description;
+							
 							list = list+"</div>";
 							list = list+"<form action='product_display.php' method='post'><input type='submit' value='more'/ >";
 							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
@@ -193,7 +193,7 @@ $(document).ready(function(){
 					{
 		                    		$('#signin').show(); //
 		                    		$('#signup').show(); //
-		                    		$('#help').show(); //
+		                    		$('#aboutus').show(); //
 		                    		$('#cart').show(); //
 					}
 					else
@@ -201,7 +201,7 @@ $(document).ready(function(){
 		                    		$('#stores').show(); //
 		                    		$('#logout').show(); //
 		                   		$('#cart').show(); //
-		                    		$('#help').show(); //
+		                    		$('#aboutus').show(); //
 					}
 /////////////////////////////////////////////
 					},

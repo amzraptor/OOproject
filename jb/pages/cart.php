@@ -26,13 +26,14 @@ $sessionid = session_id();
 <style>
 .header{
 	background-color:black;
+}
 </style>
 
 <!-- north -->
 <div class="header" style="width:100%;height:60px;">	
 
 	<div style="color:white;width:50%;float:left;">
-		<lable style="font-size:30px;margin-top:5px;margin-left:20px;">The Jewelry Box</lable><br />
+		<a href="../index.php" style="font-size:30px;margin-top:5px;margin-left:20px;">The Jewelry Box</a><br />
 <lable style="color:#ccc;font-size:11px;margin-left:30px;">Hand Crafted Trinkets</lable>		
 	</div>
 
@@ -52,15 +53,15 @@ $sessionid = session_id();
         <form action="cart.php" method="POST">
 	<button id="cart1" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
 <div id="search_header" style="float:left;background-color:black;width:100%;">
 	
 		<div  style="float:right;margin-right:10px;margin-bottom:10px;">
-			<form action="" method="post">
+			<form action="search.php" method="post">
 				<input name="search_text" value="" placeholder="necklace"/>
 				<input style="width:70px" type="submit" id="search_button" value="search" />
 			</form>
@@ -85,7 +86,7 @@ $(document).ready(function(){
 	{
 		$('#signin').show(); //
 		$('#signup').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 		$('#cart1').show(); //
 	}
 	else
@@ -93,7 +94,7 @@ $(document).ready(function(){
 		$('#stores').show(); //
 		$('#logout').show(); //
 		$('#cart1').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 	}
 /////////////////////////////////////////////
       

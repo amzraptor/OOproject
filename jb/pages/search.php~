@@ -90,22 +90,22 @@ font-weight:bold;
 
 	<div style="height:100%;width:50%;float:left">
         <form action="signin.php" method="POST">
-	<button id="signin" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign In</button>
+	<button id="signin" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign In</button>
         </form>
         <form action="signup.php" method="POST">
-	<button id="signup" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign Up</button>
+	<button id="signup" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign Up</button>
         </form>
         <form action="logout.php" method="POST">
-	<button id="logout" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
+	<button id="logout" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
         </form>
         <form action="stores.php" method="POST">
-	<button id="stores" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
+	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
         </form>
         <form action="cart.php" method="POST">
-	<button id="cart" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
+	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:70px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
@@ -193,7 +193,7 @@ $(document).ready(function(){
 					{
 		                    		$('#signin').show(); //
 		                    		$('#signup').show(); //
-		                    		$('#help').show(); //
+		                    		$('#aboutus').show(); //
 		                    		$('#cart').show(); //
 					}
 					else
@@ -201,7 +201,7 @@ $(document).ready(function(){
 		                    		$('#stores').show(); //
 		                    		$('#logout').show(); //
 		                   		$('#cart').show(); //
-		                    		$('#help').show(); //
+		                    		$('#aboutus').show(); //
 					}
 /////////////////////////////////////////////
 					},

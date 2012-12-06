@@ -131,6 +131,7 @@ $(document).ready(function(){
       	$('#validate').click(
       	function () 
       	{
+		$('.next').hide();
 //alert("in password2");
 		var fname = $('#fname').val();
 		var lname = $('#lname').val();
@@ -153,6 +154,12 @@ $(document).ready(function(){
 						alert("The registration was a success an email with a vaildation code will be emailed to you.");
 						$(".sign-in-up").html("<h1>Thank You.</h1>");
 					}
+					else
+					{
+						$('.next').show();
+					}
+
+
 					if(data == "registrationfail")
 					{
 						alert("Sorry but the registration failed");

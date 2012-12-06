@@ -115,9 +115,7 @@ $(document).ready(function(){
 							list = list+"<span style='text-align:center;display:block;'>";
 							list = list+result[i].name;
 							list = list+"</span>";
-							list = list+"<div id='description' style='text-align:block;display:none;background-color:#000;'><div>";
-							list = list+result[i].description;
-							list = list+"</div>";
+							list = list+"<div id='description' style='text-align:block;display:none;background-color:#000;'>";
 							list = list+"<form action='product_display.php' method='post'><input type='submit' value='more'/ >";
 							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
 							list = list+"<input type='hidden' name='product_image' value='"+result[i].img1+"' / >";
@@ -153,16 +151,3 @@ $(document).ready(function(){
 </script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

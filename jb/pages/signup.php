@@ -47,8 +47,8 @@ $sessionid = session_id();
         <form action="cart.php" method="POST">
 	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
@@ -115,7 +115,7 @@ $(document).ready(function(){
 	{
 		$('#signin').show(); //
 		$('#signup').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 		$('#cart').show(); //
 	}
 	else
@@ -123,7 +123,7 @@ $(document).ready(function(){
 		$('#stores').show(); //
 		$('#logout').show(); //
 		$('#cart').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 	}
 /////////////////////////////////////////////
 

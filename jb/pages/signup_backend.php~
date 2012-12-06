@@ -67,9 +67,9 @@ case "validate":
 				    {
 					    if(add_user($fname, $lname, $username, $password, $email) != false)
 					    {
- 						   $message = sprintf("echo -e 'To: %s\nFrom: bdpoagdorado1@gmail.com \nSubject: Jewelry Box Registration\n\nWelcome to the Jewelry Box the validation code is myemailisvalid, you may signin to your new account!' | ssmtp %s",$email,$email);
+ 						   $message = 'To: $email\nFrom: bdpoagdorado1@gmail.com \nSubject: Jewelry Box Registration\n\nWelcome to the Jewelry Box the validation code is myemailisvalid, you may signin to your new account!';
 
-						    exec($message);
+						    exec("echo -e '$message' | ssmtp $email");
 						    $arr = array ('result'=>"registrationsuccess");
 						    echo json_encode($arr);
 						    break;

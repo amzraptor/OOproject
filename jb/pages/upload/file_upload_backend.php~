@@ -38,8 +38,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
     else
       {
 		echo $_FILES["file"]["tmp_name"], "<br />";
-      echo("suc::".move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]));
-      echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
+      $suc = move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]);
+	if ($suc) echo("suc::t");
+	else echo("suc::f");
+      echo "Stored in: " . "upload/uploads/" . $_FILES["file"]["name"];
       }
     }
   }

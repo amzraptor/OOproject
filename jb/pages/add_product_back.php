@@ -1,0 +1,141 @@
+<?php
+include "db.php";
+?>
+
+<!doctype html>
+<html>
+
+<head>
+
+<style>
+body {
+	background-color: #ccc;
+	margin: 0;
+}
+#header {
+	background-color:#eee;
+	margin-bottom: 36px;
+}
+#contents {
+	margin: 0 0 60px;
+}
+#background {
+	background-color:#fff;
+}
+#page {
+	background-color: #ccc;
+	width: 924px;
+	margin: 0 auto;
+	padding: 0 18px;
+}
+#footer {
+	background-color: #eee;
+	background-position: 0 -57px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="background">
+	<div id="page">
+		<div id="header">
+		header
+		</div>
+
+		<div id="content">
+			<h1> Product Added </h1>
+			<a href="create_store.php"> Back to Manage Store</a>
+		<br />
+		</div>
+
+		<div id="footer">
+		footer
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
+
+<?php
+
+$name = $_POST['name'];
+$description = $_POST['description'];
+$size = $_POST['size'];
+$quantity = $_POST['quantity'];
+$price = $_POST['price'];
+$gender = $_POST['gender'];
+$file = "uploads/".$_FILES['file']['name'];
+$material = $_POST['material'];
+$category = $_POST['category'];
+$color = $_POST['color'];
+$store_category = $_POST['scat'];
+
+if($size == "") $size = "none";
+
+$fields =array("store_id","name","description","size","qty","price","gender","img1","material","category","color", "store_category");
+$values =array("1",$name,$description,$size,$quantity,$price,$gender,$file,$material,$category,$color,$store_category);
+
+for ($i = 0; $i < count($fields);$i++)
+{
+	echo $fields[$i]." ".$values[$i]."<br />";
+}
+
+if ($_FILES["file"]["error"] > 0)
+  {
+  echo "Error: " . $_FILES["file"]["error"] . "<br>";
+  }
+else
+  {
+  echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+  echo "Type: " . $_FILES["file"]["type"] . "<br>";
+  echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+  echo "Stored in: " . $_FILES["file"]["tmp_name"];
+  }
+
+$allowedExts = array("jpg", "jpeg", "gif", "png");
+$extension = end(explode(".", $_FILES["file"]["name"]));
+if ((($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg")
+|| ($_FILES["file"]["type"] == "image/png")
+|| ($_FILES["file"]["type"] == "image/pjpeg"))
+&& ($_FILES["file"]["size"] < 20000)
+&& in_array($extension, $allowedExts))
+  {
+  if ($_FILES["file"]["error"] > 0)
+    {
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+    }
+  else
+    {
+    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+    echo "Type: " . $_FILES["file"]["type"] . "<br>";
+    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+
+    if (file_exists("uploads/" . $_FILES["file"]["name"]))
+      {
+      echo $_FILES["file"]["name"] . " already exists. ";
+      }
+    else
+      {
+        move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]);
+   	chmod($_FILES["file"]["tmp_name"], 0755);
+        echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
+      }
+    }
+  }
+else
+  {
+  echo "Invalid file";
+  }
+
+add("product",$fields,$values);
+echo "product added";
+?> 

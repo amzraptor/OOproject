@@ -54,17 +54,18 @@ $sessionid = session_id();
         <form action="pages/logout.php" method="POST">
 	<button id="logout" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
         </form>
-        <form action="pages/stores.php" method="POST">
+        <form action="pages/manage.php" method="POST">
 	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
         </form>
         <form action="pages/cart.php" method="POST">
 	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="pages/help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="pages/aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
+
 <div id="search_header" style="float:left;background-color:black;width:100%;">
 	
 		<div  style="float:right;margin-right:10px;margin-bottom:10px;">
@@ -74,6 +75,7 @@ $sessionid = session_id();
 			</form>
 		</div>
 </div>
+
 <!-- north -->
 </head>
 
@@ -111,15 +113,6 @@ west
   
 </div>
 </body>
-<script src="jquery.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script src="jquery.backstretch.js"></script>
-<script src="jquery.backstretch.min.js"></script>
-
-<script>
-    $.backstretch("bg.jpg");
-    
-</script>
 
 <script type="text/javascript">
    
@@ -131,7 +124,7 @@ $(document).ready(function(){
 	{
 		$('#signin').show(); //
 		$('#signup').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 		$('#cart').show(); //
 	}
 	else
@@ -142,7 +135,7 @@ $(document).ready(function(){
 			$('#stores').show(); //
 			$('#logout').show(); //
 			$('#cart').show(); //
-			$('#help').show(); //
+			$('#aboutus').show(); //
 		}
 		else
 		{
@@ -159,7 +152,7 @@ $(document).ready(function(){
 			$('#stores').show(); //
 			$('#logout').show(); //
 			$('#cart').show(); //
-			$('#help').show(); //
+			$('#aboutus').show(); //
 			$('#signin').hide(); //
 			$('#signup').hide(); //
 			$('.validate').hide();

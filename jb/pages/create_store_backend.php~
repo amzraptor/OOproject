@@ -48,28 +48,6 @@ case "start":
 		echo json_encode($arr);
 		break;
 	}
-case "save_vinfo":
-	{
-		$arr = array ('error'=>"");
-
-if(save_vinfo($_SESSION['store_id'],$_POST['semail'], $_POST['street_address'],  $_POST['city'],  $_POST['state'],  $_POST['zip'], $_POST['phone_number']) != true)/*save_vinfo($store, $semail, $street_address, $city, $state, $zip, $phone_number)*/
-		{
-			$arr['error'] = 'error saving info';
-		}
-		echo json_encode($arr);
-		break;
-	}
-case "save_sinfo":
-	{
-		$arr = array ('error'=>"");/* save_sinfo( $owner, $specialty, $bio,  $sname, $shipping)*/
-		if(save_sinfo($_SESSION['store_id'], $_POST['owner'], $_POST['specialty'], $_POST['bio'],$_POST['sname'],$_POST['shipping']) != true)
-		{
-			$arr['error'] = 'error saving info';
-		}
-		echo json_encode($arr);
-		break;
-
-	}
 case "save_info":
 	{
 		$arr = array ('error'=>"");
@@ -92,16 +70,4 @@ default:
 	
 */
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
 

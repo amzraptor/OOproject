@@ -71,6 +71,39 @@ function get_assoc($table, $fields, $values)
     return $row;
 }
 
+function get_mult_assoc($table, $fields, $values)
+{
+    if(sizeof($fields) != sizeof($values))
+    {
+	echo"error in add field and value mismatch.";
+	return 0;
+    }
+    $sql = "";
+    for ($i=0; $i<sizeof($fields); $i++)
+    {
+	$sql.= ("$fields[$i]='$values[$i]' AND ");
+    }
+    $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $rows = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_assoc($query))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+    if (sizeof($rows) == 0) 
+    {
+        close_conn($con);
+        return false;
+    }
+    close_conn($con);
+    return $rows;
+}
+/*echo"hey";
+$x = get_mult_assoc("store", array("user_username"), array("bdpoag1"));*/
 function update($table, $setfields, $setvalues, $wherefields, $wherevalues)
 {
     if(sizeof($setfields) != sizeof($setvalues) and sizeof($wherefields) != sizeof($wherevalues) )
@@ -205,7 +238,8 @@ function username_in_use($username)
     }
     return true;
 }
-
+//$c = user_in_user("bdpoag1", "pass8888");
+//echo"me";
 function user_in_user($username, $password)
 {
     $fields = array("username", "password");
@@ -242,6 +276,16 @@ function get_user_id($username)
     }
     return false;
 }
+
+//$x = load_stores("bdpoag1");
+//echo $x[0]["store_id"];
+function load_stores($username)
+{
+    $fields = array("user_username");
+    $values = array($username);
+    return get_mult_assoc("store", $fields, $values);
+}
+
 function load_store($store_id)
 {
     $fields = array("store_id");
@@ -275,17 +319,6 @@ function add_store($username)
     return add("store", $fields, $values);
 }
 
-//add_cart("bdpoag1");
-/*function add_cart($username)
-{
-    $fields = array("user_username");
-    $values = array($username);
-    return add("cart", $fields, $values);
-}*/
-//echo"hey1";
-/*$x = save_vinfo(1, "n", "n", "n", "n",  "65203", "n");
-if ($x == false) echo"hey2";
-else echo"hey3";*/
 function save_info($store, $selection, $value)
 {
     $setfields = array($selection);
@@ -294,29 +327,23 @@ function save_info($store, $selection, $value)
     $wherevalues = array($store);
     return update("store", $setfields, $setvalues, $wherefields, $wherevalues);
 }
-/*function save_vinfo($store, $semail, $street_address, $city, $state, $zip, $phone_number)
-{
-    $setfields = array("semail", "street_address", "city,", "state", "zip", "phone_number");
-    $setvalues = array($semail,$street_address, $city, $state, $zip, $phone_number); 
-    $wherefields = array("store_id");
-    $wherevalues = array($store);
-    return update("store", $setfields, $setvalues, $wherefields, $wherevalues);
-}*/
-/*$x = save_vinfo(1,"semail", "brandy");
-echo "here $x";
-if ($x == false) echo"y";
-echo"hey";*/
-function save_sinfo( $owner, $specialty, $bio,  $sname, $shipping)
-{
 
-
-    $setfields = array("owner", "specialty", "description", "name", "shipping");
-    $setvalues = array($owner, $specialty, $bio,  $sname, $shipping); 
-    $wherefields = array("store_id");
-    $wherevalues = array($store);
-    return update("store", $setfields, $setvalues, $wherefields, $wherevalues);
+//Cart Functions /
+///////////////////////////////////////////////////
+function get_info_for_cart($product_id)
+{
+    $sql = sprintf("SELECT name, description, price, img1 FROM product WHERE product_id = %d;", $product_id);
+    return mysql_query($sql);
 }
+//function to check if a product exists
+function productExists($product_id)
+{
+    //use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
+    $sql = sprintf("SELECT * FROM product WHERE product_id = %d;",
+    $product_id);
 
+    return mysql_num_rows(mysql_query($sql)) > 0;
+}
 //echo"hello";
 function get_search($table, $fields, $values)
 {

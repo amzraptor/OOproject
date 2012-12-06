@@ -47,8 +47,8 @@ $sessionid = session_id();
         <form action="cart.php" method="POST">
 	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
+        <form action="aboutus.php" method="POST">
+	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
         </form>
 	</div>
 </div>
@@ -75,7 +75,7 @@ $sessionid = session_id();
 <p style="font-family:'Comic Sans MS', cursive, sans-serif;">Signin </p>
 <!--step 1-->
 	<label class="step1" style="">Username</label><br class="step1" style=""/>
-	<input class="step1" id="username" name="username" type="text" style="width:90%;" value="<?php echo $username; ?>"> <br class="step1" />
+	<input class="step1" id="username" name="username" type="text" style="width:90%;" value=""> <br class="step1" />
 
 <!--step 2-->
         <label class="step2">Password</label><br class="step2" />
@@ -92,15 +92,7 @@ $sessionid = session_id();
 </div>
 </div>
 </body>
-<script src="jquery.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script src="jquery.backstretch.js"></script>
-<script src="jquery.backstretch.min.js"></script>
 
-<script>
-    $.backstretch("bg.jpg");
-    
-</script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -111,7 +103,7 @@ $(document).ready(function(){
 	{
 		$('#signin').show(); //
 		$('#signup').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 		$('#cart').show(); //
 	}
 	else
@@ -119,7 +111,7 @@ $(document).ready(function(){
 		$('#stores').show(); //
 		$('#logout').show(); //
 		$('#cart').show(); //
-		$('#help').show(); //
+		$('#aboutus').show(); //
 	}
 /////////////////////////////////////////////
 

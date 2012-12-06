@@ -9,10 +9,6 @@ case "start":
 	{
 //session_unset();
 
-	      	if(empty($_SESSION['store_id']) and $_SESSION['user'] != "guest")
-		{
-		      $_SESSION['store_id'] = add_store($_SESSION['user']);
-		}
 		if($color != "none")
 		{
 			save_color($_POST['selection'], $color, $_SESSION['store_id']);
@@ -70,16 +66,4 @@ default:
 	
 */
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
 
