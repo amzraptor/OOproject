@@ -1,5 +1,5 @@
 <?php 
-include "db/db.php";//include db script
+include "../db/db.php";//include db script
 session_start();
 
 if(empty($_SESSION['user']))
@@ -62,9 +62,8 @@ margin:0 0;
 	margin: 0 0 0;
 }
 #background {
-	background-image:url('../bg.jpg');
 
-	background-color:#cca;
+	background-color:#fff;
 }
 #page {
 	background-color: #fff;
@@ -115,7 +114,7 @@ margin:0 0;
 			<!-- middle of contents-->
 			
 
-				<div id="image" style="min-width:200px;width:25%;float:left;height:100%;border:solid;">
+				<div id="image" style="min-width:200px;width:25%;float:left;height:100%;">
 					<img src="<?php echo $product_image ?>" width="200" height="200" />
 
 						<div id="rating" style="float:left;margin-left:25px;margin-top:10px;">
@@ -179,7 +178,7 @@ margin:0 0;
 				</div>
 			
 <!----  -->
-			<div id="product_specs" style="min-width:300px;width:50%;float:left;height:500px;border:solid;">
+			<div id="product_specs" style="min-width:300px;width:50%;float:left;height:500px;">
 				
 					<div id="description" style="width:100%;float:left;height:200px;"> 
 						<p style="margin-left:10px;"> <?php echo "Description: ".$product_description ?> </p>
