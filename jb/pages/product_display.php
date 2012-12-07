@@ -74,6 +74,37 @@ margin:0 0;
 	/*background-color:#4f6266;*/
 }
 
+#product_display {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow:    3px 3px 5px 8px #ddd;
+-webkit-box-shadow: 3px 3px 5px 8px #ddd;
+box-shadow:         3px 3px 5px 8px #ddd;
+width:230px;
+height:200px;
+float:left;
+margin-left:10px;
+}
+
+#product_description {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+/*border: 1px solid #000;*/
+width:230px;
+height:200px;
+float:left;
+margin-left:10px;
+}
+
+#itemspecs {
+margin-right:10px;
+margin-left:10px;
+font-family: BebasNeue;
+font-size: 20px;
+/*color:#54c6e8;*/
+color:#444;
+}
+
 #footer {
 	background-color:#ccc;
 }
@@ -106,14 +137,14 @@ margin:0 0;
 
 		<div id="content">
 			<!-- top of contents-->
-			<div style="text-align:center;width:100%;min-height:50px;background-color:#fff;">
+			<div style="text-align:center;width:100%;min-height:50px;background-color:#fff;margin-bottom:20px;">
 				<h1> <?php echo $product_name ?> </h1>
 			</div>
 
 			<!-- middle of contents-->
 			
 
-				<div id="image" style="min-width:200px;width:25%;float:left;height:100%;">
+				<div id="product_display" id="image" style="min-width:200px;width:25%;float:left;height:400px;overflow:auto;">
 					<img src="<?php echo $product_image ?>" width="200" height="200" />
 
 						<div id="rating" style="float:left;margin-left:25px;margin-top:10px;">
@@ -124,9 +155,8 @@ margin:0 0;
 									<img src="../site_images/thumbUp.png" width="20px" hieght="20px" > LIKE </button>
 							<label id="likes" style="color:#0f0;"> </label>
 							<div id="likes" > </div>
-
 							</div>
-
+							
 							<script type="text/javascript" >
 							function update_likes() {
 									var y = "<?php echo $product_id ?>";
@@ -150,7 +180,10 @@ margin:0 0;
 							<button style="border:none;background:transparent;" onclick="update_dislikes()"> 
 									<img src="../site_images/thumbDown.png" width="20px" hieght="20px" > DISLIKE </button>
 							<label id="dislikes" style="color:#f00;"> </label>
-							<div id="dislikes" > </div>
+							<div id="dislikes" style="width:100%;float:left;"> </div>
+							<div style="margin-top:30px;width:100%;float:left;">
+							LINK TO STORE
+							</div>
 							</div>
 							<script type="text/javascript">
 							function update_dislikes() {
@@ -177,10 +210,10 @@ margin:0 0;
 				</div>
 			
 <!----  -->
-			<div id="product_specs" style="min-width:300px;width:50%;float:left;height:500px;">
+			<div  id="product_description" id="product_specs" style="min-width:300px;width:70%;margin-left:10px;float:left;height:400px;">
 				
-					<div id="description" style="width:100%;float:left;height:200px;"> 
-						<p style="margin-left:10px;"> <?php echo "Description: ".$product_description ?> </p>
+					<div id="itemspecs" id="description" style="width:98%;float:left;height:200px;overflow:auto;"> 
+						<p style="margin-left:10px;"> <?php echo $product_description ?> </p>
 					</div>
 
 					<div id="more_specs" style="width:100%;float:left;min-height:20px;">
@@ -194,20 +227,16 @@ margin:0 0;
 					</div>
 		
 			
-<!----  -->
+<!----  -->	
 	</div>
 			<!-- bottom contents-->
-			<div style="height:50px;">
-				<form style="float:right;">
-				<input  type ="button" value="add to cart" id="add_label" onclick="add_to_cart(<?php echo $product_id?>)"/>
-				</form>
-			</div>
-		
-			<div id="footer">
+			<div style="float:right;margin-right:11px;">
+					<!-- <form style="float:right;"> -->
+							<input  type ="submit" value="add to cart" id="add_label" onclick="add_to_cart(<?php echo $product_id?>)"/>
+						<!--</form> -->
+					</div>	
 
 			</div>
-
-		</div>
 
 	</div>
 

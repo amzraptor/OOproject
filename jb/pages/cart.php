@@ -1,5 +1,5 @@
 <?php 
-include "db/db.php";//include db script
+include "../db/db.php";//include db script
 session_start();
 
 if(empty($_SESSION['user']))
@@ -24,7 +24,8 @@ else
 	
 		
 	</div>
-<div id="cart">
+
+<div style="margin:75px;" id="cart">
 
 </div>
 </body>

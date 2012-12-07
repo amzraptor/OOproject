@@ -1,5 +1,5 @@
 <?php 
-include "db/db.php";//include db script
+include "../db/db.php";//include db script
 session_start();
 
 if(empty($_SESSION['user']))
@@ -43,35 +43,36 @@ else
 	
 		
 	</div>
-			
-	<div class="sub2" style="width:100%;height:100%;margin-top:5%;">
+	<div style="width:100%;margin-top:50px;margin-bottom:-27px;"><center><h1> <font>Stores</font> Home </h1><center></div>
+	<div class="sub2" style="width:100%;height:600px;">
 
-
-
-		<div style="width:25%;float:left;">
+		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
 		<form action="create_store.php" method="POST">
-			<h1 style="margin-left:10%;">Create a Store</h1>
+			<h1 style="border:none;margin-left:10%;">Create a Store</h1>
 <input name="sload" class='sload' type="radio" style="margin-left:10%;" value="none">Create a New Store</input></br></br>
 			<button id="load_store2" style="margin-left:15%;">submit</button>
 		</form>
 		</div>
-		<div style="width:25%;float:left;">
+
+		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
 		<form action="manage.php" method="POST">
-			<h1 style="margin-left:10%;">Manage a Store</h1>
+			<h1 style="border:none;margin-left:10%;">Manage a Store</h1>
 			<div id="stores_list" style="margin-left:5%;"></div>
 			<button id="load_store" style="margin-left:15%;">submit</button>
 		</form>
 		</div>
-		<div style="width:25%;float:left;">
+
+		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
 		<form action="store.php" method="POST">
-			<h1 style="margin-left:10%;">View a Store</h1>
+			<h1 style="border:none;margin-left:10%;">View a Store</h1>
 			<div id="stores_list2" style="margin-left:5%;"></div>
 			<button id="load_store" style="margin-left:15%;">submit</button>
 		</form>
 		</div>
-		<div style="width:25%;float:left;">
+
+		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
 		<form action="remove_store.php" method="POST">
-			<h1 style="margin-left:10%;"> Remove a Store</h1>
+			<h1 style="border:none;margin-left:10%;"> Remove a Store</h1>
 			<div id="stores_list3" style="margin-left:5%;"></div>
 			<button id="load_store" style="margin-left:15%;">submit</button>
 		</form>

@@ -18,15 +18,15 @@ function get_search_results($search_results, $index = 1)
 }
 
 $search = $_POST['search_words'];
-/*if($search == "-99")
+if($search == "-99")
 {
 	$products = get_search_store($_SESSION['store_id']);
 }
 else
 {
 	$products = get_search_results($search);
-}*/
-$products = get_search_results(/*$search*/"n");
+}
+//products = get_search_results(/*$search*/"n");
 echo json_encode($products);
 
 

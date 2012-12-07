@@ -55,7 +55,7 @@ else
     margin-left:15px;
 }
 .holder a.jp-current,a.jp-current:hover {
-    color:#FF4242;
+    color:#5599ff;
     font-weight:bold;
 }
 .holder a.jp-disabled,a.jp-disabled:hover {
@@ -81,8 +81,7 @@ width:230px;
 height:200px;
 color: #54c6e8;
 float:left;
-margin:30px;'
-
+margin:30px;
 }
 
 #itempic {
@@ -111,6 +110,13 @@ color:#fff;
 font-weight:bold;	
 }*/
 
+#search_content {
+margin-top:75px;
+margin-left:75px;
+margin-right:75px;
+margin-bottom:20px;
+}
+
 </style>
 
 </head>
@@ -120,17 +126,18 @@ font-weight:bold;
 	
 		
 	</div>
+		<div id="search_content">
+		<h1> <font>Search</font> Results </h1>
+		</div>
+		<center><div class="holder" style="width:100%;"></div></center>
+		<div align="center" style="width:100%;">
 
-	<div align="center" style="width:100%;">
-
-	<div class="holder">
+		<ul id="itemContainer" style="width:100%;float:left">
+		</ul>
 		</div>
 
-	</div>
-
-	<ul id="itemContainer">
-	</ul>
-
+		<center><div class="holder" style="width:100%;"></div></center>
+	
 </body>
 <script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
@@ -179,7 +186,7 @@ $(document).ready(function(){
 							list = list+"<div id='description' style='text-align:block;display:none;'><div>";
 							
 							list = list+"</div>";
-							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;cursor:pointer;border:none;color:red;' value='view'/ >";
+							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;cursor:pointer;border:none;color:#5599ff;' value='view'/ >";
 							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
 							list = list+"<input type='hidden' name='product_image' value='"+result[i].img1+"' / >";
 							list = list+'<input type="hidden" name="product_description" value="'+result[i].description+'" / >';

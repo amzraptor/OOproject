@@ -1,6 +1,6 @@
 <?php 
 $email = $_POST['email'];
-echo $email;
+//echo $email;
 
 include "db/db.php";//include db script
 session_start();
@@ -47,15 +47,16 @@ else
 	</div>
 
 <div>
+	<div style="margin:75px;"><center><h1> <font>Email</font> Us </h1><center></div>
 <div style="margin-left:25%;" id="main">
-<h1>Email</h1>
+
 <label>Subject</label></br>
 <input id="subject" style="width:50%;"></input></br>
 <label>From</label></br>
 <input id="from" style="width:50%;"></input></br>
 <label>Message</label></br>
 <textarea id="message" style="width:50%;height:200px;"></textarea></br>
-<button id="send">Send</button>
+<input type="submit" value="send" id="send" />
 </div>
 </div>
 

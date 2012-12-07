@@ -30,14 +30,18 @@ $sessionid = session_id();
 		
 	</div>
 
+<div style="margin:75px;">
+		<h1> <font>Sign</font> In</h1>
+</div>
+
 <div id="main" class="container" style="width:100%;">
 <div style="float:left;width:29%;">
 <p style="display:hidden;"/>
 </div>
 <div style="float:left;width:69%;">
-<!-- Signin -->
-<h1>Signin</h1>
-<div id="sign-in-up" style="float:left;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
+
+<div id="sign-in-up" style="float:left;margin-left:10%;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
+	
 
 <!--step 1-->
 	<label class="step1" style="">Username</label><br class="step1" style=""/>
@@ -45,14 +49,23 @@ $sessionid = session_id();
 
 <!--step 2-->
         <label class="step2">Password</label><br class="step2" />
-	<input class="step2" id="password" name="password" type="text" style="width:90%;" value="<?php echo $password; ?>"> <br class="step2"/>
+	<input class="step2" id="password" name="password" type="password" style="width:90%;" value="<?php echo $password; ?>"> <br class="step2"/>
 <br/>
-	<button class="next" id="validate" style="font-family:'Comic Sans MS', cursive, sans-serif;" >validate</button></br class="next" ></br class="next" >
+	<input type="submit" value="done" class="next" id="validate" style="font-family:'Comic Sans MS', cursive, sans-serif;" /></br class="next" ></br class="next" >
 </div>
 <!--submit-->
+
+<center>
 <form action="../index.php" method="POST">
-	<button class="done" style="display:none;font-family:'Comic Sans MS', cursive, sans-serif;margin-top:10%;" > submit</button></br class="done" style="display:none;"></br class="done" style="display:none;">
+	<input type="submit" class="done" value="return to home page" style="display:none;font-family:'Comic Sans MS', cursive, sans-serif;margin-top:10%;" />
+
+</br class="done" style="display:none;">
+</br class="done" style="display:none;">
+
 </form>
+</center>
+
+
 </div>
 </div>
 </div>
@@ -100,7 +113,7 @@ $(document).ready(function(){
 					{
 						$('.message').hide();
 						$('.done').show();
-						$('#sign-in-up').html("<h1>Thank You</h1>");
+						$('#sign-in-up').html("<center><h2>Thank You</h2></center>");
 					}
 					else if(data.result == "usernamenotfound")
 					{

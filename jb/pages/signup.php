@@ -30,11 +30,14 @@ else
 	</div>
 
 <div id="main" class="container" style="width:100%;">
+<div style="margin:75px;">
+		<h1> <font>Sign</font> Up </h1>
+</div>
+
 <div style="float:left;width:29%;">
 <p style="display:hidden;"/>
 </div>
 <div style="float:left;width:69%;">
-<h1>Sign Up</h1>
 <!-- Signin -->
 <div class="sign-in-up" style="float:left;margin-left:10%;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
 
@@ -56,12 +59,12 @@ else
 
 <!--step 5-->
         <label class="step5">Password</label><br/>
-	<input class="step5" id="password" name="password" type="text" style="width:90%;" value=""> <br/>
+	<input class="step5" id="password" name="password" type="password" style="width:90%;" value=""> <br/>
 
 <!--step 6-->
         <label class="step6">Re-Enter Password</label><br/>
-	<input class="step6" id="password2" name="password2" type="text" style="width:90%;" value=""> <br/>
-	<button class="next" id="validate" style="font-family:'Comic Sans MS', cursive, sans-serif;" >validate</button></br class="next" ></br class="next" >
+	<input class="step6" id="password2" name="password2" type="password" style="width:90%;" value=""> <br/>
+	<input type="submit" value="done" class="next" id="validate" style="font-family:'Comic Sans MS', cursive, sans-serif;margin-top:10px;" /> </br class="next" ></br class="next" >
 </div>
 <br/>
 </div>
@@ -117,7 +120,7 @@ $(document).ready(function(){
 					if(data == "registrationsuccess")
 					{
 						alert("The registration was a success an email with a vaildation code will be emailed to you.");
-						$(".sign-in-up").html("<h1>Thank You.</h1>");
+						$(".sign-in-up").html("<h2>Thank You.</h2>");
 					}
 					else
 					{

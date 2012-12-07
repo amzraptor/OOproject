@@ -91,7 +91,7 @@ $(document).ready(function(){
 				}
 				else
 				{	
-					$('#main').append("<h1>Store Has Been Deleted</h1>");
+					$('#main').append("<div style='margin:75px;'><h1><font>Store</font> Has Been Deleted</h1></div>");
 				}
 				
 		         },

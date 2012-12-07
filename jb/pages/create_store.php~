@@ -67,15 +67,16 @@ else
 
 
 
-    <style>
-    {
-    .ui-tabs-vertical { width: 55em; }
-    .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-    .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-    .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-    .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
-
+<style>
+  
+{ 
+.ui-tabs-vertical { width: 55em; }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+}
 
 #contents {
 	margin: 0 0 60px;
@@ -135,8 +136,8 @@ color:red;
 </div>
 
 <div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-top:5%;margin-bottom:5%;height:70%;margin-left:10%;">
-	<div id="about_store" name="about_store" style="float:left;width:100%;"
-      <form action="email.php" method="POST" style="margin-left:80%;">
+	<div id="about_store" name="about_store" style="float:left;width:100%;">
+      <form style="margin-left:80%;">
 	<input type="hidden" id="email" name="email" value=""/>
 	<button id="ssemail" name="ssemail" style="margin-left:10%;">Email Store Owner</button>
       </form>
@@ -144,7 +145,7 @@ color:red;
 	<label id="sownern" name="sownern" style="margin-left:10%;float:left;"> Store Owner's Name </label>
 	<label id="sspecialty" name="sspecialty" style="margin-left:10%;float:left;"> Store Specialty </label></br>
 	<label id="sdescription" name="sdescription" style="margin-left:10%;"> Store description </label>
-	</div>
+	</div> 
 <div id="store_category" name="store_category" style="float:left;width:100%;margin-left:3%;">
 <button id="but1" name="but1" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 1</button>
 <button id="but2" name="but2" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 2</button>

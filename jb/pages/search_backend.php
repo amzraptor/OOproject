@@ -29,6 +29,5 @@ else
 //products = get_search_results(/*$search*/"n");
 echo json_encode($products);
 
-
 ?>
 

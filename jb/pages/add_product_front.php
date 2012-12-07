@@ -35,7 +35,6 @@ body {
 }
 
 #page {
-	background-color: #ccc;
 	width: 924px;
 	margin: 0 auto;
 	padding: 0 6px;
@@ -128,7 +127,7 @@ $(document).ready(function(){
 		
 	</div>
 <div id="background">
-<h1>Add A Product To Store</h1>
+<center><div style="margin:75px;"><h1><font>Add Product</font> To Store</h1></div></center>
 
 	<div id="page">
 

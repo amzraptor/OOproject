@@ -28,7 +28,7 @@ $sessionid = session_id();
 
 
 
-    <div id="pageContent" aligin="center"><h1> Thanks For Visiting! </h1></div> 
+    <div id="pageContent" aligin="center"><h1 style="margin-left:30%;"> Thanks For Visiting! </h1></div> 
 
 
   

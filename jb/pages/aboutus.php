@@ -25,14 +25,49 @@ else
 
 <style>
 {
+.ui-tabs-vertical { 
+width: 55em; 
 
- 
-    .ui-tabs-vertical { width: 55em; }
-    .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-    .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-    .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-    .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-    .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+}
+
+.ui-tabs-vertical .ui-tabs-nav {
+padding: .2em .1em .2em .2em;
+float: left;
+width: 12em;
+}
+    
+.ui-tabs-vertical .ui-tabs-nav li { 
+clear: left;
+width: 100%; 
+border-bottom-width: 1px !important;
+border-right-width: 0 !important;
+margin: 0 -1px .2em 0;
+}
+    
+.ui-tabs-vertical .ui-tabs-nav li a { 
+display:block; 
+}
+    
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { 
+padding-bottom: 0; 
+padding-right: .1em; 
+border-right-width: 1px; 
+border-right-width: 1px; 
+
+}
+    
+.ui-tabs-vertical .ui-tabs-panel { 
+padding: 1em; 
+float: right; 
+width: 40em;
+}
+}
+
+.tabbed_area ul {
+		
+background-color:blue;
+} 
+
 </style>
 
 <link rel="stylesheet" media="all" href="header.css" type="text/css" />
@@ -50,13 +85,13 @@ else
         <li><a href="#tabs-2">Contact Us</a></li>
     </ul>
     <div id="tabs-1">
-        <h1>About Us</h1>
+        <h1><font>About</font> Us</h1>
 	<p>The goal of the site is to allow vendors to sell their products in a inexpensive and seemlessly effortless manner.  The vendors have a lot of control over their store from design to sales. The best part is there are no monthly fees and owning a store is free.  Vendors may have as many stores as they like.  The site recieves 2% of every sale, this is the only fee!</p>
 	<p> The Jewelry Box is a colaboration from 4 Columbia College Students Brandy, Mark, Zaki, and Marshall.</p>
 	<p>December 2012</p>
     </div>
     <div id="tabs-2">
-        <h1>Contact Us</h1>
+        <h1><font>Contact</font> Us</h1>
 	<p>We are located at 1001 Rogers St. Columbia, Missouri 65202.</p>
 	<p>Call us at 1-573-857-6309</p>
 	<p>Email us at bdpoagdorado1@cougars.ccis.edu</p>

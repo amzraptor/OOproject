@@ -101,7 +101,7 @@ if($_SESSION['cart'])
   //show the cart
   reset($checkout_array);     //reset the array 
   $checkout_array= array();   //now set it
-  echo "<H1>Shopping Cart</H1>";
+  echo "<div><h1> <font>Shopping</font> Cart </h1></div>";
   echo "<table class=\"curvedEdges\">";	//format the cart using a HTML table
   echo "<th></th><th>Item</th><th>Quantity</th><th>Price ($)</th>";        //column tittles
  
@@ -146,8 +146,8 @@ if($_SESSION['cart'])
     
     <table>
     <tr>
-    <td colspan="0" align="left"><input  type ="button" value="Remove Marked" id="checked_button" onclick="remove_checked()"/> </td>
-    <td colspan="3" align="right"><input  type ="button" value="Empty Cart" id="empty_cart_button" onclick= "empty_cart()"/> </td>
+    <td colspan="0" align="left"><input  type ="submit" value="Remove Marked" id="checked_button" onclick="remove_checked()"/> </td>
+    <td colspan="3" align="right"><input  type ="submit" value="Empty Cart" id="empty_cart_button" onclick= "empty_cart()"/> </td>
     <td colspan="4" align="right">
       <form method = "post" action = "purchase.php">
         <?php /*<input type = "hidden" name = "cart_final" value = "<?php echo base64_encode(json_encode( $checkout_array ) ); ?>">
@@ -170,8 +170,8 @@ if($_SESSION['cart'])
 else
 {
   //otherwise tell the user they have no items in their cart
-  echo "<H1> Shopping Cart </H1>";
-  echo "You have no items in your shopping cart.";
+  echo "<div><h1> <font>Shopping</font> Cart </h1>";;
+  echo "You have no items in your shopping cart.</div>";
   ?>
   <?php //<input  type ="button" value="Load Cart" id="load_cart_button" onclick= "load_cart()" /> </td>
   ?>
