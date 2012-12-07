@@ -1,5 +1,5 @@
 <?php 
-include "db/db.php";//include db script
+include "../db/db.php";//include db script
 session_start();
 
 if(empty($_SESSION['user']))
@@ -62,9 +62,8 @@ margin:0 0;
 	margin: 0 0 0;
 }
 #background {
-	background-image:url('../bg.jpg');
 
-	background-color:#cca;
+	background-color:#fff;
 }
 #page {
 	background-color: #fff;
@@ -72,7 +71,6 @@ margin:0 0;
 	height: 100%;
 	margin: 0 auto;
 	padding: 0 18px;
-	border: 3px solid #2d3035;
 	/*background-color:#4f6266;*/
 }
 
