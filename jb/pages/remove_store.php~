@@ -38,6 +38,11 @@ else
 	
 		
 	</div>
+	<div class="main" id="main" name="main">
+	
+		
+	</div>
+
 
 </body>
 
@@ -86,7 +91,7 @@ $(document).ready(function(){
 				}
 				else
 				{	
-					alert("yep");
+					$('#main').append("<h1>Store Has Been Deleted</h1>");
 				}
 				
 		         },

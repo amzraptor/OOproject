@@ -216,7 +216,7 @@ color:#444;
 				<input type="submit" value="sign out" id="logout" style="width:90px;display:none;" />
 		    </form>
 
-		    <form style="float:left;margin-right:10px;" action="pages/manage.php" method="POST">
+		    <form style="float:left;margin-right:10px;" action="pages/stores.php" method="POST">
 				<input type="submit" value="stores" id="stores" style="width:90px;display:none;" />
 		    </form>
 
@@ -241,7 +241,7 @@ color:#444;
 	</div>
 
 	<div id="content">
-
+		<div id="top_picks">
 		<h1> <font>Top</font> Picks </h1>
 
 		<div id="item">
@@ -252,6 +252,7 @@ color:#444;
 			<div id="itemspecs">
 				Rings
 			</div>
+		</div>
 		</div>
 
 		<div class="validate" 
@@ -295,6 +296,7 @@ $(document).ready(function(){
 		else
 		{
 			$('.validate').show();
+			$('#top_picks').hide();
 		}
 	}
 		
@@ -323,6 +325,7 @@ $(document).ready(function(){
 					if(data.success == 'true')
 					{
 						alert("Email Validated");
+						$('#top_picks').show();
 					}
 					else
 					{

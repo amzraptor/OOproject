@@ -1,5 +1,16 @@
 <?php
-include "db.php";
+include "../db/db.php";
+session_start();
+
+if(empty($_SESSION['user']))
+{
+      $_SESSION['user'] = "guest";
+      $username = "guest";
+}
+else
+{
+      $username = $_SESSION['user'];
+}
 ?>
 
 <!doctype html>
@@ -7,60 +18,53 @@ include "db.php";
 
 <head>
 
-<style>
-body {
-	background-color: #ccc;
-	margin: 0;
-}
-#header {
-	background-color:#eee;
-	margin-bottom: 36px;
-}
-#contents {
-	margin: 0 0 60px;
-}
-#background {
-	background-color:#fff;
-}
-#page {
-	background-color: #ccc;
-	width: 924px;
-	margin: 0 auto;
-	padding: 0 18px;
-}
-#footer {
-	background-color: #eee;
-	background-position: 0 -57px;
-	width: 100%;
-	position: absolute;
-	left: 0;
-}
-
-</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<link rel="stylesheet" media="all" href="header.css" type="text/css" />
 
 </head>
 
 <body>
+	<div class="header" id="header" name="header">
+	
+		
+	</div>
 <div id="background">
 	<div id="page">
-		<div id="header">
-		header
-		</div>
 
 		<div id="content">
 			<h1> Product Added </h1>
-			<a href="create_store.php"> Back to Manage Store</a>
+			<a href="stores.php"> Back to Stores</a>
 		<br />
 		</div>
 
-		<div id="footer">
-		footer
-		</div>
 	</div>
 </div>
 
 </body>
+<script type="text/javascript" src = "header.js"></script>
+<script type="text/javascript">
+////*****************************************************////
+$(document).ready(function(){
 
+        var username = "<?php echo $username; ?>";
+/////////////////////////////////////////////
+	if(username == "guest")
+	{
+		$('#signin').show(); //
+		$('#signup').show(); //
+		$('#aboutus').show(); //
+		$('#cart1').show(); //
+	}
+	else
+	{
+		$('#stores').show(); //
+		$('#logout').show(); //
+		$('#cart1').show(); //
+		$('#aboutus').show(); //
+	}
+/////////////////////////////////////////////
+});
+</script>
 </html>
 
 <?php
@@ -82,22 +86,22 @@ if($size == "") $size = "none";
 $fields =array("store_id","name","description","size","qty","price","gender","img1","material","category","color", "store_category");
 $values =array("1",$name,$description,$size,$quantity,$price,$gender,$file,$material,$category,$color,$store_category);
 
-for ($i = 0; $i < count($fields);$i++)
+/*for ($i = 0; $i < count($fields);$i++)
 {
 	echo $fields[$i]." ".$values[$i]."<br />";
-}
+}*/
 
 if ($_FILES["file"]["error"] > 0)
   {
   echo "Error: " . $_FILES["file"]["error"] . "<br>";
   }
-else
+/*else
   {
   echo "Upload: " . $_FILES["file"]["name"] . "<br>";
   echo "Type: " . $_FILES["file"]["type"] . "<br>";
   echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
   echo "Stored in: " . $_FILES["file"]["tmp_name"];
-  }
+  }*/
 
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
@@ -114,10 +118,10 @@ if ((($_FILES["file"]["type"] == "image/gif")
     }
   else
     {
-    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+    /*echo "Upload: " . $_FILES["file"]["name"] . "<br>";
     echo "Type: " . $_FILES["file"]["type"] . "<br>";
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";*/
 
     if (file_exists("uploads/" . $_FILES["file"]["name"]))
       {
@@ -127,7 +131,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
       {
         move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]);
    	chmod($_FILES["file"]["tmp_name"], 0755);
-        echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
+        //echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
       }
     }
   }
@@ -137,5 +141,6 @@ else
   }
 
 add("product",$fields,$values);
-echo "product added";
+//echo "product added";
+echo "Thank You";
 ?> 

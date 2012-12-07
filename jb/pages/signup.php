@@ -113,7 +113,7 @@ $(document).ready(function(){
 		        success: function(data_json)          //on recieve of reply
 		                 {
 					data = data_json.result;
-					alert("data"+data);
+					//alert("data"+data);
 					if(data == "registrationsuccess")
 					{
 						alert("The registration was a success an email with a vaildation code will be emailed to you.");

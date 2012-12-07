@@ -45,9 +45,6 @@ else
 	</div>
 			
 	<div class="sub2" style="width:100%;height:100%;margin-top:5%;">
-
-
-
 		<div style="width:25%;float:left;">
 		<form action="create_store.php" method="POST">
 			<h1 style="margin-left:10%;">Create a Store</h1>
