@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+</head>
+<body>
+
+<!--<form action="file_upload_backend.php" method="post"
+enctype="multipart/form-data">-->
+<label for="file">Filename:</label>
+<input type="file" name="file" id="file"><br>
+<button id="submit" name="submit" >Submit</button>
+<!--</form>-->
+
+</body>
+<script type="text/javascript">
+////*****************************************************////
+$(document).ready(function(){
+alert('yo');
+	$('#submit').click(function(){
+		    var file = $('#file').val();
+		    var postData0 = {'file':file};
+	alert('hey');
+		    $.ajax({
+		        type: "POST",
+		        data: postData0,
+		        url: "file_upload_backend.php",                  //  
+		        success: function(data)          //on recieve of reply
+				 {			
+					alert(data);
+		                 },
+		       dataType: "html",
+		        error: function(data)          //on recieve of reply
+		                 {
+		                    alert("hello error");
+		                 }
+		});
+	});
+});
+</script>
+</html>
