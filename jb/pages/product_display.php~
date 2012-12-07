@@ -67,8 +67,8 @@ background-image:url('../bg.jpg');
 #header {
 	background-color:#ccc;
 }
-#contents {
-	margin: 0 0 0;
+#content {
+	margin: 0 0 auto;
 }
 #background {
 	background-image:url('../bg.jpg');
@@ -82,7 +82,6 @@ background-image:url('../bg.jpg');
 	padding: 0 18px;
 	border: 3px solid #2d3035;
 	/*background-color:#4f6266;*/
-	background-color:#ccc;
 }
 
 #footer {

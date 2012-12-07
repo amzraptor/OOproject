@@ -107,7 +107,7 @@
     setStyles : function() {
       var requiredStyles = "<style>" +
       ".jp-invisible {visibility: hidden !important; } " +
-      ".jp-hidden { display: none !important; }" +
+      ".jp-hidden { color:green; display: none !important; }" +
       "</style>";
 
       $(requiredStyles).appendTo("head");

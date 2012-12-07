@@ -171,26 +171,22 @@ INSERT INTO store(sname,img1,description,user_username)
 VALUES('Neck Magic','img','Buy cool necklaces NOW!!!!','Sue');
 
 INSERT INTO product (name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Men\'s necklace','necklaces','bronze','large','male',899.99,'../images/Default_Pic_2x.png',20,'A cool necklace for men to wear. You want one!', 1);
+VALUES('Men\'s necklace','necklaces','bronze','large','male',899.99,'../images/Default_Pic.png',20,'A cool necklace for men to wear. You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Women\'s ring','rings','gold','small','female',3899.99,'../images/Default_Pic_2x.png',20,'A cool ring for women to wear. You want one!', 1);
+VALUES('Women\'s ring','rings','gold','small','female',3899.99,'../images/Default_Pic.png',20,'A cool ring for women to wear. You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Child\'s necklace', 'necklaces', 'silver', 'small', 'unisex', 8.99, '../images/Default_Pic_2x.png', 20, 'You want one!', 1);
+VALUES('Child\'s necklace', 'necklaces', 'silver', 'small', 'unisex', 8.99, '../images/Default_Pic.png', 20, 'You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-<<<<<<< HEAD
-VALUES('Bracelet', 'other', 'other', 'large', 'unisex', 11.99, '/var/www/html/Default_Pic.png', 2, 'A nice bracelet to get friends. You want one!', 1);
-=======
-VALUES('prison shank', 'other', 'other', 'large', 'unisex', 11.99, '../images/Default_Pic_2x.png', 2, 'A cool shank for men to get people. You want one!', 1);
->>>>>>> d75806a7ff85c739dc7462bcf659c23ea17640c8
+VALUES('Bracelet', 'other', 'other', 'large', 'unisex', 11.99, '/var/www/html/Default.png', 2, 'A nice bracelet to get friends. You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Men\'s ring', 'ring', 'gold', 'large', 'male', 899.99, '../images/Default_Pic_2x.png', 20, 'just like Mr T wears', 1);
+VALUES('Men\'s ring', 'ring', 'gold', 'large', 'male', 899.99, '../images/Default_Pic.png', 20, 'just like Mr T wears', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Women\'s necklace','necklaces','wood','18','woman',19.98,'../images/Default_Pic_2x.png',20,'A cool necklace for women to wear. You want one!',1);
+VALUES('Women\'s necklace','necklaces','wood','18','woman',19.98,'../images/Default_Pic.png',20,'A cool necklace for women to wear. You want one!',1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
 VALUES('Kids\'s rings', 'rings', 'silver', 'small', 'unisex', 4.20, '../images/Default_Pic.png',200, 'A cool ring for you kid. You want one!', 1);
@@ -202,7 +198,7 @@ INSERT INTO product(name,category,material,size,gender,price,img1,qty,descriptio
 VALUES('Kids\'s rings', 'rings', 'silver', 'small', 'unisex', 4.20, '../images/Default_Pic.png',200, 'A cool ring for you kid. You want one!', 2);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-VALUES('Kids\'s tongue stud', 'body jewelry', 'silver', 'large', 'unisex', 4.20, '../images/Default_Pic_2x.png',200, 'A cool thing for you kid. You want one!', 1);
+VALUES('Kid\'s jewelry', 'body jewelry', 'silver', 'large', 'unisex', 4.20, '../images/Default_Pic.png',200, 'A cool thing for you kid. You want one!', 1);
 
 
 INSERT invoice set street_address='1 Main St.', city='Columbia', state='MO.';

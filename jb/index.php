@@ -29,90 +29,245 @@ $sessionid = session_id();
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+
 	<script type="text/javascript" src="jquery-1.2.1.pack.js "></script>
-<style>
-.header{
-	background-color:black;
+
+<style type="text/css">
+
+@font-face {
+font-family: BebasNeue;
+src: url('fonts/BebasNeue.otf'); /* Edit this line */
+}
+body {
+
+margin:0;
+padding:0;
+
+}
+
+.header {
+min-width: 1100px;
+height:50px;
+border-bottom: 1px solid #ccc;
+width:100%;
+margin-top:5px;
+
+-moz-box-shadow:    3px 5px 8px #ddd;
+-webkit-box-shadow: 3px 5px 8px #ddd;
+box-shadow:         3px 5px 8px #ddd;
+}
+
+#logo {
+width:310px;
+float:left;
+margin-left:30px;
+}
+
+#logo_text {
+width:260px;
+float:left;
+font-family:'BebasNeue';
+font-style:none;
+font-size:40px;
+}
+
+#logo_text a {
+text-decoration:none;
+color:black;
+}
+
+#logo_image {
+margin-top:-5px;
+width:50px;
+float:left;
+}
+
+#search_bar{
+margin-top:10px;
+float:left;
+width:300px;
+}
+
+
+#search_bar input[type="text"] {
+width:200px;
+
+}
+
+input[type="submit"] {
+
+background-color: #333;
+padding: 5px 10px 6px;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+line-height: 1;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+position: relative;
+cursor: pointer;
+border:none;
+
+}
+
+#title_banner_bg {
+width:100%;
+background-color:#79c6e8;
+repeat: repeat-x;
+}
+
+
+#title_banner {
+width:1000px;
+height:150px;
+margin:0 auto;
+background-image: url('site_images/titlehomepage3.png');
+}
+
+#content {
+margin:75px;
+
+}
+
+h1 {
+font-family:BebasNeue;
+font-size:40px;	
+border-bottom: 1px solid #ccc;
+
+}
+
+h1 font {
+font-family:BebasNeue;
+font-size:40px;	
+color:#54c6e8;
+}
+
+#buttons {
+float:right;
+margin-right: 40px;
+margin-top:8px;
+}
+
+#item {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow:    3px 3px 5px 8px #ddd;
+-webkit-box-shadow: 3px 3px 5px 8px #ddd;
+box-shadow:         3px 3px 5px 8px #ddd;
+width:230px;
+height:200px;
+color: #54c6e8;
+}
+
+#itempic {
+width: 95%;
+height: 140px;
+background-color: #cff;
+border: 5px solid #fff;
+}
+
+#itemspecs {
+margin-right:10px;
+margin-left:10px;
+font-family: BebasNeue;
+font-size: 20px;
+/*color:#54c6e8;*/
+color:#444;
+}
+
 </style>
 
-<!-- north -->
-<div class="header" style="width:100%;height:60px;">	
-
-	<div style="color:white;width:50%;float:left;">
-		<lable style="font-size:30px;margin-top:5px;margin-left:20px;">The Jewelry Box</lable><br />
-<lable style="color:#ccc;font-size:11px;margin-left:30px;">Hand Crafted Trinkets</lable>		
-	</div>
-
-	<div style="height:100%;width:50%;float:left">
-        <form action="pages/signin.php" method="POST">
-	<button id="signin" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign In</button>
-        </form>
-        <form action="pages/signup.php" method="POST">
-	<button id="signup" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign Up</button>
-        </form>
-        <form action="pages/logout.php" method="POST">
-	<button id="logout" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
-        </form>
-        <form action="pages/manage.php" method="POST">
-	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
-        </form>
-        <form action="pages/cart.php" method="POST">
-	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
-        </form>
-        <form action="pages/aboutus.php" method="POST">
-	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
-        </form>
-	</div>
-</div>
-
-<div id="search_header" style="float:left;background-color:black;width:100%;">
-	
-		<div  style="float:right;margin-right:10px;margin-bottom:10px;">
-			<form action="pages/search.php" method="post">
-				<input name="search_text" value="" placeholder="necklace"/>
-				<input style="width:70px" type="submit" id="search_button" value="search" />
-			</form>
-		</div>
-</div>
-
-<!-- north -->
-</head>
 
 <body>
 
-<div id="main" class="container" id="container">
+	<div class="header">
+	
+		<div id="logo" > 
 
-<div style="width:100%;height:100%" class="body">
+			<div id="logo_image">
+					<img src="site_images/Jewelry_Box.png" width="50" height="50" border="0" /> 
+			</div>
+		
+			<div id="logo_text">
+				<a href="header.php" >
+					THE JEWELRY BOX
+				</a>
+			</div>
 
-<!-- west(small) -->
-<div style="width:29%;float:left;">
-west
-<div class="west" style="margin-left:5%;">
-</div>
-</div>
-<!-- west -->
+		</div>
 
-<!-- east(big) -->
-<div style="width:69%;float:left;">
-<div class="east" style="margin-top:80px;">
+		<div id="search_bar">
+			<form action="pages/search.php" method="post">
+				<input name="search_text" value="" placeholder="necklace"/>
+				<input type="submit" id="search_button" value="search" />
+			</form>
+		</div>
 
-    
+		<div id="buttons" >
+		    <form style="float:left;margin-right:10px;" action="pages/signin.php" method="POST">
+				<input type="submit" value="sign in" id="signin" style="display:none;" />
+		    </form>
 
-<div class="validate" style="display:none;float:left;margin-left:19%;width:300px;border-style:solid;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
-<p style="font-family:'Comic Sans MS', cursive, sans-serif;">Validation Code</p>
-<!--step 1-->
-	<label class="validate">Enter the validation code.</label><br class="validate"/>
-	<input class="validate" id="code" name="code" type="text" style="width:90%;" value=""> <br class="validate" />
-	<button id="validate">submit</button>
-</div>
+		    <form style="float:left;margin-right:10px;" action="pages/signup.php" method="POST">
+				<input type="submit" value="sign up" id="signup" style="display:none;" />
+		    </form>
 
-</div>
-</div>
-<!-- east -->
-  
-</div>
+		    <form style="float:left;margin-right:10px;" action="pages/logout.php" method="POST">
+				<input type="submit" value="sign out" id="logout" style="display:none;" />
+		    </form>
+
+		    <form style="float:left;margin-right:10px;" action="pages/manage.php" method="POST">
+				<input type="submit" value="stores" id="stores" style="display:none;" />
+		    </form>
+
+		    <form style="float:left;margin-right:10px;" action="pages/cart.php" method="POST">
+				<input type="submit" value="cart" id="cart" style="display:none;" />
+		    </form>
+
+		    <form style="float:left;margin-right:10px;" action="pages/aboutus.php" method="POST">
+				<input type="submit" value="about us" id="aboutus" style="display:none;">
+		    </form>
+
+		</div>
+
+	</div>
+
+	<div id="title_banner_bg">
+
+		<div id="title_banner">
+	
+		</div>
+
+	</div>
+
+	<div id="content">
+
+		<h1> <font>Top</font> Picks </h1>
+
+		<div id="item">
+			<div id="itempic">
+				<img src="images/Default_Pic.png" width="220" height="140" border="0" /> 
+			</div>
+
+			<div id="itemspecs">
+				Rings
+			</div>
+		</div>
+
+		<div class="validate" 
+		style="display:none;float:left;margin-left:19%;width:300px;border-style:solid;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
+		<p style="font-family:'Comic Sans MS', cursive, sans-serif;">Validation Code</p>
+		<!--step 1-->
+			<label class="validate">Enter the validation code.</label><br class="validate"/>
+			<input class="validate" id="code" name="code" type="text" style="width:90%;" value=""> <br class="validate" />
+			<button id="validate">submit</button>
+		</div>
+			
+	</div>
+
 </body>
+
+</html>
 
 <script type="text/javascript">
    
@@ -188,12 +343,6 @@ $(document).ready(function(){
 	});
 });
 </script>
-</html>
-
-
-
-
-
 
 
 
