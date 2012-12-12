@@ -44,7 +44,7 @@ else
 	
 		
 	</div>
-<div id="tabs" style="margin-top:5%;">
+<div id="tabs" style="margin-top:1%;">
     <ul>
         <li><a href="#tabs-1">About Us</a></li>
         <li><a href="#tabs-2">Contact Us</a></li>

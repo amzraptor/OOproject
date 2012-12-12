@@ -50,13 +50,13 @@ else
         <li><a href="#tabs-2">Contact Us</a></li>
     </ul>
     <div id="tabs-1">
-        <h2>About Us</h2>
+        <h1>About Us</h1>
 	<p>The goal of the site is to allow vendors to sell their products in a inexpensive and seemlessly effortless manner.  The vendors have a lot of control over their store from design to sales. The best part is there are no monthly fees and owning a store is free.  Vendors may have as many stores as they like.  The site recieves 2% of every sale, this is the only fee!</p>
 	<p> The Jewelry Box is a colaboration from 4 Columbia College Students Brandy, Mark, Zaki, and Marshall.</p>
 	<p>December 2012</p>
     </div>
     <div id="tabs-2">
-        <h2>Contact Us</h2>
+        <h1>Contact Us</h1>
 	<p>We are located at 1001 Rogers St. Columbia, Missouri 65202.</p>
 	<p>Call us at 1-573-857-6309</p>
 	<p>Email us at bdpoagdorado1@cougars.ccis.edu</p>
