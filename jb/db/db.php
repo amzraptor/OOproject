@@ -288,6 +288,93 @@ function load_stores($username)
     $values = array($username);
     return get_mult_assoc("store", $fields, $values);
 }
+/*$x = load_product_invoice(2);
+echo "heee";
+echo $x[0]["qty"];*/
+function load_product_invoice($store_id)
+{
+    $fields = array("store_id");
+    $values = array($store_id);
+    return get_mult_assoc("product_invoice", $fields, $values);
+}
+
+function load_product($store_id)
+{
+    $fields = array("store_id");
+    $values = array($store_id);
+    return get_mult_assoc("product", $fields, $values);
+}
+
+function load_invoice($invoice_id)
+{
+    $fields = array("invoice_id");
+    $values = array($invoice_id);
+    return get_mult_assoc("invoice", $fields, $values);
+}
+
+function invoice_status($invoice_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT status AS status FROM invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$date = mysql_fetch_array($query);
+	close_conn($con);
+	return $date;
+}
+
+function invoice_date($invoice_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT dt AS date FROM invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$date = mysql_fetch_array($query);
+	close_conn($con);
+	return $date;
+}
+
+function invoice_total($invoice_id, $store_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT SUM(price*qty) AS total FROM product_invoice WHERE invoice_id = '$invoice_id' AND store_id = '$store_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$sum = mysql_fetch_array($query);
+	close_conn($con);
+	return $sum;
+}
+
+function get_invoices($store_id)
+{
+    
+    $sql = "";
+   
+    $sql = "SELECT DISTINCT invoice_id AS invoice FROM product_invoice WHERE store_id = '$store_id'";
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $rows = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_array($query))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+
+    close_conn($con);
+    return $rows;
+}
+/*echo "hello";
+//$x = get_invoices(3);
+$x = invoice_date(3);
+echo "hello".$x[0];*/
 
 function load_store($store_id)
 {

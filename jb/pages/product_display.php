@@ -67,7 +67,7 @@ background-image:url('../bg.jpg');
 #header {
 	background-color:#ccc;
 }
-#contents {
+#content {
 	margin: 0 0 0;
 }
 #background {

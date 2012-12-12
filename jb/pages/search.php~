@@ -69,14 +69,47 @@ else
     margin: 0 5px;
 }
 
+
+
 #product_display {
-border: 3px solid #2d3035;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow:    3px 3px 5px 8px #ddd;
+-webkit-box-shadow: 3px 3px 5px 8px #ddd;
+box-shadow:         3px 3px 5px 8px #ddd;
+width:230px;
+height:200px;
+color: #54c6e8;
+float:left;
+margin:30px;'
+
+}
+
+#itempic {
+width: 95%;
+height: 140px;
+background-color: #cff;
+border: 5px solid #fff;
+
+}
+
+#itemspecs {
+margin-right:10px;
+margin-left:10px;
+font-family: BebasNeue;
+font-size: 20px;
+/*color:#54c6e8;*/
+color:#444;
+}
+
+/*#product_display {
+border: 3px solid #000;
 background-color:#000;
 width:210px;
 height:250px;
 color:#fff;
 font-weight:bold;	
-}
+}*/
 
 </style>
 
@@ -151,17 +184,17 @@ $(document).ready(function(){
 						var list = "";
 						for (var i=0;i< result.length;i++)
 						{ 
-							list = list+"<li id='product_display' style='float:left;margin:30px;'>";
-							list = list+"<img style='margin-left:5px;margin-top:5px;' src='";
+							list = list+"<li id='product_display' style='list-style:none;'><div id='itempic'>";
+							list = list+"<img src='";
 							list = list+result[i].img1;
-							list = list+"' width='200' height='200'/ ><br / >";
-							list = list+"<span style='text-align:center;display:block;'>";
+							list = list+"' width='220' height='140'/ ></div>";
+							list = list+"<div id='itemspecs'>";
 							list = list+result[i].name;
-							list = list+"</span>";
+							list = list+"</div>";
 							list = list+"<div id='description' style='text-align:block;display:none;'><div>";
 							
 							list = list+"</div>";
-							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;border:none;color:red;' value='more'/ >";
+							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;cursor:pointer;border:none;color:red;' value='view'/ >";
 							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
 							list = list+"<input type='hidden' name='product_image' value='"+result[i].img1+"' / >";
 							list = list+'<input type="hidden" name="product_description" value="'+result[i].description+'" / >';
