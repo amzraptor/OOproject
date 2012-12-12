@@ -9,33 +9,33 @@ case "start":
 		$arr = array ();
 		$arr['error'] = '';
 		
-		$store = load_store($_SESSION['store_id']);
-
-		if ($_SESSION['user'] == "guest")
+		if($_SESSION['user'] == "guest")
 		{
 			$arr['error'] = "please signin to your account first if you do not have an account then signup for free.";
 			echo json_encode($arr);
 			break;
 		}
-		
-		if($store != false)
+		else 
 		{
-			$arr['store'] = $store;
-		}
-		else
-		{
-			$arr['error'] = 'store load fail';
-			$arr['store'] = 'none';
-		}
-		if($_SESSION['user'] == "guest")
-		{
-			$arr['error'] = 'not logged in';
-
-			$arr['store_id'] = $_SESSION['store_id'].$_SESSION['user'];
+			$arr['stores']  = load_stores($_SESSION['user']);
 		}
 		echo json_encode($arr);
 		break;
 	}
+case 'get_invoices':
+	{
+		$arr = array ();
+		$arr['error'] = '';
+		$x = load_store($_POST['store_id']);
+		$arr['store_name'] = $x['sname'];
+		//$_POST'invoices']
+		//$_POST['store_id']);
+		
+
+		echo json_encode($arr);
+		break;
+	}
+
 default:
 	{
 		echo "from index backend error";

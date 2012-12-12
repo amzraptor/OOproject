@@ -42,7 +42,8 @@ else
 
 <div class="template1" id="store_background" name=="store_background" style="width:100%;float:left;height:14%;">
 <div id="banner" name="banner" style="width:80%;float:left;margin-left:10%;margin-top:2%;height:10%;"> 
-<p align="center"><lable id="store_name" name="store_name" style="font-size:50px;"> STORE NAME </label></p>
+<p align="center">
+<lable id="store_name" name="store_name" style="font-size:50px;"> STORE NAME </label></p>
 </div>
 
 <div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-top:5%;margin-bottom:5%;height:70%;margin-left:10%;">

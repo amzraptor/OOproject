@@ -1,8 +1,7 @@
 <?php
-echo "hello invoice:";
-echo $_GET['invoice'];
-?>
-<?php 
+//echo "hello invoice:";
+//echo $_GET['invoice'];
+
 include "db.php";//include db script
 session_start();
 

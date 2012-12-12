@@ -36,8 +36,10 @@ $sessionid = session_id();
 </div>
 <div style="float:left;width:69%;">
 <!-- Signin -->
-<div id="sign-in-up" style="float:left;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
-<p style="font-family:'Comic Sans MS', cursive, sans-serif;">Signin </p>
+<h1>Signin</h1>
+<div id="sign-in-up" style="float:left;margin-left:10%;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
+	
+
 <!--step 1-->
 	<label class="step1" style="">Username</label><br class="step1" style=""/>
 	<input class="step1" id="username" name="username" type="text" style="width:90%;" value=""> <br class="step1" />

@@ -34,9 +34,10 @@ else
 <p style="display:hidden;"/>
 </div>
 <div style="float:left;width:69%;">
+<h1>Sign Up</h1>
 <!-- Signin -->
 <div class="sign-in-up" style="float:left;margin-left:10%;width:300px;padding-top:10px;padding-left:30px;margin-bottom:20%;">	
-<p style="font-family:'Comic Sans MS', cursive, sans-serif;">Signup</p>
+
 <!--step 1-->
 	<label class="step1">First Name</label><br/>
 	<input class="step1" id="fname" name="fname" type="text" style="width:90%;" value=""> <br/>
