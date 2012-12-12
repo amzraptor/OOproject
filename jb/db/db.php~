@@ -285,6 +285,93 @@ function load_stores($username)
     $values = array($username);
     return get_mult_assoc("store", $fields, $values);
 }
+/*$x = load_product_invoice(2);
+echo "heee";
+echo $x[0]["qty"];*/
+function load_product_invoice($store_id)
+{
+    $fields = array("store_id");
+    $values = array($store_id);
+    return get_mult_assoc("product_invoice", $fields, $values);
+}
+
+function load_product($store_id)
+{
+    $fields = array("store_id");
+    $values = array($store_id);
+    return get_mult_assoc("product", $fields, $values);
+}
+
+function load_invoice($invoice_id)
+{
+    $fields = array("invoice_id");
+    $values = array($invoice_id);
+    return get_mult_assoc("invoice", $fields, $values);
+}
+
+function invoice_status($invoice_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT status AS status FROM invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$date = mysql_fetch_array($query);
+	close_conn($con);
+	return $date;
+}
+
+function invoice_date($invoice_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT dt AS date FROM invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$date = mysql_fetch_array($query);
+	close_conn($con);
+	return $date;
+}
+
+function invoice_total($invoice_id, $store_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT SUM(price*qty) AS total FROM product_invoice WHERE invoice_id = '$invoice_id' AND store_id = '$store_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$sum = mysql_fetch_array($query);
+	close_conn($con);
+	return $sum;
+}
+
+function get_invoices($store_id)
+{
+    
+    $sql = "";
+   
+    $sql = "SELECT DISTINCT invoice_id AS invoice FROM product_invoice WHERE store_id = '$store_id'";
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $rows = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_array($query))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+
+    close_conn($con);
+    return $rows;
+}
+/*echo "hello";
+//$x = get_invoices(3);
+$x = invoice_date(3);
+echo "hello".$x[0];*/
 
 function load_store($store_id)
 {
@@ -330,6 +417,7 @@ function save_info($store, $selection, $value)
 
 //Cart Functions /
 ///////////////////////////////////////////////////
+///////////////////////////////////////////////////
 function get_info_for_cart($product_id)
 {
     $sql = sprintf("SELECT name, description, price, img1 FROM product WHERE product_id = %d;", $product_id);
@@ -339,12 +427,94 @@ function get_info_for_cart($product_id)
 function productExists($product_id)
 {
     //use sprintf to make sure that $product_id is inserted into the query as a number - to prevent SQL injection
-    $sql = sprintf("SELECT * FROM product WHERE product_id = %d;",
-    $product_id);
+    $sql = sprintf("SELECT * FROM product WHERE product_id = %d;", $product_id);
 
     return mysql_num_rows(mysql_query($sql)) > 0;
 }
-//echo"hello";
+
+function save_cart_to_db($user,$product_id)
+{
+    $user_id = get_user_id($user);
+    $fields = array("user_id", "product_id");
+    $values = array($user_id, $product_id);
+    add("cart", $fields, $values);
+}
+
+function load_cart_from_db($user)
+{   
+    $user_id = get_user_id($user);
+    $fields = array("user_id");
+    $values = array($user_id);
+    $table = "cart";
+    if(sizeof($fields) != sizeof($values))
+    {
+    echo"error in add field and value mismatch.";
+    return 0;
+    }
+    $sql = "";
+    for ($i=0; $i<sizeof($fields); $i++)
+    {
+    $sql.= ("$fields[$i]='$values[$i]' AND ");
+    }
+    $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $products = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_assoc($query))
+    {
+    $products[$i] = $row;
+    $i++;
+    }
+
+    close_conn($con);
+    return $products;
+}
+
+function delete_products_from_cart($user)
+{
+
+    $con = mysql_connect("localhost", "root", "root");
+    if (!$con)
+    {
+
+        echo"datbabase connection failed";
+        exit;
+
+    }
+
+    if(!mysql_select_db("jewelry_box"))
+    {
+        echo " error selecting db";
+        exit;
+    }
+
+    $query="SELECT user_id FROM user WHERE username ='$user'";
+    if(!$results=mysql_query($query,$con))
+    {
+        echo mysql_error(), "error";
+        exit;
+    }
+
+    $row= mysql_fetch_assoc($results);
+
+    $userid= $row['user_id'];
+
+    
+    $sql="DELETE FROM cart WHERE user_id='".$userid."'";
+    
+    $result = mysql_query($sql, $con);
+
+    if(!$result)
+    {
+        echo "<br/>","error in deletion";
+        exit;
+    }
+    
+    close_conn($con);
+}
+
 function get_search($table, $fields, $values)
 {
     if(sizeof($fields) != sizeof($values))
