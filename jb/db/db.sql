@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS cart(
 CREATE TABLE IF NOT EXISTS invoice(
     invoice_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     status	VARCHAR(20)    DEFAULT 'pending',
+	name    VARCHAR(200)       DEFAULT 'none',
     user_id    MEDIUMINT       DEFAULT 1,
     street_address VARCHAR(200)	DEFAULT 'none',
     city VARCHAR(200)	DEFAULT 'none',
@@ -122,6 +123,9 @@ password='guest', email='guest', valid='-99';
 
 INSERT user set fname='Brandy', lname='Poag', username='bdpoag1',
 password='pass8888', email='bdpoag1@gmail.com', valid='-99';
+
+INSERT user set fname='Ahmad', lname='Zaki', username='amzraptor',
+password='mewtwo', email='aelhedek1@cougars.ciss.com', valid='-99';
 
 INSERT user set fname='Donald', lname='Duck', username='thefeatherman', password='pass888', email='DDuck@gmail.com', valid='-99';
 

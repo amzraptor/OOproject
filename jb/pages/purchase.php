@@ -290,6 +290,9 @@ $(document).ready(function(){
 				var city = $('#city').val();
 				var state = $('#state').val();
 				var zip = $('#zip').val();
+				if((name) && (atten) && (email) && (st_ad) && (city) && (state) && (zip))
+				{
+
 				var postData = {'action': 'order', 'user_name': user_name , 'name': name, 'atten': atten, 'email': email, 'st_ad' : st_ad, 'city': city, 'state': state, 'zip': zip };
 				$.ajax({
 		        type: "POST",
@@ -298,12 +301,11 @@ $(document).ready(function(){
 
 		        success: function(data)          //on recieve of reply
 		            	{
-
+		            		
 		            		if(data.error)
 							{
 								alert("Input Problem or DB error");
 							}
-							alert(data);
 					
 		            	},
 		        dataType: "json",
@@ -312,6 +314,12 @@ $(document).ready(function(){
 		                    	alert("hello error");
 		                 }
 		    });
+
+			}
+			else
+			{
+				alert("Please fill in all Information!")
+			}
 
 				});
 	

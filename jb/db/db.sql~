@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS cart(
 CREATE TABLE IF NOT EXISTS invoice(
     invoice_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     status	VARCHAR(20)    DEFAULT 'pending',
+	name    MEDIUMINT       DEFAULT 1,
     user_id    MEDIUMINT       DEFAULT 1,
     street_address VARCHAR(200)	DEFAULT 'none',
     city VARCHAR(200)	DEFAULT 'none',
@@ -122,6 +123,9 @@ password='guest', email='guest', valid='-99';
 
 INSERT user set fname='Brandy', lname='Poag', username='bdpoag1',
 password='pass8888', email='bdpoag1@gmail.com', valid='-99';
+
+INSERT user set fname='Ahmad', lname='Zaki', username='amzraptor',
+password='mewtwo', email='aelhedek1@cougars.ciss.com', valid='-99';
 
 INSERT user set fname='Donald', lname='Duck', username='thefeatherman', password='pass888', email='DDuck@gmail.com', valid='-99';
 
@@ -180,11 +184,7 @@ INSERT INTO product(name,category,material,size,gender,price,img1,qty,descriptio
 VALUES('Child\'s necklace', 'necklaces', 'silver', 'small', 'unisex', 8.99, '../images/Default_Pic.png', 20, 'You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-<<<<<<< HEAD
 VALUES('Bracelet', 'other', 'other', 'large', 'unisex', 11.99, '/var/www/html/Default.png', 2, 'A nice bracelet to get friends. You want one!', 1);
-=======
-VALUES('prison shank', 'other', 'other', 'large', 'unisex', 11.99, '../images/Default_Pic.png', 2, 'A cool shank for men to get people. You want one!', 1);
->>>>>>> d75806a7ff85c739dc7462bcf659c23ea17640c8
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
 VALUES('Men\'s ring', 'ring', 'gold', 'large', 'male', 899.99, '../images/Default_Pic.png', 20, 'just like Mr T wears', 1);

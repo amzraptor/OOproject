@@ -19,8 +19,21 @@ case "order":
 		$state = $_POST['state'];
 		$zip = $_POST['zip'];
 		$user_id = get_user_id($user_name);
-		save_shipping_info_to_db($user_id, $st_ad, $city, $state, $zip, $atten);
-		$arr = array($user_name, $name, $atten, $email, $st_ad, $city, $state, $zip);
+
+		save_shipping_info_to_db($user_id, $name, $st_ad, $city, $state, $zip, $atten); //now save the info
+		//$arr = array($user_name, $name, $atten, $email, $st_ad, $city, $state, $zip);
+
+		//saving the cart itself
+
+		$invoice_id = get_last_invoice_id(); //get last MAX invoice_id
+		foreach($_SESSION['cart'] as $product_id => $quantity)
+		{
+			$store_id = get_product_store_id($product_id);
+			$product_name = get_product_name($product_id);
+			$price = get_product_price($product_id);
+			//$arr = array($product_id);
+			save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $quantity);
+		}
 		echo json_encode($arr);
 		break;
 

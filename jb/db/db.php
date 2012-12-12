@@ -603,11 +603,42 @@ function get_product_price($product_id)
     return false;
 }
 
-function save_shipping_info_to_db($user_id, $street_address, $city, $state, $zip, $attention)
+function save_shipping_info_to_db($user_id, $name, $street_address, $city, $state, $zip, $attention)
 {
-    $fields = array("user_id","street_address", "city", "state", "zip", "attention");
-    $values = array($user_id, $street_address, $city, $state, $zip, $attention);
+    $fields = array("user_id", "name", "street_address", "city", "state", "zip", "attention");
+    $values = array($user_id, $name, $street_address, $city, $state, $zip, $attention);
     return add("invoice", $fields, $values);
+}
+
+function get_last_invoice_id()
+{
+    $con = get_conn_and_connect();
+    $sql = "select MAX(invoice_id) from invoice";
+    $result = mysql_query($sql, $con);
+    $data = mysql_fetch_array($result);
+
+    close_conn($con);
+    return $data[0];
+
+}
+
+function save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $quantity)
+{
+    $fields = array("store_id", "invoice_id", "product_id", "product_name", "price", "qty");
+    $values = array($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
+    return add("product_invoice", $fields, $values);
+}
+
+function get_product_store_id($product_id)
+{
+    $fields = array("product_id");
+    $values = array($product_id);
+    $id = get_assoc("product", $fields, $values);
+    if($id != false)
+    {
+        return $id["store_id"];
+    }
+    return false;
 }
 ?>
 
