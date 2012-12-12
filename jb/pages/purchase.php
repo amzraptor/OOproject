@@ -14,9 +14,6 @@ else
       $username = $_SESSION['user'];
 }
 $sessionid = session_id();
-
-reset($array);
-$cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
 	/*if($cart_array)
     	echo "array : <pre>".print_r($cart_array,true)."</pre><br />\n"; //best way to print multi-dim array!*/
 
@@ -59,7 +56,7 @@ $cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
 	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
         </form>
         <form action="cart.php" method="POST">
-	<button id="cart" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
+	<button id="cartbtn" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
         </form>
         <form action="help.php" method="POST">
 	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
@@ -79,10 +76,14 @@ $cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
 </head>
 
 <body>
+<div style="display:none;" id="qtyerror" name="qtyerror">
+	<div id="cart">
 
+	</div>
+</div>
 <div style="width:100%;height:100%" class="body">
 
-<div id="tabs">
+	<div id="tabs">
     <ul>
         <li><a href="#tabs-1">Order Information</a></li>
         <li><a href="#tabs-2">Shipping Information</a></li>
@@ -176,7 +177,7 @@ $cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
 		<input class="step3" id="date" name="date" type="text" style="width:90%;" value=""> <br class="step3"/>
 
 	<!--step 4-->
-		<label class="step4" >Security Code/label><br class="step4" />
+		<label class="step4" >Security Code</label><br class="step4" />
 		<input class="step4" id="code" name="code" type="text" style="width:90%;" value=""> <br class="step4" />
 
 	<!--step 5-->
@@ -208,6 +209,7 @@ $cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
 </div>
 
 </div>
+
 </body>
 <!--
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -251,29 +253,71 @@ $(document).ready(function(){
 	{
 		$('#stores').show(); //
 		$('#logout').show(); //
-		$('#cart').show(); //
+		$('#cartbtn').show(); //
 		$('#help').show(); //
 	}
 	
-		var postData = {'action': 'check_qty', 'cart_final': <?php echo json_encode($cart_array); ?> };
+		var postData = {'action': 'check_qty' };
 		$.ajax({
 		        type: "POST",
 		        data: postData,
 		        url: "purchase_backend.php",                  //  
 
 		        success: function(data)          //on recieve of reply
-		                 {
-					alert("hello"+data.cart[3]);	
-		                 },
+		            	{
+
+		            		if(data.error != "")
+							{
+								$('.body').hide();
+								$('#qtyerror').show();
+								alert(data.error);
+							}
+					
+		            	},
 		        dataType: "json",
 		        error: function(data)          //on recieve of reply
 		                 {
 		                    	alert("hello error");
 		                 }
 		    });
+		$('#process').click(function()
+			{
+				var user_name = <?php echo json_encode($_SESSION['user']); ?>;
+				var name = $('#sname').val();
+				var atten = $('#att').val();
+				var email = $('#email').val();
+				var st_ad = $('#street_address').val();
+				var city = $('#city').val();
+				var state = $('#state').val();
+				var zip = $('#zip').val();
+				var postData = {'action': 'order', 'user_name': user_name , 'name': name, 'atten': atten, 'email': email, 'st_ad' : st_ad, 'city': city, 'state': state, 'zip': zip };
+				$.ajax({
+		        type: "POST",
+		        data: postData,
+		        url: "purchase_backend.php",                  //  
+
+		        success: function(data)          //on recieve of reply
+		            	{
+
+		            		if(data.error)
+							{
+								alert("Input Problem or DB error");
+							}
+							alert(data);
+					
+		            	},
+		        dataType: "json",
+		        error: function(data)          //on recieve of reply
+		                 {
+		                    	alert("hello error");
+		                 }
+		    });
+
+				});
 	
 });
 </script>
+<script type="text/javascript" src = "cart.js"></script>
 </html>
       	
 

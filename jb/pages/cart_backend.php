@@ -149,9 +149,9 @@ if($_SESSION['cart'])
     <td colspan="0" align="left"><input  type ="button" value="Remove Marked" id="checked_button" onclick="remove_checked()"/> </td>
     <td colspan="3" align="right"><input  type ="button" value="Empty Cart" id="empty_cart_button" onclick= "empty_cart()"/> </td>
     <td colspan="4" align="right">
-      <form method = "post" action = "checkout.php">
-        <input type = "hidden" name = "cart_final" value = "<?php echo base64_encode(json_encode( $checkout_array ) ); ?>">
-        <?php //$array = (array) json_decode(base64_decode($_POST['cart_final'])); var_dump($array); USE THAT IN OTHER PAGE ?>
+      <form method = "post" action = "purchase.php">
+        <?php /*<input type = "hidden" name = "cart_final" value = "<?php echo base64_encode(json_encode( $checkout_array ) ); ?>">
+        $array = (array) json_decode(base64_decode($_POST['cart_final'])); var_dump($array); USE THAT IN OTHER PAGE */?>
         <input type = "submit" value = "Checkout">
       </form>
     </td>
