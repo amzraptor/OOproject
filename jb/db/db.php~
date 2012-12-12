@@ -42,9 +42,12 @@ function get($table, $fields, $values)
     return $row;
 }
 
+echo "hello";
 
-
-
+/*$x = get_assoc("product",array("product_id"),array(1));
+if($x == false)echo "no";
+if($x == true) echo $x['likes'];
+echo "hello";*/
 function get_assoc($table, $fields, $values)
 {
     if(sizeof($fields) != sizeof($values))

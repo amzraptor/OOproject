@@ -15,6 +15,11 @@ else
 }
 $sessionid = session_id();
 
+reset($array);
+$cart_array = (array) json_decode(base64_decode($_POST['cart_final']));
+	/*if($cart_array)
+    	echo "array : <pre>".print_r($cart_array,true)."</pre><br />\n"; //best way to print multi-dim array!*/
+
 //echo"$username and $sessionid";
 ?>
 <!DOCTYPE html>
@@ -222,6 +227,19 @@ $(document).ready(function(){
 	//var validated = "<?php echo $validated; ?>"; 
 	var username = "<?php echo $username; ?>";
 /////////////////////////////////////////////
+
+	/*$.post('purchase_backend.php',{action:action},function(data){
+          //start of function
+          //after reciving answer
+                   
+           
+          $('#purchase').html(data);  
+      
+            
+            
+              
+           }//end of function
+        )*/
 	if(username == "guest")
 	{
 		$('#signin').show(); //
@@ -236,19 +254,16 @@ $(document).ready(function(){
 		$('#cart').show(); //
 		$('#help').show(); //
 	}
-		
-/////////////////////////////////////////////
-      	/*$('#').click(function () 
-      	{
-		var postData2 = {'action': 'valid'};
+	
+		var postData = {'action': 'check_qty', 'cart_final': <?php echo json_encode($cart_array); ?> };
 		$.ajax({
 		        type: "POST",
-		        data: postData2,
+		        data: postData,
 		        url: "purchase_backend.php",                  //  
 
 		        success: function(data)          //on recieve of reply
 		                 {
-					alert("hello");	
+					alert("hello"+data.cart[3]);	
 		                 },
 		        dataType: "json",
 		        error: function(data)          //on recieve of reply
@@ -256,15 +271,11 @@ $(document).ready(function(){
 		                    	alert("hello error");
 		                 }
 		    });
-		}
-		else
-		{
-			alert("Enter the code emailed to you.");
-		}
-	});*/
+	
 });
 </script>
 </html>
+      	
 
 
 

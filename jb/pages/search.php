@@ -70,8 +70,8 @@ else
 }
 
 #product_display {
-border: 3px solid #2d3035;
-background-color:#2d4044;
+border: 3px solid #000;
+background-color:#000;
 width:210px;
 height:250px;
 color:#fff;
@@ -158,16 +158,17 @@ $(document).ready(function(){
 							list = list+"<span style='text-align:center;display:block;'>";
 							list = list+result[i].name;
 							list = list+"</span>";
-							list = list+"<div id='description' style='text-align:block;display:none;background-color:#000;'><div>";
+							list = list+"<div id='description' style='text-align:block;display:none;'><div>";
 							
 							list = list+"</div>";
-							list = list+"<form action='product_display.php' method='post'><input type='submit' value='more'/ >";
+							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;border:none;color:red;' value='more'/ >";
 							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
 							list = list+"<input type='hidden' name='product_image' value='"+result[i].img1+"' / >";
-							list = list+"<input type='hidden' name='product_description' value='"+result[i].description+"' / >";
+							list = list+'<input type="hidden" name="product_description" value="'+result[i].description+'" / >';
 							list = list+"<input type='hidden' name='product_price' value='"+result[i].price+"' / >";
 							list = list+"<input type='hidden' name='product_size' value='"+result[i].size+"' / >";
 							list = list+"<input type='hidden' name='product_color' value='"+result[i].color+"' / >";
+							list = list+'<input type="hidden" name="product_name" value="'+result[i].name+'" / >';
 							list = list+"<input type='hidden' name='product_material' value='"+result[i].material+"' / >";
 							list = list+"</form></div></li>";
 						}
@@ -213,23 +214,4 @@ $(document).ready(function(){
 </script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,7 +1,9 @@
 <?php 
-include "db.php";//include db script
+include "../db/db.php";//include db script
 $action = $_POST['action'];
-session_start();
+$cart_array = (array) json_decode($_POST['cart_final']);
+
+
 switch($action)
 {
 case "valid":
@@ -10,6 +12,14 @@ case "valid":
 		echo json_encode($arr);
 		break;
 
+	}
+	case "check_qty":
+	{
+		$arr = array();
+		//$arr = array('go'=>array("he", "yo"));
+		$arr['cart'] = $cart_array;
+		echo json_encode($arr);
+		break;
 	}
 default:
 	{
