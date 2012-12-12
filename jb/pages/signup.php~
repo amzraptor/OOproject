@@ -6,16 +6,13 @@ if(empty($_SESSION['user']))
 {
       $_SESSION['user'] = "guest";
       $username = "guest";
-      $_SESSION['cart'] = array();
 }
 else
 {
       $username = $_SESSION['user'];
-	//load cart
+	
 }
-$sessionid = session_id();
 
-//echo"$username and $sessionid";
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,9 +72,9 @@ $sessionid = session_id();
 <script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	var username = '<?php echo $username; ?>';
 
 /////////////////////////////////////////////
+	var username = '<?php echo $username; ?>';
 	if(username == 'guest')
 	{
 		$('#signin').show(); //

@@ -24,58 +24,23 @@ $sessionid = session_id();
 <head>
     <meta charset="utf-8" />
     <title>The Jewelry Box</title>
+<link rel="stylesheet" media="all" href="header.css" type="text/css" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css" />
 	<!--<script type="text/javascript" src="jquery-1.2.1.pack.js "></script>-->
-<style>
-.header{
-	background-color:black;
-</style>
 
-<!-- north -->
-<div class="header" style="width:100%;height:60px;">	
 
-	<div style="color:white;width:50%;float:left;">
-		<lable style="font-size:30px;margin-top:5px;margin-left:20px;">The Jewelry Box</lable><br />
-<lable style="color:#ccc;font-size:11px;margin-left:30px;">Hand Crafted Trinkets</lable>		
-	</div>
-
-	<div style="height:100%;width:50%;float:left">
-        <form action="signin.php" method="POST">
-	<button id="signin" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign In</button>
-        </form>
-        <form action="signup.php" method="POST">
-	<button id="signup" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign Up</button>
-        </form>
-        <form action="logout.php" method="POST">
-	<button id="logout" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
-        </form>
-        <form action="stores.php" method="POST">
-	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
-        </form>
-        <form action="cart.php" method="POST">
-	<button id="cartbtn" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
-        </form>
-        <form action="help.php" method="POST">
-	<button id="help" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Help</button>
-        </form>
-	</div>
-</div>
-<div id="search_header" style="float:left;background-color:black;width:100%;">
-	
-		<div  style="float:right;margin-right:10px;margin-bottom:10px;">
-			<form action="search.php" method="post">
-				<input name="search_text" value="" placeholder="necklace"/>
-				<input style="width:70px" type="submit" id="search_button" value="search" />
-			</form>
-		</div>
-</div>
-<!-- north -->
 </head>
 
 <body>
+
+	<div class="header" id="header" name="header">
+	
+		
+	</div>
+
 <div style="display:none;" id="qtyerror" name="qtyerror">
 	<div id="cart">
 
@@ -211,23 +176,34 @@ $sessionid = session_id();
 </div>
 
 </body>
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script src="jquery.backstretch.js"></script>
-<script src="jquery.backstretch.min.js"></script>
 
-<script>
-    $.backstretch("bg.jpg");
-    
-</script>-->	
-
+<script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
 $(function() {
 	$( "#tabs" ).tabs();
 });
 $(document).ready(function(){
 	//var validated = "<?php echo $validated; ?>"; 
-	var username = "<?php echo $username; ?>";
+	
+
+/////////////////////////////////////////////
+	var username = '<?php echo $username; ?>';
+	if(username == 'guest')
+	{
+		$('#signin').show(); //
+		$('#signup').show(); //
+		$('#aboutus').show(); //
+		$('#cart1').show(); //
+	}
+	else
+	{
+		$('#stores').show(); //
+		$('#logout').show(); //
+		$('#cart1').show(); //
+		$('#aboutus').show(); //
+	}
+
+/////////////////////////////////////////////
 /////////////////////////////////////////////
 
 	/*$.post('purchase_backend.php',{action:action},function(data){
@@ -242,20 +218,6 @@ $(document).ready(function(){
               
            }//end of function
         )*/
-	if(username == "guest")
-	{
-		$('#signin').show(); //
-		$('#signup').show(); //
-		$('#help').show(); //
-		$('#cart').show(); //
-	}
-	else
-	{
-		$('#stores').show(); //
-		$('#logout').show(); //
-		$('#cartbtn').show(); //
-		$('#help').show(); //
-	}
 	
 		var postData = {'action': 'check_qty' };
 		$.ajax({

@@ -42,7 +42,7 @@ function get($table, $fields, $values)
     return $row;
 }
 
-echo "hello";
+//echo "hello";
 
 /*$x = get_assoc("product",array("product_id"),array(1));
 if($x == false)echo "no";
@@ -547,6 +547,67 @@ function get_search($table, $fields, $values)
 
     close_conn($con);
     return $products;
+}
+
+//CHECKOUT FUNCTIONS
+/////////////
+
+function get_product_qty_from_db($product_id)
+{
+    $fields = array("product_id");
+    $values = array($product_id);
+    $id = get_assoc("product", $fields, $values);
+    if($id != false)
+    {
+        return $id["qty"];
+    }
+    return false;
+}
+
+function modify_product_qty_from_db($product_id, $new_qty)
+{
+    $con = get_conn_and_connect();
+
+    $sql="UPDATE product SET qty ='$new_qty' WHERE username ='$product_id'";
+
+    
+    $sql="DELETE FROM cart WHERE user_id='".$userid."'";
+    
+    $result = mysql_query($sql, $con);
+    
+    close_conn($con);
+
+}
+
+function get_product_name($product_id)
+{
+    $fields = array("product_id");
+    $values = array($product_id);
+    $id = get_assoc("product", $fields, $values);
+    if($id != false)
+    {
+        return $id["name"];
+    }
+    return false;
+}
+
+function get_product_price($product_id)
+{
+    $fields = array("product_id");
+    $values = array($product_id);
+    $id = get_assoc("product", $fields, $values);
+    if($id != false)
+    {
+        return $id["price"];
+    }
+    return false;
+}
+
+function save_shipping_info_to_db($user_id, $street_address, $city, $state, $zip, $attention)
+{
+    $fields = array("user_id","street_address", "city", "state", "zip", "attention");
+    $values = array($user_id, $street_address, $city, $state, $zip, $attention);
+    return add("invoice", $fields, $values);
 }
 ?>
 

@@ -34,10 +34,11 @@ else
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css" />
 
+<link rel="stylesheet" media="all" href="header.css" type="text/css" />
+
 <style>
-.header{
-	background-color:black;
- 
+
+ {
     .ui-tabs-vertical { width: 55em; }
     .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
     .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
@@ -46,50 +47,16 @@ else
     .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
 </style>
 
-<!-- north -->
-<div class="header" style="width:100%;height:60px;">	
-
-	<div style="color:white;width:50%;float:left;">
-		<lable style="font-size:30px;margin-top:5px;margin-left:20px;">The Jewelry Box</lable><br />
-<lable style="color:#ccc;font-size:11px;margin-left:30px;">Hand Crafted Trinkets</lable>		
-	</div>
-
-	<div style="height:100%;width:50%;float:left">
-        <form action="signin.php" method="POST">
-	<button id="signin" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign In</button>
-        </form>
-        <form action="signup.php" method="POST">
-	<button id="signup" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Sign Up</button>
-        </form>
-        <form action="logout.php" method="POST">
-	<button id="logout" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Logout</button>
-        </form>
-        <form action="stores.php" method="POST">
-	<button id="stores" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Stores</button>
-        </form>
-        <form action="cart.php" method="POST">
-	<button id="cart1" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">Cart</button>
-        </form>
-        <form action="aboutus.php" method="POST">
-	<button id="aboutus" style="width:90px;float:right;margin-right:10px;margin-top:10px;display:none;">About Us</button>
-        </form>
-	</div>
-</div>
-<div id="search_header" style="float:left;background-color:black;width:100%;">
-	
-		<div  style="float:right;margin-right:10px;margin-bottom:10px;">
-			<form action="" method="post">
-				<input name="search_text" value="" placeholder="necklace"/>
-				<input style="width:70px" type="submit" id="search_button" value="search" />
-			</form>
-		</div>
-</div>
-<!-- north -->
 </head>
 
 <body link="blue" alink="violet" vlink="red">
+	<div class="header" id="header" name="header">
+	
+		
+	</div>
+
 <div id='main'>
-<div id="tabs"  style="margin-top:5%;">
+<div id="tabs"  style="margin-top:1.5%;">
     <ul>
         <li><a href="#tabs-1">Add Product to Store</a></li>
         <li><a href="#tabs-2">Pending Orders</a></li>
@@ -270,6 +237,7 @@ else
 </div>
 </body>
 
+<script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
 var total = 0;
 var total2 = 0;

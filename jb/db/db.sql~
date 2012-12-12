@@ -180,11 +180,7 @@ INSERT INTO product(name,category,material,size,gender,price,img1,qty,descriptio
 VALUES('Child\'s necklace', 'necklaces', 'silver', 'small', 'unisex', 8.99, '../images/Default_Pic.png', 20, 'You want one!', 1);
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
-<<<<<<< HEAD
 VALUES('Bracelet', 'other', 'other', 'large', 'unisex', 11.99, '/var/www/html/Default.png', 2, 'A nice bracelet to get friends. You want one!', 1);
-=======
-VALUES('prison shank', 'other', 'other', 'large', 'unisex', 11.99, '../images/Default_Pic.png', 2, 'A cool shank for men to get people. You want one!', 1);
->>>>>>> d75806a7ff85c739dc7462bcf659c23ea17640c8
 
 INSERT INTO product(name,category,material,size,gender,price,img1,qty,description,store_id)
 VALUES('Men\'s ring', 'ring', 'gold', 'large', 'male', 899.99, '../images/Default_Pic.png', 20, 'just like Mr T wears', 1);

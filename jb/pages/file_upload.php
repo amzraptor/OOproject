@@ -68,8 +68,14 @@ $name = $_FILES["file"]["name"];
 <html>
 <head>
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<link rel="stylesheet" media="all" href="header.css" type="text/css" />
 </head>
 <body>
+
+	<div class="header" id="header" name="header">
+	
+		
+	</div>
 <div style="width:100%;">
 <div style="margin-left:37%;width:35%;">
 <?php
@@ -98,9 +104,29 @@ else
 </div>
 </div>
 </body>
+<script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
 ////*****************************************************////
 $(document).ready(function(){
+/////////////////////////////////////////////
+	var username = '<?php echo $username; ?>';
+	if(username == 'guest')
+	{
+		$('#signin').show(); //
+		$('#signup').show(); //
+		$('#aboutus').show(); //
+		$('#cart1').show(); //
+	}
+	else
+	{
+		$('#stores').show(); //
+		$('#logout').show(); //
+		$('#cart1').show(); //
+		$('#aboutus').show(); //
+	}
+
+/////////////////////////////////////////////
+
     $('.pic').click(function(){
 	var pic = $('input:radio[name=pic]:checked').val();
 	var name = '<?php echo $name; ?>';

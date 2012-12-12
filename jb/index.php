@@ -189,7 +189,7 @@ color:#444;
 			</div>
 		
 			<div id="logo_text">
-				<a href="header.php" >
+				<a href="index.php" >
 					THE JEWELRY BOX
 				</a>
 			</div>
@@ -205,27 +205,27 @@ color:#444;
 
 		<div id="buttons" >
 		    <form style="float:left;margin-right:10px;" action="pages/signin.php" method="POST">
-				<input type="submit" value="sign in" id="signin" style="display:none;" />
+				<input type="submit" value="sign in" id="signin" style="width:90px;display:none;" />
 		    </form>
 
 		    <form style="float:left;margin-right:10px;" action="pages/signup.php" method="POST">
-				<input type="submit" value="sign up" id="signup" style="display:none;" />
+				<input type="submit" value="sign up" id="signup" style="width:90px;display:none;" />
 		    </form>
 
 		    <form style="float:left;margin-right:10px;" action="pages/logout.php" method="POST">
-				<input type="submit" value="sign out" id="logout" style="display:none;" />
+				<input type="submit" value="sign out" id="logout" style="width:90px;display:none;" />
 		    </form>
 
-		    <form style="float:left;margin-right:10px;" action="pages/manage.php" method="POST">
-				<input type="submit" value="stores" id="stores" style="display:none;" />
+		    <form style="float:left;margin-right:10px;" action="pages/stores.php" method="POST">
+				<input type="submit" value="stores" id="stores" style="width:90px;display:none;" />
 		    </form>
 
 		    <form style="float:left;margin-right:10px;" action="pages/cart.php" method="POST">
-				<input type="submit" value="cart" id="cart" style="display:none;" />
+				<input type="submit" value="cart" id="cart" style="width:90px;display:none;" />
 		    </form>
 
 		    <form style="float:left;margin-right:10px;" action="pages/aboutus.php" method="POST">
-				<input type="submit" value="about us" id="aboutus" style="display:none;">
+				<input type="submit" value="about us" id="aboutus" style="width:90px;display:none;">
 		    </form>
 
 		</div>
