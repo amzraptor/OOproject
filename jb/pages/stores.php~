@@ -12,15 +12,6 @@ else
       $username = $_SESSION['user'];
 }
 
-if(!empty($_POST['sload']))
-{
-	$sload = $_POST['sload'];
-
-      	if($sload != 'none')
-	{
-		$_SESSION['store_id'] = $sload;
-	}
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -112,7 +103,7 @@ if(!empty($_POST['sload']))
 </body>
 
 <script type="text/javascript">
-        var sload = "<?php echo $sload; ?>";
+
 	var total = 0;
 $(document).ready(function(){
 	var stores = [];
@@ -134,10 +125,7 @@ $(document).ready(function(){
 	}
 /////////////////////////////////////////////
 
-	if (sload == "none")
-	{
-		alert("no store selected");
-	}
+
 	var postData0 = {'action': 'start'};
 	   
             $.ajax({

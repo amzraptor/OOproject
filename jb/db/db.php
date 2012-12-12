@@ -350,7 +350,30 @@ function invoice_total($invoice_id, $store_id)
 	close_conn($con);
 	return $sum;
 }
+function get_store_ids($invoice_id)
+{
+    
+    $sql = "";
+   
+    $sql = "SELECT DISTINCT store_id AS store_id FROM product_invoice WHERE invoice_id = '$invoice_id'";
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $rows = array();
+    $i = 0;
 
+    while ($row = mysql_fetch_array($query))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+
+    close_conn($con);
+    return $rows;
+//zaki if you save the invoice and product_invoices
+//then use that invoice number to calle get_store_ids this will give you the store_ids of the 
+//vendors that need to be emailed
+//then for each of the store_ids query the store table get the email and email the vendor
+}
 function get_invoices($store_id)
 {
     

@@ -26,6 +26,7 @@ $sessionid = session_id();
 <style>
 .header{
 	background-color:black;
+}
 </style>
 
 <!-- north -->

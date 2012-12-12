@@ -1,4 +1,4 @@
 <?php
 echo "hello invoice:";
-echo $_POST['invoice'];
+echo $_GET['invoice'];
 ?>

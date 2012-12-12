@@ -62,7 +62,24 @@ $sessionid = session_id();
 <script type="text/javascript" src = "header.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+////////////////////////////////////////////
+	var username = '<?php echo $username; ?>';
+	if(username == 'guest')
+	{
+		$('#signin').show(); //
+		$('#signup').show(); //
+		$('#aboutus').show(); //
+		$('#cart1').show(); //
+	}
+	else
+	{
+		$('#stores').show(); //
+		$('#logout').show(); //
+		$('#cart1').show(); //
+		$('#aboutus').show(); //
+	}
 
+/////////////////////////////////////////////
 
       	$('#validate').click(
       	function () 

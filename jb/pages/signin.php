@@ -32,7 +32,7 @@ $sessionid = session_id();
 
 <div id="main" class="container" style="width:100%;">
 <div style="float:left;width:29%;">
-<h1 style="display:hidden;"/>
+<p style="display:hidden;"/>
 </div>
 <div style="float:left;width:69%;">
 <!-- Signin -->
