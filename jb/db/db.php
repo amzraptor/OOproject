@@ -645,7 +645,7 @@ function get_last_invoice_id()
 
 }
 
-function save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $quantity)
+function save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $qty)
 {
     $fields = array("store_id", "invoice_id", "product_id", "product_name", "price", "qty");
     $values = array($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
