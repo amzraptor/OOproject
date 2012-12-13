@@ -1,5 +1,3 @@
-USE jewelry_box;
-
 INSERT INTO product (name,category,material,size,gender,price,img1,qty,description,store_id)
 VALUES('black necklace','necklaces','wood','medium','female',112.99,'images/Default_Pic.png',10,'Duis id malesuada augue. Nam mi erat, pretium sit amet tempor in, ultrices at augue. Sed aliquet pulvinar dignissim. Morbi bibendum sem eu nulla semper non vehicula nulla interdum. Aliquam sodales arcu in nibh ullamcorper hendrerit. Curabitur facilisis mauris id arcu volutpat congue. Nulla sit amet odio orci, quis lacinia leo. Vestibulum vel lobortis mauris. ', 1);
 

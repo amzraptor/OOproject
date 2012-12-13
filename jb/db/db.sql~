@@ -99,7 +99,6 @@ CREATE TABLE IF NOT EXISTS invoice(
     attention VARCHAR(200)	DEFAULT 'none',
     active	VARCHAR(20)    DEFAULT 'true',
     dt    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    active	VARCHAR(20)    DEFAULT 'true',
 
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 )ENGINE = InnoDB;
