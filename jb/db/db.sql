@@ -205,10 +205,10 @@ INSERT INTO product(name,category,material,size,gender,price,img1,qty,descriptio
 VALUES('Kid\'s jewelry', 'body jewelry', 'silver', 'large', 'unisex', 4.20, '../images/Default_Pic.png',200, 'A cool thing for you kid. You want one!', 1);
 
 
-INSERT invoice set street_address='1 Main St.', city='Columbia', state='MO.';
-INSERT invoice set street_address='120 10th St.', city='Dallas', state='TX.';
-INSERT invoice set street_address='198 Rodeo St.', city='L.A.', state='CA.';
-INSERT invoice set street_address='128 1st St.', city='St. Louis', state='MO.';
+INSERT invoice set street_address='1 Main St.', city='Columbia', state='MO.', zip="65202";
+INSERT invoice set street_address='120 10th St.', city='Dallas', state='TX.', zip="65202";
+INSERT invoice set street_address='198 Rodeo St.', city='L.A.', state='CA.', zip="65202";
+INSERT invoice set street_address='128 1st St.', city='St. Louis', state='MO.', zip="65202";
 
 
 

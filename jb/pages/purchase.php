@@ -50,49 +50,11 @@ $sessionid = session_id();
 
 	<div id="tabs">
     <ul>
-        <li><a href="#tabs-1">Order Information</a></li>
-        <li><a href="#tabs-2">Shipping Information</a></li>
-        <li><a href="#tabs-3">Billing Informaion</a></li>
-        <li><a href="#tabs-4">Process Order</a></li>
+        <li><a href="#tabs-1">Shipping Information</a></li>
+        <li><a href="#tabs-2">Billing Informaion</a></li>
+        <li><a href="#tabs-3">Process Order</a></li>
     </ul>
     <div id="tabs-1">
-	<div style="margin-left:20%;">
-          <h3>Order Information</h3>	
-		<table id="myTable" border="1" class="ui-widget">
-
-		<thead class="ui-widget-header">
-		    <tr>
-
-			<th>Product Name</th>
-			<th>Quantity</th>
-			<th>Cost</th>
-			<th>Total + </br>Shipping</th>
-		    </tr>
-
-		</thead>
-		<tbody class="ui-widget-content">
-
-		    <tr>
-			<td>Watch</td>
-			<td >2</td>
-			<td >$10.00</td>
-			<td >$22.50</td>
-
-		    </tr>
-		    <tr >
-			<td>Total</td>
-			<td ></td>
-			<td ></td>
-			<td >$22.50</td>
-
-		    </tr>
-		</tbody>
-		</table>
-
-		<br />
-        </div>
-    </div>
-    <div id="tabs-2">
 	<div style="width:40%;margin-left:20%;">
 	<h3>Enter Shipping Information</h3>
 	<!--step 1-->
@@ -126,7 +88,7 @@ $sessionid = session_id();
 	</br>
 	</div> 
     </div>
-    <div id="tabs-3">
+    <div id="tabs-2">
 	<div style="width:40%;margin-left:20%;">
 	<h3>Billing Information</h3>
 	<!--step 1-->
@@ -164,11 +126,13 @@ $sessionid = session_id();
 	</br>
 	</div> 
     </div>
-    <div id="tabs-4">
+    <div id="tabs-3">
 	<div style="width:40%;margin-left:20%;">
 	<h3>Process Order</h3>
         </br>
 	<button id="process" name="process">Process</button>
+	<div id="invoiceresult" name="invoiceresult">
+	</div>
 	</br>
     </div>
 </div>
@@ -263,11 +227,29 @@ $(document).ready(function(){
 
 		        success: function(data)          //on recieve of reply
 		            	{
-		            		
-		            		if(data.error)
+		            		//alert("city"+data.invoice[0].city);
+		            		if(data.error != "")
 							{
 								alert("Input Problem or DB error");
 							}
+					else
+					{
+								$('#process').hide();
+								$('#invoiceresult').append("<h1>Invoice #"+data.invoice[0].invoice_id+"</h1><h4>An Invoice Has Been Emailed to You.</h4>"+"<h5>Address:"+data.invoice[0].street_address+"</h5><h5>City:"+data.invoice[0].city+"</h5><h5>State:"+data.invoice[0].state+"</h5><h5>Zip Code:"+data.invoice[0].zip+"</h5>");
+						var list = "";
+						list = list+"<div><table id='myTable' border='1' class='ui-widget' style='margin-left:1%';><thead class='ui-widget-header'><tr><th style='width:600px;'>Product Name</th><th style='width:100px;'>Price $</th><th style='width:100px;'>Quantity</th><th style='width:175px;'>Total $</th></tr></thead><tbody class='ui-widget-content'>";
+
+						for(i=0;i<data.products.length;i++)
+						{
+							var cost = data.products[i].price * data.products[i].qty;
+							list = list+"<tr><td>"+data.products[i].product_name+"</td><td align='right'>"+data.products[i].price+"</td><td align='right'>"+data.products[i].qty+"</td><td align='right'>"+cost.toFixed(2)+"</td></tr>";
+						}
+						list = list+"<tr><td>Invoice Total</td><td></td><td></td><td align='right'>"+data.total[0]+"</td></tr>";
+						list = list+"</tbody></table></div>";
+						
+						$('#invoiceresult').append(list);
+
+					}
 					
 		            	},
 		        dataType: "json",

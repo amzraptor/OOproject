@@ -117,7 +117,8 @@ function update($table, $setfields, $setvalues, $wherefields, $wherevalues)
     $sql = "";
     for ($i=0; $i<sizeof($setfields); $i++)
     {
-	$sql.= ("$setfields[$i]='$setvalues[$i]',");
+    $val = mysql_real_escape_string($setvalues[$i]);
+	$sql.= ("$setfields[$i]='$val',");
     }
 
     $sql2 = "";
@@ -152,7 +153,8 @@ function add($table, $fields, $values)
     for ($i=0; $i<sizeof($fields); $i++)
     {
 	$sql.="$fields[$i],";
-	$sql2.="'$values[$i]',";
+    $val =  mysql_real_escape_string($values[$i]);
+	$sql2.="'$val',";
     }
     $sql = "INSERT INTO $table(".substr($sql,0,-1).")VALUES(".substr($sql2,0,-1).")";
 //echo"sql: $sql";
@@ -298,6 +300,13 @@ function load_product_invoice($store_id)
     return get_mult_assoc("product_invoice", $fields, $values);
 }
 
+function load_a_product_invoice($invoice_id, $store_id)
+{
+    $fields = array("invoice_id", "store_id");
+    $values = array($invoice_id, $store_id);
+    return get_mult_assoc("product_invoice", $fields, $values);
+}
+
 function load_product($store_id)
 {
     $fields = array("store_id");
@@ -336,6 +345,19 @@ function invoice_date($invoice_id)
 	$date = mysql_fetch_array($query);
 	close_conn($con);
 	return $date;
+}
+
+function invoice_a_total($invoice_id, $store_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT SUM(price*qty) AS total FROM product_invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$sum = mysql_fetch_array($query);
+	close_conn($con);
+	return $sum;
 }
 
 function invoice_total($invoice_id, $store_id)

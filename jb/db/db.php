@@ -300,6 +300,13 @@ function load_product_invoice($store_id)
     return get_mult_assoc("product_invoice", $fields, $values);
 }
 
+function load_products_invoice($invoice_id)
+{
+    $fields = array("invoice_id");
+    $values = array($invoice_id);
+    return get_mult_assoc("product_invoice", $fields, $values);
+}
+
 function load_a_product_invoice($invoice_id, $store_id)
 {
     $fields = array("invoice_id", "store_id");
@@ -345,6 +352,19 @@ function invoice_date($invoice_id)
 	$date = mysql_fetch_array($query);
 	close_conn($con);
 	return $date;
+}
+
+function invoice_a_total($invoice_id, $store_id)
+{
+
+	$con = get_conn_and_connect();
+	$sql = "";
+	$sql = "SELECT SUM(price*qty) AS total FROM product_invoice WHERE invoice_id = '$invoice_id'";
+	    
+	$query = mysql_query($sql, $con);
+	$sum = mysql_fetch_array($query);
+	close_conn($con);
+	return $sum;
 }
 
 function invoice_total($invoice_id, $store_id)
