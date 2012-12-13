@@ -30,6 +30,89 @@ else
 <head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <link rel="stylesheet" media="all" href="header.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/jPages.css">
+
+<script src="jpages.js"></script>
+<style>
+
+ .holder {
+    margin:15px 0;
+}
+.holder a {
+    font-size:12px;
+    cursor:pointer;
+    margin:0 5px;
+    color:#333;
+}
+.holder a:hover {
+    background-color:#222;
+    color:#fff;
+}
+.holder a.jp-previous {
+    margin-right:15px;
+}
+.holder a.jp-next {
+    margin-left:15px;
+}
+.holder a.jp-current,a.jp-current:hover {
+    color:#FF4242;
+    font-weight:bold;
+}
+.holder a.jp-disabled,a.jp-disabled:hover {
+    color:#bbb;
+}
+.holder a.jp-current,a.jp-current:hover,.holder a.jp-disabled,a.jp-disabled:hover {
+    cursor:default;
+    background:none;
+}
+.holder span {
+    margin: 0 5px;
+}
+
+
+
+#product_display {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow:    3px 3px 5px 8px #ddd;
+-webkit-box-shadow: 3px 3px 5px 8px #ddd;
+box-shadow:         3px 3px 5px 8px #ddd;
+width:230px;
+height:200px;
+color: #54c6e8;
+float:left;
+margin:30px;'
+
+}
+
+#itempic {
+width: 95%;
+height: 140px;
+background-color: #cff;
+border: 5px solid #fff;
+
+}
+
+#itemspecs {
+margin-right:10px;
+margin-left:10px;
+font-family: BebasNeue;
+font-size: 20px;
+/*color:#54c6e8;*/
+color:#444;
+}
+
+/*#product_display {
+border: 3px solid #000;
+background-color:#000;
+width:210px;
+height:250px;
+color:#fff;
+font-weight:bold;	
+}*/
+
+</style>
 </head>
 <body>
 
@@ -45,9 +128,20 @@ else
 <p align="center"><lable id="store_name" name="store_name" style="font-size:50px;"> STORE NAME </label></p>
 </div>
 
-<div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-top:5%;margin-bottom:5%;height:70%;margin-left:10%;">
+<div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-bottom:5%;height:70%;margin-left:10%;">
 
-<div id="store_category" name="store_category" style="float:left;width:100%;margin-left:3%;">
+	<div id="about_store" name="about_store" style="float:left;width:100%;">
+      <form action="email.php" method="POST" style="margin-left:80%;">
+	<input type="hidden" id="email" name="email" value=""/>
+	<button id="ssemail" name="ssemail" style="margin-left:10%;">Email Store Owner</button>
+      </form>
+	
+	<label id="sownern" name="sownern" style="margin-left:10%;float:left;"> Store Owner's Name </label>
+	<label id="sspecialty" name="sspecialty" style="margin-left:10%;float:left;"> Store Specialty </label></br>
+	<label id="sdescription" name="sdescription" style="margin-left:10%;"> Store description </label>
+	</div>
+
+<div id="store_category" name="store_category" style="float:left;width:100%;margin-left:8%;">
 <button id="but1" name="but1" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 1</button>
 <button id="but2" name="but2" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 2</button>
 <button id="but3" name="but3" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 3</button>
@@ -55,59 +149,24 @@ else
 <button id="but5" name="but5" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 5</button>
 </div>
 <div style="width:100%;float:left;">
-<div id="about_store" name="about_store" style="float:left;width:25%;margin-left:3%;margin-top:5%;margin-bottom:5%;">
-<h4 id="sownern" name="sownern"> Store Owner's Name </h4>
-<h4 id="ssemail" name="ssemail"> Store Owner's Email </h4>
-<h4 id="sspecialty" name="sspecialty"> Store Specialty </h4>
-<p id="sdescription" name="sdescription"> Store description </p>
-</div>
+<!--
+	<div id="about_store" name="about_store" style="float:left;width:15%;margin-top:5%;margin-bottom:5%;">
+	<h4 id="sownern" name="sownern"> Store Owner's Name </h4>
+	<h4 id="ssemail" name="ssemail"> Store Owner's Email </h4>
+	<h4 id="sspecialty" name="sspecialty"> Store Specialty </h4>
+	<p id="sdescription" name="sdescription"> Store description </p>
+	</div>
 
-<div id="products" style="float:left;width:65%;margin-top:5%;margin-bottom:5%;">
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic1
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic2
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic3
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic4
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic5
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic6
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic7
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic8
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic9
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic10
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic11
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic12
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic13
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic14
-</div>
-<div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
-pic15
-</div>
+-->
+	<div id="products" style="float:left;width:80%;">
+		<div class="holder" style="margin-left:45%;">
+			</div>
+
+		</div>
+
+		<ul id="itemContainer">
+		</ul>
+	</div>
 </div>
 </div>
 </div>
@@ -237,6 +296,7 @@ $(document).ready(function(){
 					if(store.semail != "none")
 					{
 						$('#ssemail').html(store.semail);
+						$('#email').val(store.semail);
 					}
 					if(store.lfont != "none")
 					{
@@ -312,6 +372,66 @@ $(document).ready(function(){
 		         {
 		            alert("hello error");
 		         }
+		});
+
+/////////////////////////////////////////////
+
+	  var search_word = "-99";//"<?php echo $search; ?>";
+	  var search_string = {"search_words": search_word};
+
+	  $.ajax(
+		{
+			url:"search_backend.php",
+			data:search_string,
+			type:"post",
+			dataType:"json",
+			success:function(result)
+					{ 
+						var list = "";
+						for (var i=0;i< result.length;i++)
+						{ 
+							list = list+"<li id='product_display' style='list-style:none;'><div id='itempic'>";
+							list = list+"<img src='";
+							list = list+result[i].img1;
+							list = list+"' width='220' height='140'/ ></div>";
+							list = list+"<div id='itemspecs'>";
+							list = list+result[i].name;
+							list = list+"</div>";
+							list = list+"<div id='description' style='text-align:block;display:none;'><div>";
+							
+							list = list+"</div>";
+							list = list+"<form action='product_display.php' method='post'><input type='submit' style='background:transparent;cursor:pointer;border:none;color:red;' value='view'/ >";
+							list = list+"<input type='hidden' name='product_id' value='"+result[i].product_id+"' / >";
+							list = list+"<input type='hidden' name='product_image' value='"+result[i].img1+"' / >";
+							list = list+'<input type="hidden" name="product_description" value="'+result[i].description+'" / >';
+							list = list+"<input type='hidden' name='product_price' value='"+result[i].price+"' / >";
+							list = list+"<input type='hidden' name='product_size' value='"+result[i].size+"' / >";
+							list = list+"<input type='hidden' name='product_color' value='"+result[i].color+"' / >";
+							list = list+'<input type="hidden" name="product_name" value="'+result[i].name+'" / >';
+							list = list+"<input type='hidden' name='product_material' value='"+result[i].material+"' / >";
+							list = list+"</form></div></li>";
+						}
+
+						$('#itemContainer').append(list);
+						$("div.holder").jPages(
+						{
+							containerID  : "itemContainer",
+							perPage      : 10,
+							startPage    : 1,
+							startRange   : 1,
+							midRange     : 5,
+							endRange     : 1
+						});
+						
+						$('#itemContainer li').hover(function(){
+								$(this).children('#description').show()},function(){
+								$(this).children('#description').hide();
+						});
+
+
+					},
+
+			error:function(e){alert("there was an error");}
 		});
 	}
 });

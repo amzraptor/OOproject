@@ -1,6 +1,6 @@
 <?php 
 include "../db/db.php";//include db script
-
+session_start();
 
 
 if(!$_POST['search_words']) die("search text can't be empty"); 
@@ -17,7 +17,16 @@ function get_search_results($search_results, $index = 1)
     
 }
 
-$products = get_search_results($_POST['search_words']);
+$search = $_POST['search_words'];
+if($search == "-99")
+{
+	$products = get_search_store($_SESSION['store_id']);
+}
+else
+{
+	$products = get_search_results($search);
+}
+//products = get_search_results(/*$search*/"n");
 echo json_encode($products);
 
 

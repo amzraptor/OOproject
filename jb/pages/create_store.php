@@ -135,7 +135,16 @@ color:red;
 </div>
 
 <div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-top:5%;margin-bottom:5%;height:70%;margin-left:10%;">
-
+	<div id="about_store" name="about_store" style="float:left;width:100%;">
+      <form style="margin-left:80%;">
+	<input type="hidden" id="email" name="email" value=""/>
+	<button id="ssemail" name="ssemail" style="margin-left:10%;">Email Store Owner</button>
+      </form>
+	
+	<label id="sownern" name="sownern" style="margin-left:10%;float:left;"> Store Owner's Name </label>
+	<label id="sspecialty" name="sspecialty" style="margin-left:10%;float:left;"> Store Specialty </label></br>
+	<label id="sdescription" name="sdescription" style="margin-left:10%;"> Store description </label>
+	</div> 
 <div id="store_category" name="store_category" style="float:left;width:100%;margin-left:3%;">
 <button id="but1" name="but1" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 1</button>
 <button id="but2" name="but2" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 2</button>
@@ -144,14 +153,8 @@ color:red;
 <button id="but5" name="but5" style="width:125px;float:left;margin-left:27px;margin-top:10px;margin-bottom:10px;">Category 5</button>
 </div>
 <div style="width:100%;float:left;">
-<div id="about_store" name="about_store" style="float:left;width:25%;margin-left:3%;margin-top:5%;margin-bottom:5%;">
-<h4 id="sownern" name="sownern"> Store Owner's Name </h4>
-<h4 id="ssemail" name="ssemail"> Store Owner's Email </h4>
-<h4 id="sspecialty" name="sspecialty"> Store Specialty </h4>
-<p id="sdescription" name="sdescription"> Store description </p>
-</div>
 
-<div id="products" style="float:left;width:65%;margin-top:5%;margin-bottom:5%;">
+<div id="products" style="float:left;width:100%;margin-top:5%;margin-bottom:5%;">
 <div style="float:left;width:160px;height:150px;border-style:dashed;margin-left:4%;margin-top:2%;margin-bottom:2%;">
 pic1
 </div>

@@ -55,20 +55,9 @@ else
 		
 	</div>
 
-<div id='main'>
-<div id="tabs"  style="margin-top:1.5%;">
-    <ul>
-        <li><a href="#tabs-1">Add Product to Store</a></li>
-        <li><a href="#tabs-2">Pending Orders</a></li>
-        <li><a href="#tabs-3">Sales</a></li>
-        <li><a href="#tabs-4">Store Inventory</a></li>
-        <li><a href="#tabs-5">Design Store</a></li>
-        <li><a href="#tabs-6">Publish Store</a></li>
-    </ul>
-    <div id="tabs-1">
-        <h2>Add Product to Store</h2>
-		<div id="content">
 
+
+<!---
 		<form action="add_product_back.php" method="post" enctype="multipart/form-data">
 
 		Product Name <label id="required"> *required </label> 
@@ -180,8 +169,28 @@ else
 
 		<input type="submit" name="submit" value="add">
 		</form>
-		<br />
-		</div>
+		<br />-->
+
+
+<div id='main'>
+<div id="tabs"  style="margin-top:1.5%;">
+    <ul>
+        <li><a href="#tabs-1">Products in Store</a></li>
+        <li><a href="#tabs-2">Pending Orders</a></li>
+        <li><a href="#tabs-3">Sales</a></li>
+        <li><a href="#tabs-4">Store Inventory</a></li>
+        <li><a href="#tabs-5">Design Store</a></li>
+        <li><a href="#tabs-6">Publish Store</a></li>
+    </ul>
+    <div id="tabs-1">
+        <h2>Select an Option</h2>
+			<div class="opts">
+			<input name="update" type="radio" style="margin-left:5%;" value="update">Update Product</input>
+			<input name="add" type="radio" style="margin-left:5%;"value="add">Add Product</input>
+			<input name="remove" type="radio" style="margin-left:5%;"value="remove">Remove Product</input></br></br>
+		</br>
+			<button name="opt" id="opt" style="margin-left:5%;">go</button>
+			</div>
     </div>
     <div id="tabs-2">
         <h2>Pending Orders</h2>
@@ -339,10 +348,17 @@ $(document).ready(function(){
 			//X1. compute the sum for the invoice and in sales display date invoice num and amount
 			//X2. pending display if the invoice is pending show the date invoice num and amount
 			//X3. query for all products of store and display in table  format cost
-			//4. display invoice
-			//5. email working
+			//X4. display invoice
+			//X5. email working
 			//6. have all files comming to manage submit a store_id vis sload
 			//7. publish store
+			//8. title
+			//9. store images
+			//10. add product to store save to db
+			//11. category work in store and create store and add product to store
+			//12. completed and edit store inventory
+			//13. link store email
+			//14. validation
     function get_invoices(store_id)
     {
 	var postData = {'action':'get_invoices', 'store_id':store_id};

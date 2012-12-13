@@ -29,7 +29,7 @@ function get($table, $fields, $values)
     {
 	$sql.= ("$fields[$i]='$values[$i]' AND ");
     }
-    $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
+    $sql = "SELECT * FROM $table WHERE active='true' AND ".substr($sql,0,-5);
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
     $row = mysql_fetch_array($query);
@@ -60,7 +60,7 @@ function get_assoc($table, $fields, $values)
     {
 	$sql.= ("$fields[$i]='$values[$i]' AND ");
     }
-    $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
+    $sql = "SELECT * FROM $table WHERE active='true' AND ".substr($sql,0,-5);
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
     $row = mysql_fetch_assoc($query);
@@ -86,7 +86,7 @@ function get_mult_assoc($table, $fields, $values)
     {
 	$sql.= ("$fields[$i]='$values[$i]' AND ");
     }
-    $sql = "SELECT * FROM $table WHERE ".substr($sql,0,-5);
+    $sql = "SELECT * FROM $table WHERE active='true' AND ".substr($sql,0,-5);
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
     $rows = array();
@@ -192,7 +192,22 @@ function close_conn($con)
 //echo"heythere";
 /////////////////////////////////////////////////////////////////////////////////////
 
-
+function store_inactive($store_id)
+{
+    $setfields = array("active");
+    $setvalues = array("false");
+    $wherefields = array("store_id");
+    $wherevalues = array($store_id);
+    $row = update("store", $setfields, $setvalues, $wherefields, $wherevalues);
+    if ($row != false)
+    {
+        return true;
+    }
+    return false;
+}
+/*echo "hello1";
+store_inactive(2);
+echo "hello2";*/
 function update_email_valid($username)
 {
     $setfields = array("valid");
@@ -584,7 +599,26 @@ function get_search($table, $fields, $values)
 		$sql.= ("".$fields[$i]." LIKE '%".$values[$i]."%' AND ");
     }
 
-    $sql = "SELECT * FROM ".$table." WHERE ".substr($sql,0,-5);
+    $sql = "SELECT * FROM ".$table." WHERE active='true' AND ".substr($sql,0,-5);
+	//echo"sql $sql";
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $products = array();
+    $i = 0;
+
+    while ($row = mysql_fetch_assoc($query))
+    {
+		$products[$i] = $row;
+		$i++;
+    }
+
+    close_conn($con);
+    return $products;
+}
+
+function get_search_store($store_id)
+{
+    $sql = "SELECT * FROM product WHERE active='true' AND store_id='".$store_id."'";
 	//echo"sql $sql";
     $con = get_conn_and_connect();
     $query = mysql_query($sql, $con);
