@@ -7,9 +7,16 @@ switch($action)
 case "start":
 	{
 		$arr = array ();
-		$arr['error'] = 'none';
-		$x = store_inactive(4);
-		//store_inactive(/*$_POST['store']*/3);
+		
+		if(store_inactive($_POST['store']))
+		{
+			$arr['error'] = 'none';
+		}
+		else
+		{
+			$arr['error'] = 'error';
+		}
+	
 		echo json_encode($arr);
 		break;
 

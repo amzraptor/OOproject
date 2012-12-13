@@ -102,7 +102,7 @@ $(document).ready(function(){
 		         }
 		});
 
-/////////////////////////////////////////////
+/*////////////////////////////////////////////
 
 	  var search_word = "-99";//"<?php echo $search; ?>";
 	  var search_string = {"search_words": search_word};
@@ -160,7 +160,7 @@ $(document).ready(function(){
 					},
 
 			error:function(e){alert("there was an error");}
-		});
+		});*/
 	}
 });
 </script>

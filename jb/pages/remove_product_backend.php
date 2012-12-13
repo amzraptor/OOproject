@@ -8,7 +8,7 @@ case "start":
 	{
 		$arr = array ();
 		
-		if(store_inactive($_POST['store']))//need to delete the product as well
+		if(product_inactive($_POST['store']))
 		{
 			$arr['error'] = 'none';
 		}

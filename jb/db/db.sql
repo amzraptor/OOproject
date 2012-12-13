@@ -83,7 +83,8 @@ CREATE TABLE IF NOT EXISTS product (
 CREATE TABLE IF NOT EXISTS cart(
     	cart_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
         user_id         MEDIUMINT       NOT NULL,
-        product_id  MEDIUMINT    NOT NULL
+        product_id  MEDIUMINT    NOT NULL,
+        active	VARCHAR(20)    DEFAULT 'true'
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS invoice(

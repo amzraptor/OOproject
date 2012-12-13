@@ -57,121 +57,6 @@ else
 
 
 
-<!---
-		<form action="add_product_back.php" method="post" enctype="multipart/form-data">
-
-		Product Name <label id="required"> *required </label> 
-		<span id="name_error" class="error">(50 alpha-numeric characters or less)</span>
-		<br /><input type="text" name="name" onblur="name_error_function()" id="name_input" /><br /><br />
-
-		Product Description <label id="required"> *required</label>
- 		<span id="desc_error" class="error"> (500 alpha-numeric characters or less)</span>
-		<br /><textarea rows="10" cols="50" type="text" name="description"></textarea><br /><br />
-		
-		Size 
- 		<span id="size_error" class="error"> (50 alpha-numeric characters or less)</span>
-		<br /><input type="text" name="size" /><br /><br />
-
-		Quantity <label id="required"> *required </label>
- 		<span id="qty_error" class="error">  (9 numbers or less)</span> 
-		<br /><input type="text" name="quantity" /><br /><br />
-
-		Price <label id="required"> *required</label>  
- 		<span id="price_error" class="error">(number with two decimal places e.i. 1234.56)</span> 
-		<br /><input type="text" name="price" /><br /><br />
-	
-		<div id="radiobutton_error"></div>
-
-		Gender <label id="required"> *required </label>  <br />
-		<input type="radio" name="gender" value="male">Male
-		<input type="radio" name="gender" value="female">Female
-		<input type="radio" name="gender" value="unisex">Unisex
-		<br />
-		<br />
-
-		<label for="file">Image</label><label id="required"> *required </label> <br />
-			<input type="file" name="file" id="file"><br>
-		<br />
-		
-		<div id="add_options" style="width:100%;min-height:350px;">
-
-			<div id="material_options" style="float:left;width:20%;">
-				<strong> Material </strong> <label id="required"> *required </label> 
-				<ul style="list-style:none;">
-				<li><input type="radio" name ="material" value="gold" />Gold</li>
-				<li><input type="radio" name ="material" value="silver" />Silver</li>
-				<li><input type="radio" name ="material" value="bronze" />Bronze</li>
-				<li><input type="radio" name ="material" value="brass" />Brass</li>
-				<li><input type="radio" name ="material" value="wood" />Wood</li>
-				<li><input type="radio" name ="material" value="copper" />Copper</li>
-				<li><input type="radio" name ="material" value="aluminum" />Aluminum</li>
-				<li><input type="radio" name ="material" value="other" />Other</li>
-				</ul>
-				<br />
-				<br />
-			</div>
-
-			<div id="category_options" style="float:left;width:24%;">
-				<strong> Site Category </strong> <label id="required"> *required </label> 
-				<ul style="list-style:none;">
-				<li><input type="radio" name ="category" value="wedding" /><label for="Wedding">Wedding</label></li>
-				<li><input type="radio" name ="category" value="rings" /><label for="Rings">Rings</label></li>
-				<li><input type="radio" name ="category" value="bracelets" /><label for="Bracelets">Bracelets</label></li>
-				<li><input type="radio" name ="category" value="earrings" /><label for="Earrings">Earrings</label></li>
-				<li><input type="radio" name ="category" value="necklaces" /><label for="Necklaces">Necklaces</label></li>
-				<li><input type="radio" name ="category" value="brooches" /><label for="Brooches">Brooches</label></li>
-				<li><input type="radio" name ="category" value="body jewelry" /><label for="body jewelry">Body Jewelry</label></li>
-				<li><input type="radio" name ="category" value="belt buckles" /><label for="belt buckles">Belt Buckles</label></li>
-				<li><input type="radio" name ="category" value="charms" /><label for="charms">Charms</label></li>
-				<li><input type="radio" name ="category" value="watch bands" /><label for="watch bands">Watch Bands</label></li>
-				<li><input type="radio" name ="category" value="children" /><label for="Children">Children</label></li>
-				<li><input type="radio" name ="category" value="jewelry boxes" /><label for="jewelry boxes">Jewelry Boxes</label></li>
-				<li><input type="radio" name ="category" value="other" /><label for="Other">Other</label></li>
-				</ul>
-				<br />
-				<br />
-			</div>
-
-			<div id="site_category" style="float:left;width:24%;">
-				<strong>  Store Category </strong> <label id="required"> *required </label> 
-				<ul style="list-style:none;">
-				<li><input type="radio" name ="scat" value="cat1" />Category 1</li>
-				<li><input type="radio" name ="scat" value="cat2" />Category 2</li>
-				<li><input type="radio" name ="scat" value="cat3" />Category 3</li>
-				<li><input type="radio" name ="scat" value="cat4" />Category 4</li>
-				<li><input type="radio" name ="scat" value="cat5" />Category 5</li>
-				</ul>
-				<br />
-				<br />
-			</div>
-
-			<div id="color_options" style="float:left;width:24%;">
-				<strong style="margin-left:15px;"> Color </strong> <label id="required"> *required </label> 
-				<ul style="list-style:none;">
-				<li><input type="radio" name ="color" value="black" />Black</li>
-				<li><input type="radio" name ="color" value="white" />White</li>
-				<li><input type="radio" name ="color" value="red" />Red</li>
-				<li><input type="radio" name ="color" value="green" />Green</li>
-				<li><input type="radio" name ="color" value="blue" />Blue</li>
-				<li><input type="radio" name ="color" value="yellow" />Yellow</li>
-				<li><input type="radio" name ="color" value="gold" />Gold</li>
-				<li><input type="radio" name ="color" value="bronze" />Bronze</li>
-				<li><input type="radio" name ="color" value="silver" />Silver</li>
-				<li><input type="radio" name ="color" value="purple" />Purple</li>
-				<li><input type="radio" name ="color" value="other" />Other</li>
-				</ul>
-				<br />
-				<br />
-			</div>
-		</div>
-
-		<br />
-
-		<input type="submit" name="submit" value="add">
-		</form>
-		<br />-->
-
-
 <div id='main'>
 <div id="tabs"  style="margin-top:1.5%;">
     <ul>
@@ -180,17 +65,26 @@ else
         <li><a href="#tabs-3">Sales</a></li>
         <li><a href="#tabs-4">Store Inventory</a></li>
         <li><a href="#tabs-5">Design Store</a></li>
-        <li><a href="#tabs-6">Publish Store</a></li>
+        <!--<li><a href="#tabs-6">Publish Store</a></li>-->
     </ul>
-    <div id="tabs-1">
+    <div id="tabs-1" style="height:500px;">
         <h2>Select an Option</h2>
-			<div class="opts">
-			<input name="update" type="radio" style="margin-left:5%;" value="update">Update Product</input>
-			<input name="add" type="radio" style="margin-left:5%;"value="add">Add Product</input>
-			<input name="remove" type="radio" style="margin-left:5%;"value="remove">Remove Product</input></br></br>
-		</br>
-			<button name="opt" id="opt" style="margin-left:5%;">go</button>
-			</div>
+<div class="sub2" style="width:100%;height:100%;margin-top:5%;">
+		<div style="width:50%;float:left;">
+		<form action="add_product_front.php" method="POST">
+			<h1 style="margin-left:10%;">Add Product</h1>
+<input name="sload" class='sload' type="hidden" style="margin-left:10%;" value="<?php echo $sload; ?>"/></br></br>
+			<button id="load_store2" style="margin-left:15%;width:150px;">add</button>
+		</form>
+		</div>
+<div style="width:50%;float:left;">
+		<form action="remove_product.php" method="POST">
+			<h1 style="margin-left:10%;">Remove Product</h1>
+<input name="sload" class='sload' type="hidden" style="margin-left:10%;" value="<?php echo $sload; ?>"/></br></br>
+			<button id="load_store2" style="margin-left:15%;width:150px;">remove</button>
+		</form>
+		</div>
+	</div>
     </div>
     <div id="tabs-2">
         <h2>Pending Orders</h2>
@@ -232,14 +126,14 @@ else
 	</div>
 		<br />
     </div>
-    <div id="tabs-6">
+    <!--<div id="tabs-6">
         <h2>Publish Store</h2>
 	<div>
 		<h3  style="margin-left:25%;">Publishing a store will make the store visible to site visitors.</h3>
 		<button id="publish" name="publish" style="margin-left:35%;width:200px;">Publish</button>
 		<button id="unpublish" name="unpublish" style="margin-left:10%;width:200px;">Un-Publish</button>
 	</div>
-    </div>
+    </div>-->
 
 
 </div>

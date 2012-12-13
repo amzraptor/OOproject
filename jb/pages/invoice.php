@@ -105,7 +105,7 @@ $(document).ready(function(){
 					else
 					{
 						//alert("invoice"+data.invoice[0].invoice_id+" store"+data.sname+" price"+data.products[0]['price']+" total"+ data.total[0]);
-						$('#main').append("<h1>"+data.sname+":     Invoice #"+data.invoice[0].invoice_id+"</h1><h4>An Invoice Has Been Emailed to You.</h4>"+"<h5>Address:"+data.invoice[0].street_address+"</h5><h5>City:"+data.invoice[0].city+"</h5><h5>State:"+data.invoice[0].state+"</h5><h5>Zip Code:"+data.invoice[0].zip+"</h5>");
+						$('#main').append("<h1>"+data.sname+":     Invoice #"+data.invoice[0].invoice_id+"</h1>"+"<h5>Address:"+data.invoice[0].street_address+"</h5><h5>City:"+data.invoice[0].city+"</h5><h5>State:"+data.invoice[0].state+"</h5><h5>Zip Code:"+data.invoice[0].zip+"</h5>");
 						var list = "";
 						list = list+"<div><table id='myTable' border='1' class='ui-widget' style='margin-left:1%';><thead class='ui-widget-header'><tr><th style='width:200px;'>Product Id</th><th style='width:600px;'>Product Name</th><th style='width:100px;'>Price $</th><th style='width:100px;'>Quantity</th><th style='width:175px;'>Total $</th></tr></thead><tbody class='ui-widget-content'>";
 
