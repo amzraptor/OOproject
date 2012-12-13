@@ -1,5 +1,6 @@
 <?php 
 $email = $_POST['email'];
+//echo $email;
 
 include "db/db.php";//include db script
 session_start();
@@ -46,7 +47,7 @@ else
 	</div>
 
 <div>
-<div style="margin-left:25%;">
+<div style="margin-left:25%;" id="main">
 <h1>Email</h1>
 <label>Subject</label></br>
 <input id="subject" style="width:50%;"></input></br>
@@ -54,7 +55,7 @@ else
 <input id="from" style="width:50%;"></input></br>
 <label>Message</label></br>
 <textarea id="message" style="width:50%;height:200px;"></textarea></br>
-<button>Send</button>
+<button id="send">Send</button>
 </div>
 </div>
 
@@ -81,7 +82,38 @@ $(document).ready(function(){
 	}
 /////////////////////////////////////////////
 
-
+$("#send").click(function()
+	{
+		//
+	var email = "<?php echo $email; ?>";
+	var subject = $("#subject").val();
+	var from = $("#from").val();
+	var message = $("#message").val();
+	var postData2 = {'action': 'email', 'subject': subject, 'from': from, 'message': message, 'email': email};
+		$.ajax({
+		        type: "POST",
+		        data: postData2,
+		        url: "email_backend.php",                  //  
+		        success: function(data)          //on recieve of reply
+		                 {
+					//alert("what"+data.error);
+					if(data.error != "none")
+					{
+						alert("error");
+					}
+					else
+					{
+						$("#main").html("<h1>Your Email Has Been Sent.</h1>");
+					}
+					
+		                 },
+		        dataType: "json",
+		        error: function(data)          //on recieve of reply
+		                 {
+		                    	alert("hello error");
+		                 }
+		    });
+	});
       
 });
 </script>

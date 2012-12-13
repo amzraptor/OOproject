@@ -202,7 +202,7 @@ $(document).ready(function(){
 						$('#sspecialty').css('color',store.sfont_color);
 						$('#sdescription').css('color',store.sfont_color);
 					}
-
+					//$('#store_background').css("background-image", "bg.jpg");
 					if(store.img1 != "none")
 					{
 						//alert('hi');

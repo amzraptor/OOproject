@@ -62,8 +62,9 @@ else
 	<p>Email us at bdpoagdorado1@cougars.ccis.edu</p>
 	
       <form action="email.php" method="POST">
+	<input type="hidden" id="email" name="email" value="bdpoagdorado1@cougars.ccis.edu"/>
 	<button>Email</button>
-        </form>
+      </form>
 
     </div>
 
