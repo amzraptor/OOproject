@@ -18,21 +18,23 @@ case "order":
 		$city = $_POST['city'];
 		$state = $_POST['state'];
 		$zip = $_POST['zip'];
-		$user_id = get_user_id($user_name);
+		$user_id = intval(get_user_id($user_name));
 
 		save_shipping_info_to_db($user_id, $name, $st_ad, $city, $state, $zip, $atten); //now save the info
 		//$arr = array($user_name, $name, $atten, $email, $st_ad, $city, $state, $zip);
 
 		//saving the cart itself
 
-		$invoice_id = get_last_invoice_id(); //get last MAX invoice_id
-		foreach($_SESSION['cart'] as $product_id => $quantity)
+		$invoice_id = intval(get_last_invoice_id()); //get last MAX invoice_id
+		foreach($_SESSION['cart'] as $product_id => $qty)
 		{
-			$store_id = get_product_store_id($product_id);
+			$store_id = intval(get_product_store_id($product_id));
 			$product_name = get_product_name($product_id);
-			$price = get_product_price($product_id);
+			$price = intval(get_product_price($product_id));
+			$product_id = intval($product_id);
+			$qty = intval($qty);
 			//$arr = array($product_id);
-			save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $quantity);
+			save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
 		}
 		echo json_encode($arr);
 		break;

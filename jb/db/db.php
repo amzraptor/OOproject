@@ -117,7 +117,8 @@ function update($table, $setfields, $setvalues, $wherefields, $wherevalues)
     $sql = "";
     for ($i=0; $i<sizeof($setfields); $i++)
     {
-	$sql.= ("$setfields[$i]='$setvalues[$i]',");
+    $val = mysql_real_escape_string($setvalues[$i]);
+	$sql.= ("$setfields[$i]='$val',");
     }
 
     $sql2 = "";
@@ -152,7 +153,8 @@ function add($table, $fields, $values)
     for ($i=0; $i<sizeof($fields); $i++)
     {
 	$sql.="$fields[$i],";
-	$sql2.="'$values[$i]',";
+    $val =  mysql_real_escape_string($values[$i]);
+	$sql2.="'$val',";
     }
     $sql = "INSERT INTO $table(".substr($sql,0,-1).")VALUES(".substr($sql2,0,-1).")";
 //echo"sql: $sql";
