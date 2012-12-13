@@ -298,6 +298,13 @@ function load_product_invoice($store_id)
     return get_mult_assoc("product_invoice", $fields, $values);
 }
 
+function load_a_product_invoice($invoice_id, $store_id)
+{
+    $fields = array("invoice_id", "store_id");
+    $values = array($invoice_id, $store_id);
+    return get_mult_assoc("product_invoice", $fields, $values);
+}
+
 function load_product($store_id)
 {
     $fields = array("store_id");

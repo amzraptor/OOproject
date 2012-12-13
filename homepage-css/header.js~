@@ -7,18 +7,17 @@ $(document).ready(function(){
 
 			list = list+"<div id='buttons' >";
 
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/signin.php' method='POST'><input type='submit' value='sign in' id='signin' style='width:90px;display:none;' /></form>";
 
-        		list = list+"<form action='signin.php' method='POST'><input id='signin' style='width:90px;display:none;' type='submit' value='Sign In'></input></form>";
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/signup.php' method='POST'><input type='submit' value='sign up' id='signup' style='width:90px;display:none;' /></form>";
 
-        		/*list = list+"<form action='signup.php' method='POST'><input id='signup' style='width:90px;display:none;' type='submit' value='Sign Up'></input></form>";
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/logout.php' method='POST'><input type='submit' value='sign out' id='logout' style='width:90px;display:none;' /></form>";
 
-        		list = list+"<form action='logout.php' method='POST'><input id='logout' style='width:90px;display:none;' type='submit' value='Logout'></input></form>";
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/manage.php' method='POST'><input type='submit' value='stores' id='stores' style='width:90px;display:none;' /></form> ";
 
-        		list = list+"<form action='stores.php' method='POST'><input id='stores' style='width:90px;display:none;' type='submit' value='Stores'></input></form>";
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/cart.php' method='POST'><input type='submit' value='cart' id='cart1' style='width:90px;display:none;' /></form>";
 
-        		list = list+"<form action='cart.php' method='POST'><input id='cart1' style='width:90px;display:none;' type='submit' value='Cart'></input></form>";*/
-
-        		list = list+"</div>";/*"<form action='aboutus.php' method='POST'><input id='aboutus' style='width:90px;display:none;' type='submit' value='About Us'></input></form></div>";*/
+        		list = list+"<form style='float:left;margin-right:10px;' action='pages/aboutus.php' method='POST'><input type='submit' value='about us' id='aboutus' style='width:90px;display:none;'></form></div>";
 
 	$('#header').html(list);
 	var username = '<?php echo $username; ?>';

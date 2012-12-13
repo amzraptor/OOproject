@@ -350,7 +350,30 @@ function invoice_total($invoice_id, $store_id)
 	close_conn($con);
 	return $sum;
 }
+function get_store_ids($invoice_id)
+{
+    
+    $sql = "";
+   
+    $sql = "SELECT DISTINCT store_id AS store_id FROM product_invoice WHERE invoice_id = '$invoice_id'";
+    $con = get_conn_and_connect();
+    $query = mysql_query($sql, $con);
+    $rows = array();
+    $i = 0;
 
+    while ($row = mysql_fetch_array($query))
+    {
+		$rows[$i] = $row;
+		$i++;
+    }
+
+    close_conn($con);
+    return $rows;
+//zaki if you save the invoice and product_invoices
+//then use that invoice number to calle get_store_ids this will give you the store_ids of the 
+//vendors that need to be emailed
+//then for each of the store_ids query the store table get the email and email the vendor
+}
 function get_invoices($store_id)
 {
     
@@ -603,11 +626,42 @@ function get_product_price($product_id)
     return false;
 }
 
-function save_shipping_info_to_db($user_id, $street_address, $city, $state, $zip, $attention)
+function save_shipping_info_to_db($user_id, $name, $street_address, $city, $state, $zip, $attention)
 {
-    $fields = array("user_id","street_address", "city", "state", "zip", "attention");
-    $values = array($user_id, $street_address, $city, $state, $zip, $attention);
+    $fields = array("user_id", "name", "street_address", "city", "state", "zip", "attention");
+    $values = array($user_id, $name, $street_address, $city, $state, $zip, $attention);
     return add("invoice", $fields, $values);
+}
+
+function get_last_invoice_id()
+{
+    $con = get_conn_and_connect();
+    $sql = "select MAX(invoice_id) from invoice";
+    $result = mysql_query($sql, $con);
+    $data = mysql_fetch_array($result);
+
+    close_conn($con);
+    return $data[0];
+
+}
+
+function save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $qty)
+{
+    $fields = array("store_id", "invoice_id", "product_id", "product_name", "price", "qty");
+    $values = array($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
+    return add("product_invoice", $fields, $values);
+}
+
+function get_product_store_id($product_id)
+{
+    $fields = array("product_id");
+    $values = array($product_id);
+    $id = get_assoc("product", $fields, $values);
+    if($id != false)
+    {
+        return $id["store_id"];
+    }
+    return false;
 }
 ?>
 
