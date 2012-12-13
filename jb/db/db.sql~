@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS cart(
 CREATE TABLE IF NOT EXISTS invoice(
     invoice_id	MEDIUMINT 	NOT NULL AUTO_INCREMENT PRIMARY KEY,
     status	VARCHAR(20)    DEFAULT 'pending',
-	name    MEDIUMINT       DEFAULT 1,
+	name    VARCHAR(200)       DEFAULT 'none',
     user_id    MEDIUMINT       DEFAULT 1,
     street_address VARCHAR(200)	DEFAULT 'none',
     city VARCHAR(200)	DEFAULT 'none',

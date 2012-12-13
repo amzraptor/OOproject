@@ -36,6 +36,9 @@ case "order":
 			//$arr = array($product_id);
 			save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
 		}
+		$arr['invoice'] = load_invoice($invoice_id);
+		$arr['total'] = invoice_a_total($invoice_id);
+		$arr['products'] = load_products_invoice($invoice_id);
 		echo json_encode($arr);
 		break;
 

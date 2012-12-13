@@ -55,7 +55,7 @@ else
 
 		<form action="manage.php" method="POST">
 			<input type="hidden" id="sload" name="sload" value="<?php echo $store; ?>"/>
-			<button id="back" style="margin-left:1%;">back</button>
+			<button id="back" style="margin-left:1%;margin-top:1%;">back</button>
 		</form> 
 </div>
 </body>
