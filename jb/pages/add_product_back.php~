@@ -33,7 +33,7 @@ else
 
 		<div id="content">
 			<h1> Product Added </h1>
-			<a href="stores.php"> Back to Stores</a>
+			<a href="manage.php"> Back </a>
 		<br />
 		</div>
 
@@ -64,6 +64,7 @@ $(document).ready(function(){
 	}
 /////////////////////////////////////////////
 });
+</script>
 </html>
 
 <?php
@@ -85,10 +86,10 @@ if($size == "") $size = "none";
 $fields =array("store_id","name","description","size","qty","price","gender","img1","material","category","color", "store_category");
 $values =array("1",$name,$description,$size,$quantity,$price,$gender,$file,$material,$category,$color,$store_category);
 
-/*for ($i = 0; $i < count($fields);$i++)
+for ($i = 0; $i < count($fields);$i++)
 {
 	echo $fields[$i]." ".$values[$i]."<br />";
-}*/
+}
 
 if ($_FILES["file"]["error"] > 0)
   {
@@ -139,7 +140,12 @@ else
   echo "Invalid file";
   }
 
-add("product",$fields,$values);
-//echo "product added";
-echo "Thank You";
+if(add("product",$fields,$values))
+{
+	echo "Product Added Thank You";
+}
+else
+{
+	echo "Error Adding Product";
+}
 ?> 

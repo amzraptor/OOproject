@@ -19,6 +19,10 @@ if(!empty($_POST['sload']))
       	$_SESSION['store_id'] = $sload;
 	
 }
+else if(!empty($_SESSION['store_id']))
+{
+	$sload = $_SESSION['store_id'];
+}
 else
 {
 	$sload = 'none';
@@ -64,8 +68,8 @@ else
         <li><a href="#tabs-2">Pending Orders</a></li>
         <li><a href="#tabs-3">Sales</a></li>
         <li><a href="#tabs-4">Store Inventory</a></li>
-        <li><a href="#tabs-5">Design Store</a></li>
-        <!--<li><a href="#tabs-6">Publish Store</a></li>-->
+        <!--<li><a href="#tabs-5">Design Store</a></li>
+        <li><a href="#tabs-6">Publish Store</a></li>-->
     </ul>
     <div id="tabs-1" style="height:500px;">
         <h2>Select an Option</h2>
@@ -116,7 +120,7 @@ else
 
 	</div>
     </div>
-   <div id="tabs-5">
+    <!--<div id="tabs-5">
         <h2>Design Store</h2>
 	<div id="sales">
 		<form action="create_store.php" method="POST">
@@ -126,7 +130,7 @@ else
 	</div>
 		<br />
     </div>
-    <!--<div id="tabs-6">
+   <div id="tabs-6">
         <h2>Publish Store</h2>
 	<div>
 		<h3  style="margin-left:25%;">Publishing a store will make the store visible to site visitors.</h3>

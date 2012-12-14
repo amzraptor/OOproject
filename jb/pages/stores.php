@@ -46,35 +46,49 @@ else
 	<div style="width:100%;margin-top:50px;margin-bottom:-27px;"><center><h1> <font>Stores</font> Home </h1><center></div>
 	<div class="sub2" style="width:100%;height:600px;">
 
-		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
+		<div style="width:39%;float:left;border-right:1px solid #000;height:100%;margin-left:10%;>
 		<form action="create_store.php" method="POST">
-			<h1 style="border:none;margin-left:10%;">Create a Store</h1>
+			<h1 style="border:none;margin-left:10%;"><font>Create</font> a Store</h1>
 <input name="sload" class='sload' type="radio" style="margin-left:10%;" value="none">Create a New Store</input></br></br>
-			<button id="load_store2" style="margin-left:15%;">submit</button>
+			<input type="submit" id="load_store2" style="margin-left:15%;"/>
 		</form>
 		</div>
 
-		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
-		<form action="manage.php" method="POST">
-			<h1 style="border:none;margin-left:10%;">Manage a Store</h1>
+		<div style="width:39%;float:left;height:100%;margin-left:10%;">
+		<div>
+			<h1 style="border:none;margin-left:10%;"><font>Select</font> A Store</h1>
 			<div id="stores_list" style="margin-left:5%;"></div>
-			<button id="load_store" style="margin-left:15%;">submit</button>
+<!--<input name="sload" class='sload' type="radio" style="margin-left:10%;" value="none">Create a New Store</input></br></br>-->
+			<input type="submit" id="options" style="margin-left:15%;"/>
+		</div>
+		</div>
+	</div>
+	<div class="sub3" style="width:100%;height:600px;display:none;">
+		<div style="width:24%;float:left;height:100%;">
+		<form action="manage.php" method="POST" id="manage">
+			<h1 style="border:none;margin-left:10%;"><font>Manage</font> a Store</h1>
+			<input type="submit" id="load_store" style="margin-left:15%;"/>
 		</form>
 		</div>
-
-		<div style="width:24%;float:left;border-right:1px solid #000;height:100%;">
-		<form action="store.php" method="POST">
-			<h1 style="border:none;margin-left:10%;">View a Store</h1>
-			<div id="stores_list2" style="margin-left:5%;"></div>
-			<button id="load_store" style="margin-left:15%;">submit</button>
+	
+		<div style="width:24%;float:left;height:100%;">
+		<form action="store.php" method="POST" id="view">
+			<h1 style="border:none;margin-left:10%;"><font>View</font> a Store</h1>
+			<input type="submit" id="load_store" style="margin-left:15%;"/>
 		</form>
 		</div>
 
 		<div style="width:24%;float:left;height:100%;">
-		<form action="remove_store.php" method="POST">
-			<h1 style="border:none;margin-left:10%;"> Remove a Store</h1>
-			<div id="stores_list3" style="margin-left:5%;"></div>
-			<button id="load_store" style="margin-left:15%;">submit</button>
+		<form action="remove_store.php" method="POST" id="remove">
+			<h1 style="border:none;margin-left:10%;"><font>Remove</font> a Store</h1>
+			<input type="submit" id="load_store" style="margin-left:15%;"/>
+		</form>
+		</div>
+
+		<div style="width:24%;float:left;height:100%;">
+		<form action="create_store.php" method="POST" id="design">
+			<h1 style="border:none;margin-left:10%;"><font>Design</font> Store</h1>
+			<input type="submit" id="load_store" style="margin-left:15%;"/>
 		</form>
 		</div>
 	</div>
@@ -103,6 +117,19 @@ $(document).ready(function(){
 		$('#aboutus').show(); //
 	}
 /////////////////////////////////////////////
+      	$('#options').click(
+      	function () 
+      	{
+		var sload = $('input:radio[name=sload]:checked').val();
+		//alert("sload"+sload);
+		$('#view').append("<input type='hidden' name='sload' id='sload' value='"+sload+"' / >");
+		$('#manage').append("<input type='hidden' name='sload' id='sload' value='"+sload+"' / >");
+		$('#design').append("<input type='hidden' name='sload' id='sload' value='"+sload+"' / >");
+		$('#remove').append("<input type='hidden' name='sload' id='sload' value='"+sload+"' / >");
+		$('.sub2').hide();
+		$('.sub3').show();
+	});
+/////////////////////////////////////////////
 
 
 	var postData0 = {'action': 'start'};
@@ -127,14 +154,10 @@ $(document).ready(function(){
 						{
 	//alert("ids:"+data.stores[i].store_id);
 							$('#stores_list').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+"Un-named"+"</input></br></br>");
-							$('#stores_list2').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+"Un-named"+"</input></br></br>");
-							$('#stores_list3').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+"Un-named"+"</input></br></br>");
 						}
 						else
 						{
 							$('#stores_list').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+data.stores[i].sname+"</input></br></br>");
-							$('#stores_list2').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+data.stores[i].sname+"</input></br></br>");
-							$('#stores_list3').append("<input class='sload' name='sload' type='radio' style='margin-left:5%;'value='"+data.stores[i].store_id+"'>"+data.stores[i].sname+"</input></br></br>");
 						}
 
 					}

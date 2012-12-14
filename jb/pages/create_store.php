@@ -131,11 +131,12 @@ color:red;
 <div id="banner" name="banner" style="width:80%;float:left;margin-left:10%;margin-top:2%;height:10%;"> 
 <p align="center"><lable id="store_name" name="store_name" style="font-size:50px;"> STORE NAME </label></p>
 </div>
-      <form style="margin-left:75%;">
+
+<div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-bottom:5%;height:70%;margin-left:10%;">
+      <form style="margin-left:70%;">
 <input type="hidden" id="email" name="email" value=""/>
 <button id="ssemail" name="ssemail" style="margin-left:10%;">Email Store Owner</button>
       </form>
-<div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-bottom:5%;height:70%;margin-left:10%;">
 <div id="about_store" name="about_store" style="float:left;width:100%;">
 
 <label id="sownern" name="sownern" style="margin-left:10%;float:left;"> Store Owner's Name </label>

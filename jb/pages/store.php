@@ -131,7 +131,7 @@ font-weight:bold;
 <div id="store_foreground" name="store_foreground" style="width:80%;float:left;margin-bottom:5%;height:70%;margin-left:10%;">
 
 	<div id="about_store" name="about_store" style="float:left;width:100%;">
-      <form action="email.php" method="POST" style="margin-left:80%;">
+      <form action="email.php" method="POST" style="margin-left:70%;">
 	<input type="hidden" id="email" name="email" value=""/>
 	<button id="ssemail" name="ssemail" style="margin-left:10%;">Email Store Owner</button>
       </form>
