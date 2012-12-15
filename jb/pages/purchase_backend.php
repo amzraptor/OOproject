@@ -26,16 +26,18 @@ case "order":
 		//saving the cart itself
 
 		$invoice_id = intval(get_last_invoice_id()); //get last MAX invoice_id
-
+		$message = "Thank you for shopping at JeweleryBox, Order Number: ".$invoice_id."\n=============================\n";
 		foreach($_SESSION['cart'] as $product_id => $qty)
 		{
 			$store_id = intval(get_product_store_id($product_id));
 			$product_name = get_product_name($product_id);
-			$price = intval(get_product_price($product_id));
+			$product_name_mail_format = str_replace("'", "", $product_name);
+			$price = get_product_price($product_id);
 			$product_id = intval($product_id);
 			$qty = intval($qty);
 			//$arr = array($product_id);
-			//$message .= "Name: ".$product_name."         Quantity: ".$qty."               Price: ".$price;
+			//$message .= "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\n";
+			$message .= $product_name_mail_format."\nQuantity: ".$qty."\nPrice: $ ".$price."\n\n";
 			save_product_to_invoice($store_id, $invoice_id, $product_id, $product_name, $price, $qty);
 		}
 
@@ -45,9 +47,9 @@ case "order":
 
 		$total = invoice_a_total($invoice_id);
 		$from = "aelhedek1@cougars.ccis.edu";
-		//$message .= "\n Total:                                          ".$total[0]."\n";
+		$message .= "=============================\nTotal:                                          $ ".$total[0]."\n";
 
-		$message = "Thank you for shopping at JeweleryBox, Order Confirmation Number: ".$invoice_id."\n";
+		
 		$subject = "Your Order From JeweleryBox";
 		
 		$mail = "To: $email\nFrom: $from \nSubject: $subject\n\n$message";
